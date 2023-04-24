@@ -12,7 +12,6 @@ public class PaymentHandler {
 
 	private Change change;
 
-	private Change change;
 
 	public PaymentHandler PaymentHandler(int time, int date) {
 		return null;

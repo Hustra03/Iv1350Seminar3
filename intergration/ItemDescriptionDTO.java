@@ -10,7 +10,7 @@ public class ItemDescriptionDTO {
 
 	private ItemDescriptionDTO itemDescription;
 
-	private int VAT-rate;
+	private int VATrate;
 
 	private char description;
 

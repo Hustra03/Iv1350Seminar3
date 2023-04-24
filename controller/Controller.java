@@ -24,8 +24,6 @@ public class Controller {
 
 	private Receipt receipt;
 
-	private Discount discount;
-
 	public Controller Controller(DatabaseHandler dbHandler, int time, int date) {
 		return null;
 	}

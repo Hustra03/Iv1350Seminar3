@@ -2,7 +2,7 @@ package intergration;
 
 import model.SaleInfo;
 
-class ExternalInventorySystem {
+public class ExternalInventorySystem {
 
 	private ItemDescriptionDTO completeItemList;
 
