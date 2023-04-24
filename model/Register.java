@@ -7,8 +7,6 @@ public class Register {
 
 	private Sale sale;
 
-	private Sale sale;
-
 	private ExternalInventorySystem externalInventorySystem;
 
 	private Item item;
