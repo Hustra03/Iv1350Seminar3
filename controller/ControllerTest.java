@@ -1,5 +1,10 @@
 package controller;
 
+import static org.junit.Assert.assertNotNull;
+import static org.junit.Assert.assertNull;
+
+import org.junit.Test;
+
 import intergration.DatabaseHandler;
 import model.PaymentHandler;
 import model.Register;
@@ -15,8 +20,11 @@ public class ControllerTest {
 		return null;
 	}
 
+    @Test
 	public void startSaleTest() {
-
+        Controller Testcontroller = new Controller();
+        Testcontroller.startSale();
+        assertNotNull(Testcontroller.GetSale());
 	}
 
 	public Sale registerItemTest(int itemId, int quantity) {

@@ -32,7 +32,7 @@ public class Controller {
 	}
 
 	public void startSale() {
-		Sale newSale = new Sale();
+		this.sale = new Sale();
 	}
 
 	public Sale registerItem(int itemId, int quantity) {
@@ -54,5 +54,7 @@ public class Controller {
 	public void sendSaleInfo() {
 
 	}
-
+	
+	public Sale GetSale()
+	{return this.sale;}
 }
