@@ -22,6 +22,9 @@ public class DatabaseHandler {
 	private SaleInfo saleInfo;
 
 	public DatabaseHandler DatabaseHandler() {
+		this.discDatabase = new DiscountDatabase();
+		this.accSystem = new ExternalAccountingSystem();
+		this.invSystem = new ExternalInventorySystem();
 		return null;
 	}
 

@@ -25,11 +25,14 @@ public class Controller {
 	private Receipt receipt;
 
 	public Controller Controller(DatabaseHandler dbHandler, int time, int date) {
+		this.databaseHandler=databaseHandler;
+		this.paymentHandler = new PaymentHandler();
+		this.register = new Register();
 		return null;
 	}
 
 	public void startSale() {
-
+		Sale newSale = new Sale();
 	}
 
 	public Sale registerItem(int itemId, int quantity) {
