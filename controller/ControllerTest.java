@@ -16,19 +16,26 @@ import model.Receipt;
 public class ControllerTest {
     
 
-	public ControllerTest Controller(DatabaseHandler dbHandler, int time, int date) {
-		return null;
+	@Test
+	public void ControllerTest () {
+		DatabaseHandler databaseHandler = new DatabaseHandler();
+		int time = 0;
+		int date = 0;
+        Controller Testcontroller = new Controller(databaseHandler,time,date);
+		assertNotNull(Testcontroller);
 	}
-
+	
     @Test
 	public void startSaleTest() {
-        Controller Testcontroller = new Controller();
+		DatabaseHandler databaseHandler = new DatabaseHandler();
+		int time = 0;
+		int date = 0;
+        Controller Testcontroller = new Controller(databaseHandler,time,date);
         Testcontroller.startSale();
         assertNotNull(Testcontroller.GetSale());
 	}
 
-	public Sale registerItemTest(int itemId, int quantity) {
-		return null;
+	public void registerItemTest() {
 	}
 
 	public SaleInfo endSaleTest() {

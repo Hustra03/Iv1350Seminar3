@@ -24,15 +24,18 @@ public class Controller {
 
 	private Receipt receipt;
 
-	public Controller Controller(DatabaseHandler dbHandler, int time, int date) {
+	
+	
+	public Controller (DatabaseHandler dbHandler, int time, int date) {
 		this.databaseHandler=databaseHandler;
 		this.paymentHandler = new PaymentHandler();
 		this.register = new Register();
-		return null;
 	}
-
+	
+	
 	public void startSale() {
-		//* Creates a new object of the Sale class*/
+		
+		
 		this.sale = new Sale();
 	}
 
