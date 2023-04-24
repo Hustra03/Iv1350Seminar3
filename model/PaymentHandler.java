@@ -10,7 +10,6 @@ public class PaymentHandler {
 
 	private int date;
 
-	private Change change;
 
 
 	public PaymentHandler PaymentHandler(int time, int date) {
