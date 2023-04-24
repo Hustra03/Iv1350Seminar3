@@ -32,6 +32,7 @@ public class Controller {
 	}
 
 	public void startSale() {
+		//* Creates a new object of the Sale class*/
 		this.sale = new Sale();
 	}
 

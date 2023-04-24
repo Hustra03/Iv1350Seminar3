@@ -6,9 +6,9 @@ public class Sale {
 
 	private ItemDescriptionDTO soldItems;
 
-	private int totalPrice;
+	private double totalPrice;
 
-	private int totalVAT;
+	private double totalVAT;
 
 	private boolean itemFound;
 

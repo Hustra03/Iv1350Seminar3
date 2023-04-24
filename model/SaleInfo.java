@@ -10,9 +10,9 @@ public class SaleInfo {
 
 	private CustomerPaymentDTO customerPayment;
 
-	private int discountTotalPrice;
+	private double discountTotalPrice;
 
-	private int discountTotalVAT;
+	private double discountTotalVAT;
 
 	private Receipt receipt;
 
@@ -26,6 +26,7 @@ public class SaleInfo {
 
 	SaleInfo updateSaleInfoPayment(CustomerPaymentDTO customerPayment) {
 		return null;
+	 
 	}
 
 	int getTotalPriceAfterDiscount() {

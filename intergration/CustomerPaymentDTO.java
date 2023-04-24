@@ -1,18 +1,16 @@
 package intergration;
 
-import model.Change;
-
 public class CustomerPaymentDTO {
 
 	private double paymentAmount;
 
-	private Change change;
+	private double change;
 
 	private int date;
 
 	private int time;
 
-	public CustomerPaymentDTO CustomerPaymentDTO(int amountPayment, Change change, int time, int date) {
+	public CustomerPaymentDTO CustomerPaymentDTO(int amountPayment, double change, int time, int date) {
 		return null;
 	}
 
