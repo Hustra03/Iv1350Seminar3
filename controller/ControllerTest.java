@@ -15,7 +15,6 @@ import model.Receipt;
 
 public class ControllerTest {
   
-
 	@Test
 	public void ControllerTest () {
 		DatabaseHandler databaseHandler = new DatabaseHandler();

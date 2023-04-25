@@ -12,10 +12,6 @@ public class Sale {
 
 	private boolean itemFound;
 
-	private SaleInfo saleInfo;
-
-	private Item item;
-
 	public Sale Sale() {
 		return null;
 	}
@@ -32,8 +28,10 @@ public class Sale {
 		return null;
 	}
 
-	public Sale setItemFoundFalse(Sale sale) {
+	public void setItemFoundFalse(Sale sale) {
 		return null;
 	}
 
+	public boolean getItemFound()
+	{return this.itemFound;}
 }

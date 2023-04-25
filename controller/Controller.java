@@ -25,7 +25,9 @@ public class Controller {
 	private Receipt receipt;
 
 	
-	
+	/*
+	 * 
+	 */
 	public Controller (DatabaseHandler dbHandler, int time, int date) {
 		this.databaseHandler=databaseHandler;
 		this.paymentHandler = new PaymentHandler();
