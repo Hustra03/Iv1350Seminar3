@@ -19,6 +19,15 @@ public class ItemDescriptionDTO {
 	{}
 
 	/*
+	 * Constructor for an ItemDescriptionDTO with specified price and VAT-rate for testing purposes
+	 */
+	public ItemDescriptionDTO(double price,int VATrate)
+	{
+		this.price=price;
+		this.VATrate=VATrate;
+	}
+
+	/*
 	 * Returns itemId from itemDescriptionDTO
 	 * @return itemId this is the id for an item, represented by an int
 	 */

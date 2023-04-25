@@ -18,11 +18,12 @@ public class Item {
 	}
 
 	/* Increases quantity with specified amount
-	 * @param amountChange represents how much <code>quantity</code> will increase
+	 * @param amountChange represents how much <code>quantity</code> will change
 	 */
 	public void increaseQuantity(int amountChange)
 	{
-		this.quantity = this.quantity+amountChange;
+		int newQuantity = this.quantity + amountChange;
+		this.quantity = newQuantity;
 	}
 
 	/* Returns this specific items quantity

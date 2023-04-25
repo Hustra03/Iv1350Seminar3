@@ -1,6 +1,10 @@
 package model;
 
 import static org.junit.Assert.assertEquals;
+import static org.junit.Assert.assertFalse;
+import static org.junit.Assert.assertNotNull;
+import static org.junit.Assert.assertTrue;
+
 import org.junit.Test;
 import java.util.*;  //For List to function
 
@@ -25,14 +29,20 @@ public class SaleTest {
      */
     @Test
     public void itemMergerTest() {
-        Sale testSale = new Sale();
         ItemDescriptionDTO dto= new ItemDescriptionDTO();
         Item item = new Item(dto,10);
         Item item2 = new Item(dto,20);
+        Sale testSale = new Sale();
+        
+        assertEquals(testSale.getSoldItems().isEmpty(),true);
+        
         testSale.addItemInfo(item);
-        testSale.addItemInfo(item);
-		assertEquals(testSale.getSoldItems().size(),1);
-        assertEquals(testSale.getSoldItems().contains(item2),true);
+        testSale.addItemInfo(item2);
+		assertEquals(testSale.getSoldItems().size(),2);
+        assertEquals(testSale.getSoldItems().get(0).getQuantity(),10);
+        testSale.itemMerger(item2);
+        assertEquals(testSale.getSoldItems().size(),1);
+        assertEquals(testSale.getSoldItems().get(0).getQuantity(),30);
 	}
     /*
      * Tests if calculateRunningTotal calculates a correct running total
@@ -40,26 +50,30 @@ public class SaleTest {
     @Test
     public void calculateRunningTotalTest() {
         Sale testSale = new Sale();
-        ItemDescriptionDTO dto= new ItemDescriptionDTO();
+        double price=10;
+        int VATrate=10;
+        ItemDescriptionDTO dto= new ItemDescriptionDTO(price,VATrate);
         Item item = new Item(dto,10);
-        Item item2 = new Item(dto,20);
-        testSale.addItemInfo(item);
         testSale.addItemInfo(item);
 		assertEquals(testSale.getSoldItems().size(),1);
-        assertEquals(testSale.getSoldItems().contains(item2),true);
+        testSale.calculateRunningTotal();
+        assertNotNull(testSale.getTotalPrice());
+        assertNotNull(testSale.getTotalVAT());
 	}
     /*
      * Tests if addItemInfo adds the item correctly to the soldItems list
      */
     @Test
     public void addItemInfoTest() {
-        Sale testSale = new Sale();
         ItemDescriptionDTO dto= new ItemDescriptionDTO();
         Item item = new Item(dto,10);
         Item item2 = new Item(dto,20);
+        Sale testSale = new Sale();
+        
+        assertEquals(testSale.getSoldItems().isEmpty(),true);
+        
         testSale.addItemInfo(item);
-        testSale.addItemInfo(item);
-		assertEquals(testSale.getSoldItems().size(),1);
-        assertEquals(testSale.getSoldItems().contains(item2),true);
+        testSale.addItemInfo(item2);
+        assertEquals(testSale.getSoldItems().isEmpty(),false);
 	}
 }

@@ -13,16 +13,29 @@ public class Sale {
 
 	private boolean itemFound;
 
+	public Sale(Item firstItem) 
+	{
+		List<Item> soldItems= new ArrayList<Item>();
+		soldItems.add(firstItem);
+		this.soldItems=soldItems;
+	}
 	public Sale() 
 	{
-		
+		List<Item> soldItems= new ArrayList<Item>();
+		this.soldItems=soldItems;
+	}
+
+	public void addItem(Item foundActualItem)
+	{
+		addItemInfo(foundActualItem);
+		itemMerger(foundActualItem);
+		calculateRunningTotal();
 	}
 
 	void addItemInfo(Item sold) 
 	{
 		soldItems.add(sold);
-		itemMerger(sold);
-		calculateRunningTotal();
+		setSoldItems(soldItems);
 	}
 
 	/*
@@ -31,13 +44,14 @@ public class Sale {
 	 * @param sold this object is the item which was added to the soldItems, 
 	 * and which is to be checked for and potentially merged if another exists 
 	 */
-	private void itemMerger(Item soldItem) {
+	//Update below to pricate, needs package for testing
+	void itemMerger(Item soldItem) {
 		for (Item item : this.soldItems)
 		{
 			if(item.getItemDescriptionDTO()==soldItem.getItemDescriptionDTO())
 			{
 				item.increaseQuantity(soldItem.getQuantity());
-				this.soldItems.remove(soldItem);
+				soldItems.remove(soldItems.lastIndexOf(soldItem));
 				break;
 			}
 		}
@@ -46,7 +60,8 @@ public class Sale {
 	/* Updates runningTotals to represent current soldItems list
 	 * 
 	 */
-	private void calculateRunningTotal() {
+	//Update below to pricate, needs package for testing
+	void calculateRunningTotal() {
 		this.totalPrice=0;
 		this.totalVAT=0;
 		for (Item item : this.soldItems)
@@ -75,4 +90,16 @@ public class Sale {
 	 */
 	public List<Item> getSoldItems()
 	{return this.soldItems;}
+
+	/* Changes the List<item> soldItems to parameter
+	 * 
+	 * @parameter <code>itemFound</code>, 
+	 */
+	public void setSoldItems(List<Item> soldItems)
+	{this.soldItems=soldItems;}
+
+	public double getTotalPrice()
+	{return this.totalPrice;}
+	public double getTotalVAT()
+	{return this.totalVAT;}
 }

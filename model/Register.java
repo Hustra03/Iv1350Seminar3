@@ -2,6 +2,8 @@ package model;
 
 import intergration.ExternalInventorySystem;
 import intergration.ItemDescriptionDTO;
+import model.Item;
+import model.Sale;
 
 public class Register {
 
@@ -11,12 +13,14 @@ public class Register {
 
 	private Item item;
 
-	public Register Register() {
-		return null;
+	public Register() 
+	{
 	}
 
 	public Sale registerItem(ItemDescriptionDTO foundItem, int quantity, Sale sale) {
-		return null;
+		Item foundActualItem = new Item(foundItem, quantity);
+		sale.addItem(foundActualItem);
+		return sale;
 	}
 
 }
