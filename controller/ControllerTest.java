@@ -14,7 +14,7 @@ import model.SaleInfo;
 import model.Receipt;
 
 public class ControllerTest {
-    
+  
 
 	@Test
 	public void ControllerTest () {
