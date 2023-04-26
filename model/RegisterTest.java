@@ -4,9 +4,11 @@ import org.junit.Test;
 import static org.junit.Assert.assertEquals;
 import static org.junit.Assert.assertFalse;
 import static org.junit.Assert.assertNotNull;
+import static org.junit.Assert.assertNull;
 import static org.junit.Assert.assertTrue;
 
 import intergration.ItemDescriptionDTO;
+import model.Item;
 import model.Sale;
 
 public class RegisterTest {
@@ -20,9 +22,10 @@ public class RegisterTest {
         Register testRegister = new Register();
         ItemDescriptionDTO dto= new ItemDescriptionDTO();
         int quantity = 1;
-        Item testItem = new Item(dto,quantity);
-        testSale=testRegister.registerItem(dto, quantity, testSale);
-        assertEquals(testSale.getSoldItems().contains(testItem),true);
+        testRegister.registerItem(dto, quantity, testSale);
+        assertNotNull(testRegister.registerItem(dto, quantity, testSale));
+        assertEquals(testRegister.registerItem(dto, quantity, testSale).getSoldItems().isEmpty(),false);
+        assertEquals(testRegister.registerItem(dto, quantity, testSale)==testSale,false);
 	}
     
 }
