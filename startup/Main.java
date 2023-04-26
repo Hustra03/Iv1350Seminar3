@@ -14,7 +14,7 @@ public class Main {
 		DatabaseHandler dbHandler = new DatabaseHandler();
 		Controller controller = new Controller(dbHandler, 0, 0);
 		View view = new View(controller);
-
+		view.StartSale();
 	}
 
 }

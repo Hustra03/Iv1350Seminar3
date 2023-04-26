@@ -9,5 +9,8 @@ public class View {
 	public View(Controller controller) {
 		this.controller=controller;
 	}
-	
+	public void StartSale()
+	{
+		controller.startSale();
+	}
 }
