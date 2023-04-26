@@ -48,7 +48,6 @@ public class Sale {
 				}
 			}
 		}
-		setSoldItems(soldItems);
 	}
 
 	/*
@@ -100,10 +99,20 @@ public class Sale {
 		this.soldItems = soldItems;
 	}
 
+	/*
+	 * Returns the double TotalPrice
+	 * 
+	 * @return <code>TotalPrice</code>,
+	 */
 	public double getTotalPrice() {
 		return this.totalPrice;
 	}
 
+	/*
+	 * Returns the double TotalVAT
+	 * 
+	 * @return <code>TotalVAT</code>,
+	 */
 	public double getTotalVAT() {
 		return this.totalVAT;
 	}
