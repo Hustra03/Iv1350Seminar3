@@ -1,13 +1,14 @@
 package intergration;
+import java.util.*; //For List to function
 
 import model.Discount;
 import model.SaleInfo;
 
 public class DiscountDatabase {
 
-	private Discount completeDiscountList;
+	private List<Discount> completeDiscountList;
 
-	private Discount discount;
+	private List<Discount> applicableDiscounts;
 
 	DiscountDatabase DiscountDatabase() {
 		return null;

@@ -11,14 +11,6 @@ public class DatabaseHandler {
 
 	private DiscountDatabase discDatabase;
 
-	private DiscountDatabase discountDatabase;
-
-	private ExternalInventorySystem externalInventorySystem;
-
-	private ExternalAccountingSystem externalAccountingSystem;
-
-	private Discount discount;
-
 	private SaleInfo saleInfo;
 
 	public DatabaseHandler DatabaseHandler() {
