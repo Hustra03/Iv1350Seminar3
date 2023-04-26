@@ -1,1 +1,1 @@
-# Iv1350Seminar3
+# se.kth.iv1350.ErikMichel
