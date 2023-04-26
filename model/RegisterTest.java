@@ -20,7 +20,7 @@ public class RegisterTest {
     public void registerItemTest() {
         Sale testSale = new Sale();
         Register testRegister = new Register();
-        ItemDescriptionDTO dto= new ItemDescriptionDTO();
+        ItemDescriptionDTO dto= new ItemDescriptionDTO(1, 2);
         int quantity = 1;
         assertNotNull(testRegister.registerItem(dto, quantity, testSale));
         assertEquals(testRegister.registerItem(dto, quantity, testSale).getSoldItems().isEmpty(),false);

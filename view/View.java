@@ -6,8 +6,8 @@ public class View {
 
 	private Controller controller;
 
-	public View View() {
-		return null;
+	public View(Controller controller) {
+		this.controller=controller;
 	}
 	
 }

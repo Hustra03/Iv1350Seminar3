@@ -1,18 +1,19 @@
 package startup;
 
 import view.View;
+
+import javax.xml.crypto.Data;
+
 import controller.Controller;
 import intergration.DatabaseHandler;
 
 public class Main {
 
-	private View view;
+	public void main(String[] args) {
 
-	private Controller controller;
-
-	private DatabaseHandler databaseHandler;
-
-	public void main(char args) {
+		DatabaseHandler dbHandler = new DatabaseHandler();
+		Controller controller = new Controller(dbHandler, 0, 0);
+		View view = new View(controller);
 
 	}
 
