@@ -39,9 +39,9 @@ public class Sale {
 	 */
 	// Update below to pricate, needs package for testing
 	void itemMerger(Item soldItem) {
-		if (soldItems.size() > 1) {
+		if (soldItems.size() > 1 && soldItems.contains(soldItem)) {
 			for (Item item : this.soldItems) {
-				if (item.getItemDescriptionDTO() == soldItem.getItemDescriptionDTO()) {
+				if (item.getItemDescriptionDTO() == soldItem.getItemDescriptionDTO() && (soldItems.indexOf(item) != soldItems.indexOf(soldItem))) {
 					item.increaseQuantity(soldItem.getQuantity());
 					soldItems.remove(soldItems.lastIndexOf(soldItem));
 					break;
