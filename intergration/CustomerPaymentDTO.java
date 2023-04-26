@@ -10,8 +10,65 @@ public class CustomerPaymentDTO {
 
 	private int time;
 
-	public CustomerPaymentDTO CustomerPaymentDTO(int amountPayment, double change, int time, int date) {
-		return null;
+	/*
+	 * Creates an empty CustomerPaymentDTO object
+	 * 
+	 */
+	public CustomerPaymentDTO() {
+
 	}
 
+	/*
+	 * Creates an CustomerPaymentDTO object with parameter attributes
+	 * 
+	 * @param amountPayment represents the amount of payment given to
+	 * 
+	 * @param change represents the diffrence in totalPrice and amountPayment
+	 * 
+	 * @param time represents time of payment
+	 * 
+	 * @param date represents date of payment
+	 */
+	public CustomerPaymentDTO(int amountPayment, double change, int time, int date) {
+		this.paymentAmount = amountPayment;
+		this.change = change;
+		this.time = time;
+		this.date = date;
+	}
+
+	/*
+	 * Returns objects paymentAmount
+	 * 
+	 * @return paymentAmount represents the amount of payment given to
+	 */
+	public double getPaymentAmount() {
+		return this.paymentAmount;
+	}
+
+	/*
+	 * Returns objects change
+	 * 
+	 * @return change represents the diffrence in totalPrice and amountPayment
+	 */
+	public double getChange() {
+		return this.change;
+	}
+
+	/*
+	 * Returns objects time
+	 * 
+	 * @return time represents time of payment
+	 */
+	public int getTime() {
+		return this.time;
+	}
+
+	/*
+	 * Returns objects date
+	 * 
+	 * @return date represents date of payment
+	 */
+	public int getDate() {
+		return this.date;
+	}
 }

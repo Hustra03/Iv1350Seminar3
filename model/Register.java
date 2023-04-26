@@ -17,10 +17,10 @@ public class Register {
 	}
 
 	/* Registers ,or adds information about, a specified item to a sale
-	 * @param foundItem
-	 * @param quantity
-	 * @param saleIn
-	 * @return sale
+	 * @param foundItem is the ItemDescriptionDTO fetched from ExternalInventoryDatabase by DatabaseHandler, in turn fetched by Controller
+	 * @param quantity specifies how many of this item should be added to the sale
+	 * @param saleIn is the sale the item should be added to
+	 * @return sale is the sale the item has been added to
 	 */
 	public Sale registerItem(ItemDescriptionDTO foundItem, int quantity, Sale saleIn) {
 		this.sale = saleIn;
