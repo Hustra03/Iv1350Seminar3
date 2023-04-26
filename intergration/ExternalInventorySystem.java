@@ -1,10 +1,10 @@
 package intergration;
-
+import java.util.*; //For List to function
 import model.SaleInfo;
 
 public class ExternalInventorySystem {
 
-	private ItemDescriptionDTO completeItemList;
+	private List<ItemDescriptionDTO> completeItemList;
 
 	ExternalInventorySystem ExternalInventorySystem() {
 		return null;
