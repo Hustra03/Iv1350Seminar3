@@ -9,6 +9,9 @@ public class View {
 	public View(Controller controller) {
 		this.controller=controller;
 	}
+	/* Starts system operation to begin startSale
+	 * 
+	 */
 	public void StartSale()
 	{
 		controller.startSale();

@@ -34,7 +34,9 @@ public class Controller {
 		this.register = new Register();
 	}
 	
-	
+	/*
+	 * Creates a new object of the Sale class
+	 */
 	public void startSale() {
 		
 		this.sale = new Sale();
