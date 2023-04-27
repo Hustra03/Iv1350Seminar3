@@ -2,7 +2,8 @@ package intergration;
 import java.util.*; //For List to function
 import model.SaleInfo;
 
-public class ExternalInventorySystem {
+
+class ExternalInventorySystem { //skall vara paketprivat enligt DM, därmed minskas det publika gränsnittet
 
 	private List<ItemDescriptionDTO> completeItemList;
 
@@ -11,9 +12,12 @@ public class ExternalInventorySystem {
 	}
 
 	ItemDescriptionDTO findItem(int itemId) {
-		return null;
+			// method implementation goes here
+			// ...
+			// create and return a foundItem object
+			ItemDescriptionDTO foundItem = completeItemList.get(itemId);
+    return foundItem;
 	}
-
 	void reciveSaleInfo(SaleInfo saleInfo) {
 
 	}

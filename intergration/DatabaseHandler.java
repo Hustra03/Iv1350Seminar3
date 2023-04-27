@@ -21,7 +21,14 @@ public class DatabaseHandler {
 	}
 
 	public ItemDescriptionDTO getItem(int itemId) {
-		return null;
+		ItemDescriptionDTO foundItem = new ItemDescriptionDTO();
+		/* kod för att hitta item
+
+		findItem.invSystem
+		*
+		*/
+
+		return foundItem;
 	}
 
 	public Discount findDiscount(SaleInfo saleInfo, int customerId) {

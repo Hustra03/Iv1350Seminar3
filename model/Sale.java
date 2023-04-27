@@ -1,8 +1,7 @@
 package model;
 
-import java.util.*; //For List to function
-
-import intergration.ItemDescriptionDTO;
+import java.util.ArrayList;
+import java.util.List;
 
 public class Sale {
 
@@ -15,7 +14,8 @@ public class Sale {
 	private boolean itemFound;
 
 	public Sale(Item firstItem) {
-		List<Item> soldItems = new ArrayList<Item>();
+		List<Item> soldItems;
+		soldItems = new ArrayList<Item>();
 		soldItems.add(firstItem);
 		this.soldItems = soldItems;
 	}
@@ -73,9 +73,9 @@ public class Sale {
 	}
 
 	/*
-	 * Returns the boolean itemFound
+	 * Updates the boolean itemFound to false
 	 * 
-	 * @return <code>itemFound</code>,
+	 * @return No return.,
 	 */
 	public boolean getItemFound() {
 		return this.itemFound;
