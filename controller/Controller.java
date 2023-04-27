@@ -33,7 +33,7 @@ public class Controller {
 	 * @param date represents the time of sale initializatin
 	 */
 	public Controller (DatabaseHandler dbHandler, int time, int date) {
-		this.databaseHandler=databaseHandler;
+		this.databaseHandler=dbHandler;
 		this.paymentHandler = new PaymentHandler();
 		this.register = new Register();
 	}

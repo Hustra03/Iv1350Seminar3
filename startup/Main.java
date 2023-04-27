@@ -9,12 +9,16 @@ import intergration.DatabaseHandler;
 
 public class Main {
 
-	public void main(String[] args) {
+	public static void main(String[] args) {
 
 		DatabaseHandler dbHandler = new DatabaseHandler();
 		Controller controller = new Controller(dbHandler, 0, 0);
 		View view = new View(controller);
-		view.StartSale();
+		/*
+		Denna stämmer inte med Domaän modellen. Startsale ska komma från View när någon trycker på en knapp.
+		view.StartSale()
+		Detta ska komma från View.
+		 */
 	}
 
 }
