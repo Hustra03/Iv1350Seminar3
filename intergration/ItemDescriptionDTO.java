@@ -19,8 +19,9 @@ public class ItemDescriptionDTO {
 	}
 
 	/*
-	 * Constructor for an ItemDescriptionDTO with specified price and VAT-rate for
-	 * testing purposes
+	 * Constructor for an ItemDescriptionDTO with specified price and VAT-rate for testing purposes
+	 * @param price represents the price for one item of this type
+	 * @param VATrate represents the percent of price as VAT
 	 */
 	public ItemDescriptionDTO(double price, int VATrate) {
 		this.price = price;
@@ -29,12 +30,12 @@ public class ItemDescriptionDTO {
 
 	/*
 	 * Constructor for an ItemDescriptionDTO with specified attributes
-	 * @itemId
-	 * @name
-	 * @price
-	 * @VATrate
-	 * @description 
-	 * testing purposes
+	 * @param itemId represents this items identification number
+	 * @param name represents this items name
+	 * @param price represents the price for one item of this type
+	 * @param VATrate represents the percent of price as VAT
+	 * @param description represents a short description of this item
+	 * 
 	 */
 	public ItemDescriptionDTO(int itemId, String name, double price, int VATrate, String description) {
 		this.itemId=itemId;
