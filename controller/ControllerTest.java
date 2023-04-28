@@ -4,7 +4,6 @@ import org.junit.jupiter.api.Test;
 import static org.junit.jupiter.api.Assertions.assertNull;
 import static org.junit.jupiter.api.Assertions.assertNotNull;
 import org.junit.Test;
-
 import static org.junit.Assert.assertEquals;
 import static org.junit.Assert.assertFalse;
 import static org.junit.Assert.assertNotNull;
@@ -18,6 +17,10 @@ import model.Sale;
 import model.Discount;
 import model.SaleInfo;
 import model.Receipt;
+
+
+import java.util.ArrayList;
+import java.util.List;
 
 public class ControllerTest {
   

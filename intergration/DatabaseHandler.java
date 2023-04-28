@@ -18,17 +18,23 @@ public class DatabaseHandler {
 	 * 
 	 */
 	public DatabaseHandler() {
-		this.inventoryItems	 = new ArrayList<ItemDescriptionDTO>();
+		List<ItemDescriptionDTO> inventoryItems;	 
+		inventoryItems= new ArrayList<ItemDescriptionDTO>();
 		ItemDescriptionDTO DTO = new ItemDescriptionDTO(0, "name", 0, 0, "description");
-		this.inventoryItems.add(DTO);
+		inventoryItems.add(DTO);
 
-		List<Integer> applicableIds = new ArrayList<Integer>(null);
-		List<Item> applicableItems = new ArrayList<Item>(null);
+		this.inventoryItems=inventoryItems;
+
+		List<Integer> applicableIds = new ArrayList<Integer>();
+		List<Item> applicableItems = new ArrayList<Item>();
 		int discountPercent = 0;
 		int minimumItemAmount = 0;
 		int minimumTotalPrice = 0;
+
 		Discount discount = new Discount(discountPercent, applicableIds, applicableItems, minimumItemAmount, minimumTotalPrice);
-		this.everyDiscount.add(discount);
+		List<Discount> everyDiscount = new ArrayList<Discount>();	 
+		everyDiscount.add(discount);
+		this.everyDiscount=everyDiscount;
 
 	}
 
