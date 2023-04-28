@@ -33,8 +33,8 @@ public class SaleInfo {
 		calculateTotalPriceAndVATAfterDiscount();
 	}
 
-	SaleInfo updateSaleInfoPayment(CustomerPaymentDTO customerPayment) {
-		return null;
+	void updateSaleInfoPayment(CustomerPaymentDTO customerPayment) {
+		this.customerPayment=customerPayment;
 
 	}
 
