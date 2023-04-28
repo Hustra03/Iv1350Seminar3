@@ -62,10 +62,8 @@ public class Controller {
 	 */
 	public SaleInfo endSale() {
 		
-		List<Discount> noDiscount = new ArrayList<Discount>();
 		Discount discount=new Discount();
-		noDiscount.add(0, discount);
-		SaleInfo saleInfo = new SaleInfo();
+		SaleInfo saleInfo = new SaleInfo(sale,discount);
 		return saleInfo;
 	}
 

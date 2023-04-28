@@ -1,12 +1,14 @@
 package model;
 
 import intergration.CustomerPaymentDTO;
+import java.util.ArrayList;
+import java.util.List;
 
 public class SaleInfo {
 
 	private Sale sale;
 
-	private Discount recordedDiscounts;
+	private List<Discount> recordedDiscounts;
 
 	private CustomerPaymentDTO customerPayment;
 
@@ -16,8 +18,11 @@ public class SaleInfo {
 
 	private Receipt receipt;
 
-	public SaleInfo SaleInfo(Sale sale, Discount noDiscount) {
-		return null;
+	public SaleInfo(Sale sale, Discount noDiscount) {
+		this.sale=sale;
+		List<Discount> recordedDiscounts=new ArrayList<Discount>();
+		recordedDiscounts.add(noDiscount);
+		this.recordedDiscounts=recordedDiscounts;
 	}
 
 	public SaleInfo setDiscountAndCustomerId(Discount discountList, int customerId) {
@@ -36,5 +41,8 @@ public class SaleInfo {
 	private SaleInfo calculateTotalPriceAndVATAfterDiscount(Sale sale, Discount recordedDiscount) {
 		return null;
 	}
+
+	public Sale getSale()
+	{return this.sale;}
 
 }

@@ -1,6 +1,5 @@
 package model;
 
-import intergration.ExternalInventorySystem;
 import intergration.ItemDescriptionDTO;
 import model.Item;
 import model.Sale;
