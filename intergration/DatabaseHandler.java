@@ -18,7 +18,7 @@ public class DatabaseHandler {
 	 * 
 	 */
 	public DatabaseHandler() {
-		
+		this.inventoryItems	 = new ArrayList<ItemDescriptionDTO>();
 		ItemDescriptionDTO DTO = new ItemDescriptionDTO(0, "name", 0, 0, "description");
 		this.inventoryItems.add(DTO);
 
