@@ -13,6 +13,9 @@ public class Sale {
 
 	private boolean itemFound;
 
+	/* Creates a sale with null attributes execpt soldItems
+	 * @param firstItem represents the item added to list soldItems at sale creations
+	 */
 	public Sale(Item firstItem) {
 		List<Item> soldItems;
 		soldItems = new ArrayList<Item>();
@@ -20,11 +23,17 @@ public class Sale {
 		this.soldItems = soldItems;
 	}
 
+	/* Creates a sale with null attributes
+	 * 
+	 */
 	public Sale() {
 		List<Item> soldItems = new ArrayList<Item>();
 		this.soldItems = soldItems;
 	}
 
+	/* Adds a new item to Sale
+	 * @param sold represents the item to be added to sale
+	 */
 	void addItemInfo(Item sold) {
 		soldItems.add(sold);
 		setSoldItems(soldItems);
@@ -51,8 +60,7 @@ public class Sale {
 		}
 	}
 
-	/*
-	 * Updates runningTotals to represent current soldItems list
+	/* Updates runningTotals to represent current soldItems list
 	 * 
 	 */
 	// Update below to pricate, needs package for testing
@@ -65,54 +73,42 @@ public class Sale {
 		}
 	}
 
-	/*
-	 * Sets the boolean itemFound to false
-	 * 
+	/* Sets the boolean itemFound to false
 	 */
 	public void setItemFoundFalse() {
 		this.itemFound = false;
 	}
 
-	/*
-	 * Updates the boolean itemFound to false
-	 * 
-	 * @return No return.,
+	/* Returns the boolean itemFound to false
+	 * @return itemFound returns the bool representing if an item was found last registering attempt
 	 */
 	public boolean getItemFound() {
 		return this.itemFound;
 	}
 
-	/*
-	 * Returns the List<item> soldItems
-	 * 
-	 * @return <code>soldItems</code>,
+	/* Returns the list of sold items
+	 * @return <code>soldItems</code>, represents the list of items sold in sale
 	 */
 	public List<Item> getSoldItems() {
 		return this.soldItems;
 	}
 
-	/*
-	 * Changes the List<item> soldItems to parameter
-	 * 
-	 * @parameter <code>soldItems</code>,
+	/*Changes the List<item> soldItems to parameter
+	 * @parameter <code>soldItems</code>, represents the new list of items to be sold in sale
 	 */
 	public void setSoldItems(List<Item> soldItems) {
 		this.soldItems = soldItems;
 	}
 
-	/*
-	 * Returns the double TotalPrice
-	 * 
-	 * @return <code>TotalPrice</code>,
+	/* Returns the double TotalPrice
+	 * @return <code>TotalPrice</code>, represents the total price of sale
 	 */
 	public double getTotalPrice() {
 		return this.totalPrice;
 	}
 
-	/*
-	 * Returns the double TotalVAT
-	 * 
-	 * @return <code>TotalVAT</code>,
+	/* Returns the double TotalVAT
+	 * @return <code>TotalVAT</code>, represents the total value of VAT
 	 */
 	public double getTotalVAT() {
 		return this.totalVAT;
