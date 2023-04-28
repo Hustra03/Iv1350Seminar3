@@ -22,7 +22,7 @@ import java.util.List;
 public class ControllerTest {
   
 	@Test
-	public void ControllerTest () {
+	public void ControllerCreateTest() {
 		DatabaseHandler databaseHandler = new DatabaseHandler();
 		int time = 0;
 		int date = 0;
