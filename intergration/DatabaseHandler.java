@@ -21,14 +21,17 @@ public class DatabaseHandler {
 	}
 
 	public ItemDescriptionDTO getItem(int itemId) {
-		ItemDescriptionDTO foundItem = new ItemDescriptionDTO();
+		//ItemDescriptionDTO foundItem = new ItemDescriptionDTO();
 		/* kod för att hitta item
 
 		findItem.invSystem
 		*
 		*/
 
-		return foundItem;
+
+		// ItemDescriptionDTO foundItem = inventory.get(itemId);
+
+		return;
 	}
 
 	public Discount findDiscount(SaleInfo saleInfo, int customerId) {
