@@ -2,7 +2,6 @@ package controller;
 
 import java.util.*; //For List to function
 
-
 import intergration.DatabaseHandler;
 import model.PaymentHandler;
 import model.Register;
@@ -26,44 +25,52 @@ public class Controller {
 
 	private Receipt receipt;
 
-	
-	/* Creates a new object of the Controller class
-	 * @param dbHandler represents the <code>DatabaseHandler</code> responsible for handling external system access
+	/*
+	 * Creates a new object of the Controller class
+	 * 
+	 * @param dbHandler represents the <code>DatabaseHandler</code> responsible for
+	 * handling external system access
+	 * 
 	 * @param time represents the time of sale initializatin
+	 * 
 	 * @param date represents the time of sale initializatin
 	 */
-	public Controller (DatabaseHandler dbHandler, int time, int date) {
-		this.databaseHandler=dbHandler;
+	public Controller(DatabaseHandler dbHandler, int time, int date) {
+		this.databaseHandler = dbHandler;
 		this.paymentHandler = new PaymentHandler();
 		this.register = new Register();
 	}
-	
+
 	/*
 	 * Creates a new object of the Sale class in controller
 	 */
 	public void startSale() {
-		
+
 		this.sale = new Sale();
 	}
 
-	/* Tells other classes to register an item to sale
+	/*
+	 * Tells other classes to register an item to sale
+	 * 
 	 * @param itemId represents the id of the item which should be registered
+	 * 
 	 * @param quantity represents the quantity of the above item to register
+	 * 
 	 * @return represents the sale items are registered to
 	 */
 	public Sale registerItem(int itemId, int quantity) {
-		ItemDescriptionDTO itemInfo= databaseHandler.getItem(itemId);
+		ItemDescriptionDTO itemInfo = databaseHandler.getItem(itemId);
 		register.registerItem(itemInfo, quantity, sale);
 		return sale;
 	}
 
-	/* Ends sale and creates a SaleInfo based upon it
+	/*
+	 * Ends sale and creates a SaleInfo based upon it
 	 * 
 	 */
 	public SaleInfo endSale() {
-		
-		Discount discount=new Discount();
-		SaleInfo saleInfo = new SaleInfo(sale,discount);
+
+		SaleInfo saleInfo = new SaleInfo(sale);
 		return saleInfo;
 	}
 
@@ -78,7 +85,8 @@ public class Controller {
 	public void sendSaleInfo() {
 
 	}
-	
-	public Sale GetSale()
-	{return this.sale;}
+
+	public Sale GetSale() {
+		return this.sale;
+	}
 }
