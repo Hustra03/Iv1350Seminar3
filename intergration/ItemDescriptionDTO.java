@@ -28,6 +28,23 @@ public class ItemDescriptionDTO {
 	}
 
 	/*
+	 * Constructor for an ItemDescriptionDTO with specified attributes
+	 * @itemId
+	 * @name
+	 * @price
+	 * @VATrate
+	 * @description 
+	 * testing purposes
+	 */
+	public ItemDescriptionDTO(int itemId, String name, double price, int VATrate, String description) {
+		this.itemId=itemId;
+		this.name=name;
+		this.price = price;
+		this.VATrate = VATrate;
+		this.description=description;
+	}
+
+	/*
 	 * Returns itemId from itemDescriptionDTO
 	 * 
 	 * @return itemId this is the id for an item, represented by an int
