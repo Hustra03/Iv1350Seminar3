@@ -75,7 +75,7 @@ public class SaleInfo {
 		discountTotalPrice = sale.getTotalPrice();
 		discountTotalVAT = sale.getTotalVAT();
 	}
-	}
+	
 
 	public Sale getSale() {
 		return this.sale;
