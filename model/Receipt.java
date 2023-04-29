@@ -2,24 +2,35 @@ package model;
 
 import intergration.ItemDescriptionDTO;
 
+import java.time.LocalDate;
+import java.time.LocalDateTime;  
+
+import java.util.*; //For List to function
+
 public class Receipt {
 
-	private int time;
+	private long time;
 
-	private int date;
+	private LocalDate date;
 
-	private ItemDescriptionDTO soldItems;
+	private List<Item> soldItems;
 
-	private int totalPrice;
+	private double totalPrice;
 
-	private int totalVAT;
+	private double totalVAT;
 
-	private int totalPayment;
+	private double totalPayment;
 
-	private int totalChange;
+	private double totalChange;
 
-	public Receipt Receipt(SaleInfo saleInfo) {
-		return null;
+	public Receipt(SaleInfo saleInfo) {
+		this.time=saleInfo.getCustomerPaymentDTO().getTime();
+		this.date=saleInfo.getCustomerPaymentDTO().getDate();
+		this.soldItems=saleInfo.getSale().getSoldItems();
+		this.totalPrice=saleInfo.getTotalPriceAfterDiscount();
+		this.totalVAT=saleInfo.getTotalVATAfterDiscount();
+		this.totalPayment=saleInfo.getCustomerPaymentDTO().getPaymentAmount();
+		this.totalChange=saleInfo.getCustomerPaymentDTO().getChange();
 	}
 
 }

@@ -16,8 +16,6 @@ public class SaleInfo {
 
 	private double discountTotalVAT;
 
-	private Receipt receipt;
-
 	private int customerId;
 
 	public SaleInfo(Sale sale) {
@@ -46,6 +44,10 @@ public class SaleInfo {
 	 */
 	double getTotalPriceAfterDiscount() {
 		return this.discountTotalPrice;
+	}
+
+	double getTotalVATAfterDiscount() {
+		return this.discountTotalVAT;
 	}
 
 	private void calculateTotalPriceAndVATAfterDiscount() {
@@ -79,6 +81,10 @@ public class SaleInfo {
 
 	public Sale getSale() {
 		return this.sale;
+	}
+
+	public CustomerPaymentDTO getCustomerPaymentDTO() {
+		return this.customerPayment;
 	}
 
 }

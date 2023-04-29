@@ -1,14 +1,18 @@
 package intergration;
 
+
+import java.time.LocalDate;
+import java.time.LocalDateTime;  
+
 public class CustomerPaymentDTO {
 
 	private double paymentAmount;
 
 	private double change;
 
-	private int date;
+	private LocalDate date;
 
-	private int time;
+	private long time;
 
 	/*
 	 * Creates an empty CustomerPaymentDTO object
@@ -29,7 +33,7 @@ public class CustomerPaymentDTO {
 	 * 
 	 * @param date represents date of payment
 	 */
-	public CustomerPaymentDTO(int amountPayment, double change, int time, int date) {
+	public CustomerPaymentDTO(int amountPayment, double change, long time, LocalDate date) {
 		this.paymentAmount = amountPayment;
 		this.change = change;
 		this.time = time;
@@ -59,7 +63,7 @@ public class CustomerPaymentDTO {
 	 * 
 	 * @return time represents time of payment
 	 */
-	public int getTime() {
+	public long getTime() {
 		return this.time;
 	}
 
@@ -68,7 +72,7 @@ public class CustomerPaymentDTO {
 	 * 
 	 * @return date represents date of payment
 	 */
-	public int getDate() {
+	public LocalDate getDate() {
 		return this.date;
 	}
 }

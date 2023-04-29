@@ -79,7 +79,8 @@ public class Controller {
 	}
 
 	public SaleInfo recivePayment(int amountPayment) {
-		return null;
+		this.saleInfo=paymentHandler.handlePayment(amountPayment, saleInfo);
+		return this.saleInfo;
 	}
 
 	public void sendSaleInfo() {
