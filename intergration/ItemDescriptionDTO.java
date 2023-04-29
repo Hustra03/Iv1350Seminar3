@@ -23,7 +23,8 @@ public class ItemDescriptionDTO {
 	 * @param price represents the price for one item of this type
 	 * @param VATrate represents the percent of price as VAT
 	 */
-	public ItemDescriptionDTO(double price, int VATrate) {
+	public ItemDescriptionDTO(int itemId,double price, int VATrate) {
+		this.itemId=itemId;
 		this.price = price;
 		this.VATrate = VATrate;
 	}

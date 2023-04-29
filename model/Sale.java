@@ -35,7 +35,7 @@ public class Sale {
 	 * @param sold represents the item to be added to sale
 	 */
 	void addItemInfo(Item sold) {
-		soldItems.add(sold);
+		this.soldItems.add(sold);
 	}
 
 	/*
@@ -49,10 +49,9 @@ public class Sale {
 	void itemMerger(Item soldItem) {
 		if (soldItems.size() > 1 && soldItems.contains(soldItem)) {
 			for (Item item : this.soldItems) {
-				if (item.getItemDescriptionDTO() == soldItem.getItemDescriptionDTO()
-						&& (soldItems.indexOf(item) != soldItems.lastIndexOf(soldItem))) {
+				if ((item.getItemDescriptionDTO().getItemId() == soldItem.getItemDescriptionDTO().getItemId()) && (soldItems.indexOf(item) != soldItems.lastIndexOf(soldItem))) {
 					item.increaseQuantity(soldItem.getQuantity());
-					soldItems.remove(soldItems.lastIndexOf(soldItem));
+					this.soldItems.remove(soldItems.lastIndexOf(soldItem));
 					break;
 				}
 			}

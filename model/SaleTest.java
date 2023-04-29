@@ -86,5 +86,7 @@ public class SaleTest {
         testSale.addItemInfo(item);
         testSale.addItemInfo(item2);
         assertEquals(testSale.getSoldItems().isEmpty(), false);
+        assertEquals(testSale.getSoldItems().contains(item), true);
+        assertEquals(testSale.getSoldItems().contains(item2), true);
     }
 }

@@ -4,6 +4,9 @@ import intergration.ItemDescriptionDTO;
 import model.Item;
 import model.Sale;
 
+import java.util.ArrayList;
+import java.util.List;
+
 public class Register {
 
 	private Sale sale;
@@ -13,6 +16,10 @@ public class Register {
 	 * 
 	 */
 	public Register() {
+		List<Item> soldItems = new ArrayList<Item>();
+        Sale testSale = new Sale();
+		testSale.setSoldItems(soldItems);
+		this.sale=testSale;
 	}
 
 	/*
@@ -29,14 +36,14 @@ public class Register {
 	 */
 	public Sale registerItem(ItemDescriptionDTO foundItem, int quantity, Sale saleIn) {
 
-		
+		this.sale=saleIn;
+
 		if (quantity > 0) {
 			Item foundActualItem = new Item(foundItem, quantity);
-			saleIn.addItemInfo(foundActualItem);
+			this.sale.addItemInfo(foundActualItem);
 			/*this.sale.itemMerger(foundActualItem);
 			this.sale.calculateRunningTotal();*/
 		}
-		this.sale = saleIn;
 		return this.sale;
 	}
 
