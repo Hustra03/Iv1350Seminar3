@@ -80,11 +80,13 @@ public class Controller {
 
 	public SaleInfo recivePayment(int amountPayment) {
 		this.saleInfo=paymentHandler.handlePayment(amountPayment, saleInfo);
+		sendSaleInfo();
 		return this.saleInfo;
 	}
 
 	public void sendSaleInfo() {
-
+		this.receipt=new Receipt(saleInfo);
+		this.databaseHandler.sendSaleInfo(saleInfo);
 	}
 
 	public Sale GetSale() {

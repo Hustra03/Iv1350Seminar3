@@ -94,6 +94,9 @@ public class DatabaseHandler {
 		return discountList;
 	}
 
+	/* Below method would send saleInfo to external systems, but these are not included thus it is an empty method
+	 * 
+	 */
 	public void sendSaleInfo(SaleInfo saleInfo) {
 
 	}
