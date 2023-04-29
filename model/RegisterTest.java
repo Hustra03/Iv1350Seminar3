@@ -23,9 +23,9 @@ public class RegisterTest {
         Register testRegister = new Register();
         ItemDescriptionDTO dto= new ItemDescriptionDTO(1, 2);
         int quantity = 1;
-        assertNotNull(testRegister.registerItem(dto, quantity, testSale));
-        assertEquals(testRegister.registerItem(dto, quantity, testSale).getSoldItems().isEmpty(),false);
-        assertEquals(testRegister.registerItem(dto, quantity, testSale)==testSale,false);
+        Sale registerSale = testRegister.registerItem(dto, quantity, testSale);
+        assertNotNull(registerSale);
+        assertEquals(registerSale.getSoldItems().isEmpty(),false);
 	}
     
 }

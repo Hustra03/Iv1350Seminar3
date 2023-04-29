@@ -29,14 +29,15 @@ public class Register {
 	 */
 	public Sale registerItem(ItemDescriptionDTO foundItem, int quantity, Sale saleIn) {
 
-		this.sale = saleIn;
-		if (foundItem != null) {
+		
+		if (quantity > 0) {
 			Item foundActualItem = new Item(foundItem, quantity);
-			sale.addItemInfo(foundActualItem);
-			sale.itemMerger(foundActualItem);
-			sale.calculateRunningTotal();
+			saleIn.addItemInfo(foundActualItem);
+			/*this.sale.itemMerger(foundActualItem);
+			this.sale.calculateRunningTotal();*/
 		}
-		return sale;
+		this.sale = saleIn;
+		return this.sale;
 	}
 
 	/*

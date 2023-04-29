@@ -36,7 +36,6 @@ public class Sale {
 	 */
 	void addItemInfo(Item sold) {
 		soldItems.add(sold);
-		setSoldItems(soldItems);
 	}
 
 	/*
