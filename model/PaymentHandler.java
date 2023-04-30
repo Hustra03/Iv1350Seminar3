@@ -13,11 +13,13 @@ public class PaymentHandler {
 	private LocalDate date;
 	private long time;
 
-
-
 	public PaymentHandler() {
 	}
 
+	/* Updates saleInfo with information about the payment
+	 * @param
+	 * @param
+	 */
 	public SaleInfo handlePayment(int amountPayment, SaleInfo saleInfo) {
 		double totalPrice = saleInfo.getTotalPriceAfterDiscount();
 		updateTimeAndDate();
@@ -26,10 +28,19 @@ public class PaymentHandler {
 		return saleInfo;
 	}
 
+	/*
+	 * 
+	 */
 	private void updateTimeAndDate() {
 
 		this.time = System.currentTimeMillis();
 		this.date = java.time.LocalDate.now();
 	}
+
+	public LocalDate getDate()
+	{return this.date;}
+
+	public long getTime()
+	{return this.time;}
 
 }
