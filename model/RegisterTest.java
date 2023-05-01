@@ -1,16 +1,11 @@
 package model;
 
 import static org.junit.Assert.assertEquals;
-import static org.junit.Assert.assertFalse;
 import static org.junit.Assert.assertNotNull;
-import static org.junit.Assert.assertNull;
-import static org.junit.Assert.assertTrue;
 
 import org.junit.Test;
 
 import intergration.ItemDescriptionDTO;
-import model.Item;
-import model.Sale;
 
 public class RegisterTest {
 
@@ -21,14 +16,14 @@ public class RegisterTest {
     public void registerItemTest() {
         Sale testSale = new Sale();
         Register testRegister = new Register();
-        ItemDescriptionDTO dto= new ItemDescriptionDTO(1,1, 2);
+        ItemDescriptionDTO dto = new ItemDescriptionDTO(1, 1, 2);
         int quantity = 1;
         Sale registerSale = testRegister.registerItem(dto, quantity, testSale);
         Item testItem = new Item(dto, quantity);
         assertNotNull(registerSale);
-        assertEquals(registerSale.getSoldItems().isEmpty(),false);
-        assertEquals(testSale.getSoldItems().isEmpty(),false);
-        assertEquals(registerSale.getSoldItems().contains(testItem),true);
-	}
-    
+        assertEquals(registerSale.getSoldItems().isEmpty(), false);
+        assertEquals(testSale.getSoldItems().isEmpty(), false);
+        assertEquals(registerSale.getSoldItems().contains(testItem), true);
+    }
+
 }

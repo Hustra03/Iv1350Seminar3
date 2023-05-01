@@ -32,7 +32,7 @@ public class SaleInfo {
 	}
 
 	void updateSaleInfoPayment(CustomerPaymentDTO customerPayment) {
-		this.customerPayment=customerPayment;
+		this.customerPayment = customerPayment;
 
 	}
 
@@ -77,7 +77,6 @@ public class SaleInfo {
 		discountTotalPrice = sale.getTotalPrice();
 		discountTotalVAT = sale.getTotalVAT();
 	}
-	
 
 	public Sale getSale() {
 		return this.sale;
