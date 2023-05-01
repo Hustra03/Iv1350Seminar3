@@ -60,8 +60,8 @@ public class Controller {
 	 */
 	public Sale registerItem(int itemId, int quantity) {
 		ItemDescriptionDTO itemInfo = databaseHandler.getItem(itemId);
-		register.registerItem(itemInfo, quantity, sale);
-		return sale;
+		this.sale = register.registerItem(itemInfo, quantity, sale);
+		return this.sale;
 	}
 
 	/*
