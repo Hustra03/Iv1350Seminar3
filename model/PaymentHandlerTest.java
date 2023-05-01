@@ -1,6 +1,5 @@
 package model;
 
-import model.PaymentHandler;
 import intergration.CustomerPaymentDTO;
 import intergration.ItemDescriptionDTO;
 

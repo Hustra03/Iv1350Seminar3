@@ -8,7 +8,7 @@ public class Item {
 
 	private int quantity;
 
-	/* Creates an object of item class
+	/* Creates an object of item class with specified parameters
 	 * @param foundItem this itemDescriptionDTO contains all information about one instance of this object
 	 * @param quantity represents how many of this item exists
 	 */

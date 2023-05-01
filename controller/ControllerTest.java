@@ -2,10 +2,7 @@ package controller;
 
 import org.junit.Test;
 import static org.junit.Assert.assertEquals;
-import static org.junit.Assert.assertFalse;
 import static org.junit.Assert.assertNotNull;
-import static org.junit.Assert.assertNull;
-import static org.junit.Assert.assertTrue;
 
 import intergration.DatabaseHandler;
 import model.PaymentHandler;
@@ -13,29 +10,21 @@ import model.Register;
 import model.Sale;
 import model.Discount;
 import model.SaleInfo;
-import model.Receipt;
 
-
-import java.util.ArrayList;
-import java.util.List;
 
 public class ControllerTest {
   
 	@Test
 	public void ControllerCreateTest() {
 		DatabaseHandler databaseHandler = new DatabaseHandler();
-		int time = 0;
-		int date = 0;
-        Controller Testcontroller = new Controller(databaseHandler,time,date);
+        Controller Testcontroller = new Controller(databaseHandler);
 		assertNotNull(Testcontroller);
 	}
 	
     @Test
 	public void startSaleTest() {
 		DatabaseHandler databaseHandler = new DatabaseHandler();
-		int time = 0;
-		int date = 0;
-        Controller Testcontroller = new Controller(databaseHandler,time,date);
+        Controller Testcontroller = new Controller(databaseHandler);
         Testcontroller.startSale();
         assertNotNull(Testcontroller.GetSale());
 	}

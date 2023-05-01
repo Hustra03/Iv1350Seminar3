@@ -3,17 +3,11 @@ package model;
 import org.junit.Test;
 
 import static org.junit.Assert.assertEquals;
-import static org.junit.Assert.assertFalse;
 import static org.junit.Assert.assertNotNull;
-import static org.junit.Assert.assertTrue;
 
 import org.junit.After;
 import org.junit.Before;
 
-import java.util.*; //For List to function
-
-import model.Sale;
-import model.Item;
 import intergration.ItemDescriptionDTO;
 
 public class SaleTest {

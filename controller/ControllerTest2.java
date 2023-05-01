@@ -15,9 +15,7 @@ public class ControllerTest2 {
     @Before
     public void setUp() throws Exception {
         this.dbHandler2 = new DatabaseHandler();
-        int time = 0;
-        int date = 0;
-        testcontroller2 = new Controller(dbHandler2,time,date);
+        testcontroller2 = new Controller(dbHandler2);
         testcontroller2.startSale();
 
     }

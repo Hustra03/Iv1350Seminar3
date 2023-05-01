@@ -7,42 +7,42 @@ public class View {
 	private Controller controller;
 
 	public View(Controller controller) {
-		this.controller=controller;
+		this.controller = controller;
 	}
-	/* Starts system operation to start Sale
+
+	/*
+	 * Starts system operation to start Sale
 	 * 
 	 */
-	public void StartSale()
-	{
+	public void StartSale() {
 		controller.startSale();
 	}
 
-	/* Starts system operation to register an item
+	/*
+	 * Starts system operation to register an item
 	 * 
 	 */
-	public void registerItem()
-	{
+	public void registerItem() {
 		controller.registerItem(0, 0);
 	}
 
-	/* Starts system operation to stop registering items
+	/*
+	 * Starts system operation to stop registering items, or end while loop
 	 * 
 	 */
-	public void endSale()
-	{
+	public void endSale() {
 		controller.endSale();
 	}
 
-	/* Starts system operation to get and apply discount to sale
+	/*
+	 * Starts system operation to get and apply discount to sale
 	 * 
 	 */
-	public void getDiscount()
-	{
+	public void getDiscount() {
 		controller.getDiscount(0);
 	}
 
-	public void recivePaymentAndSendSaleInfo()
-	{
+	public void recivePaymentAndSendSaleInfo() {
 		controller.recivePayment(0);
 		controller.sendSaleInfo();
 	}

@@ -2,6 +2,7 @@ package intergration;
 
 import model.Discount;
 import model.Item;
+import model.Receipt;
 import model.SaleInfo;
 
 import java.util.ArrayList;
@@ -14,27 +15,16 @@ public class DatabaseHandler {
 	private List<Discount> everyDiscount;
 
 	/*
-	 * Creates a new object of the DatabaseHandler class
+	 * Creates a new object of the DatabaseHandler class, along with the list
+	 * containing item information and discounts, representing the information which
+	 * would be fetched from external systems, or rather a list containing a few
+	 * objects of the same type.
 	 * 
 	 */
 	public DatabaseHandler() {
-		List<ItemDescriptionDTO> inventoryItems;	 
-		inventoryItems= new ArrayList<ItemDescriptionDTO>();
-		ItemDescriptionDTO DTO = new ItemDescriptionDTO(0, "name", 0, 0, "description");
-		inventoryItems.add(DTO);
 
-		this.inventoryItems=inventoryItems;
-
-		List<Integer> applicableIds = new ArrayList<Integer>();
-		List<Item> applicableItems = new ArrayList<Item>();
-		int discountPercent = 0;
-		int minimumItemAmount = 0;
-		int minimumTotalPrice = 0;
-
-		Discount discount = new Discount(discountPercent, applicableIds, applicableItems, minimumItemAmount, minimumTotalPrice);
-		List<Discount> everyDiscount = new ArrayList<Discount>();	 
-		everyDiscount.add(discount);
-		this.everyDiscount=everyDiscount;
+		this.inventoryItems = createInventoryList();
+		this.everyDiscount = createEveryDiscount();
 
 	}
 
@@ -94,11 +84,51 @@ public class DatabaseHandler {
 		return discountList;
 	}
 
-	/* Below method would send saleInfo to external systems, but these are not included thus it is an empty method
+	/*
+	 * Below method would send saleInfo to external systems, but these are not
+	 * included thus it is an empty method which would interact with these
 	 * 
 	 */
-	public void sendSaleInfo(SaleInfo saleInfo) {
 
+	public void sendSaleInfo(SaleInfo saleInfo, Receipt receipt) {
+
+	}
+
+	/*
+	 * Creates the inventoryItems list along with each item
+	 * 
+	 * @return inventoryItems the list of items which the system can add to the sale
+	 */
+	private List<ItemDescriptionDTO> createInventoryList() {
+
+		List<ItemDescriptionDTO> inventoryItems;
+		inventoryItems = new ArrayList<ItemDescriptionDTO>();
+		ItemDescriptionDTO DTO = new ItemDescriptionDTO(0, "name", 0, 0, "description");
+		inventoryItems.add(DTO);
+
+		return inventoryItems;
+	}
+
+	/*
+	 * Creates the everyDiscount list along with each discount
+	 * 
+	 * @return everyDiscount the list of discount which the system can add to the
+	 * sale
+	 */
+	private List<Discount> createEveryDiscount() {
+
+		List<Integer> applicableIds = new ArrayList<Integer>();
+		List<Item> applicableItems = new ArrayList<Item>();
+		int discountPercent = 0;
+		int minimumItemAmount = 0;
+		int minimumTotalPrice = 0;
+
+		Discount discount = new Discount(discountPercent, applicableIds, applicableItems, minimumItemAmount,
+				minimumTotalPrice);
+		List<Discount> everyDiscount = new ArrayList<Discount>();
+		everyDiscount.add(discount);
+
+		return everyDiscount;
 	}
 
 }

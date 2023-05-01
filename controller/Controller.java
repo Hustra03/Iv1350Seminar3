@@ -23,8 +23,6 @@ public class Controller {
 
 	private SaleInfo saleInfo;
 
-	private Receipt receipt;
-
 	/*
 	 * Creates a new object of the Controller class
 	 * 
@@ -35,7 +33,7 @@ public class Controller {
 	 * 
 	 * @param date represents the time of sale initializatin
 	 */
-	public Controller(DatabaseHandler dbHandler, int time, int date) {
+	public Controller(DatabaseHandler dbHandler) {
 		this.databaseHandler = dbHandler;
 		this.paymentHandler = new PaymentHandler();
 		this.register = new Register();
@@ -69,13 +67,18 @@ public class Controller {
 	 * 
 	 */
 	public SaleInfo endSale() {
-
-		SaleInfo saleInfo = new SaleInfo(sale);
+		this.saleInfo = new SaleInfo(sale);
 		return saleInfo;
 	}
 
+	/* Retrives the discount from database based on sale and customerId, and adds information to saleInfo
+	 * 
+	 * 
+	 */
 	public SaleInfo getDiscount(int customerId) {
-		return null;
+		List<Discount> discountList= databaseHandler.findDiscount(saleInfo, customerId);
+		saleInfo.setDiscountAndCustomerId(discountList, customerId);
+		return saleInfo;
 	}
 
 	public SaleInfo recivePayment(int amountPayment) {
@@ -85,8 +88,8 @@ public class Controller {
 	}
 
 	public void sendSaleInfo() {
-		this.receipt=new Receipt(saleInfo);
-		this.databaseHandler.sendSaleInfo(saleInfo);
+		Receipt receipt = new Receipt(saleInfo);
+		this.databaseHandler.sendSaleInfo(saleInfo,receipt);
 	}
 
 	public Sale GetSale() {
