@@ -24,6 +24,8 @@ public class Sale {
 		soldItems = new ArrayList<Item>();
 		soldItems.add(firstItem);
 		this.soldItems = soldItems;
+		calculateRunningTotal();
+		this.itemFound=false;
 	}
 
 	/*
@@ -33,6 +35,8 @@ public class Sale {
 	public Sale() {
 		List<Item> soldItems = new ArrayList<Item>();
 		this.soldItems = soldItems;
+		calculateRunningTotal();
+		this.itemFound=false;
 	}
 
 	/*

@@ -112,8 +112,7 @@ public class SaleInfo {
 		return this.customerId;
 	}
 
-	public List<Discount> getRecordedDiscounts()
-	{
+	public List<Discount> getRecordedDiscounts() {
 		return this.recordedDiscounts;
 	}
 

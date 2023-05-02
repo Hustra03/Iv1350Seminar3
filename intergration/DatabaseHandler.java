@@ -22,7 +22,6 @@ public class DatabaseHandler {
 	 * 
 	 */
 	public DatabaseHandler() {
-
 		this.inventoryItems = createInventoryList();
 		this.everyDiscount = createEveryDiscount();
 
