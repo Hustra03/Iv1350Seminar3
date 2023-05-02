@@ -78,7 +78,7 @@ public class Sale {
 	void calculateRunningTotal() {
 		this.totalPrice = 0;
 		this.totalVAT = 0;
-		for (Item item : soldItems) {
+		for (Item item : this.soldItems) {
 			this.totalPrice += item.getPriceForQuantity();
 			this.totalVAT += item.getPriceForQuantity() * item.getItemDescriptionDTO().getVATrate() / 100;
 		}
