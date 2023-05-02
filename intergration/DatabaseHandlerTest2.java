@@ -9,7 +9,7 @@ import org.junit.Test;
 
 import java.util.ArrayList;
 import java.util.List;
-
+import intergration.DatabaseHandler;
 import static org.junit.Assert.*;
 
 public class DatabaseHandlerTest2 {
@@ -38,6 +38,7 @@ public class DatabaseHandlerTest2 {
 
     @Test
     public void findDiscount() {
+
 
     }
 
