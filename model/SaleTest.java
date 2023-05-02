@@ -48,7 +48,6 @@ public class SaleTest {
     public void itemMergerTest() {
 
         assertEquals(testSale.getSoldItems().isEmpty(), true);
-
         testSale.addItemInfo(item);
         testSale.addItemInfo(item2);
         assertEquals(testSale.getSoldItems().size(), 2);
