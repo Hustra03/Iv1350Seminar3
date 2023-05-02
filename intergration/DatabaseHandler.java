@@ -66,7 +66,6 @@ public class DatabaseHandler {
 		List<Discount> discountList = new ArrayList<Discount>();
 		for (Discount discount : everyDiscount) {
 			if (discount.getApplicableId().contains(customerId)) {
-
 				for (Item item : saleInfo.getSale().getSoldItems()) {
 					if (discount.getApplicableItems().contains(item)) {
 						if (saleInfo.getSale().getSoldItems().size() > discount.getMinimumItemAmount()) {
