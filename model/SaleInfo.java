@@ -108,4 +108,13 @@ public class SaleInfo {
 		return this.customerPayment;
 	}
 
+	public int getCustomerId() {
+		return this.customerId;
+	}
+
+	public List<Discount> getRecordedDiscounts()
+	{
+		return this.recordedDiscounts;
+	}
+
 }
