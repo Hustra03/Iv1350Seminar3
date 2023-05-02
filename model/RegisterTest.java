@@ -1,11 +1,10 @@
 package model;
 
-import static org.junit.Assert.assertEquals;
-import static org.junit.Assert.assertNotNull;
-
 import org.junit.Test;
 
 import intergration.ItemDescriptionDTO;
+
+import static org.junit.Assert.*;
 
 public class RegisterTest {
 
@@ -14,16 +13,20 @@ public class RegisterTest {
      */
     @Test
     public void registerItemTest() {
+        int id = 33;
         Sale testSale = new Sale();
         Register testRegister = new Register();
-        ItemDescriptionDTO dto = new ItemDescriptionDTO(33, 1, 2);
+        ItemDescriptionDTO dto = new ItemDescriptionDTO(id, 1, 2);
         int quantity = 1;
         Sale registerSale = testRegister.registerItem(dto, quantity, testSale);
         Item testItem = new Item(dto, quantity);
         assertNotNull(registerSale);
         assertEquals(registerSale.getSoldItems().isEmpty(), false);
         assertEquals(testSale.getSoldItems().isEmpty(), false);
-        assertEquals(registerSale.getSoldItems().contains(testItem), true);// todo vi jämför objekt av olika typ DTO resp Itemmdärför blir detta test fel
+        boolean expected = true;
+        boolean foundItem = registerSale.getItemFromSaleItemId( registerSale,id);
+        assertTrue("Varan finns inte med i listan över sold item", foundItem);
+
     }
 
 }

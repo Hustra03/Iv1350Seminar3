@@ -15,7 +15,7 @@ public class Sale {
 
 	/*
 	 * Creates a sale with null attributes execpt soldItems
-	 * 
+	 *
 	 * @param firstItem represents the item added to list soldItems at sale
 	 * creations
 	 */
@@ -25,23 +25,23 @@ public class Sale {
 		soldItems.add(firstItem);
 		this.soldItems = soldItems;
 		calculateRunningTotal();
-		this.itemFound=false;
+		this.itemFound = false;
 	}
 
 	/*
 	 * Creates a sale with null attributes
-	 * 
+	 *
 	 */
 	public Sale() {
 		List<Item> soldItems = new ArrayList<Item>();
 		this.soldItems = soldItems;
 		calculateRunningTotal();
-		this.itemFound=false;
+		this.itemFound = false;
 	}
 
 	/*
 	 * Adds a new item to Sale and sets item found to true
-	 * 
+	 *
 	 * @param sold represents the item to be added to sale
 	 */
 	void addItemInfo(Item sold) {
@@ -52,7 +52,7 @@ public class Sale {
 	/*
 	 * This method merges any items with identical descriptions, ensuring only one
 	 * of each type exists in the list
-	 * 
+	 *
 	 * @param sold this object is the item which was added to the soldItems,
 	 * and which is to be checked for and potentially merged if another exists
 	 */
@@ -72,7 +72,7 @@ public class Sale {
 
 	/*
 	 * Updates runningTotals to represent current soldItems list
-	 * 
+	 *
 	 */
 	// Update below to pricate, needs package for testing
 	void calculateRunningTotal() {
@@ -93,7 +93,7 @@ public class Sale {
 
 	/*
 	 * Returns the boolean itemFound to false
-	 * 
+	 *
 	 * @return itemFound returns the bool representing if an item was found last
 	 * registering attempt
 	 */
@@ -103,7 +103,7 @@ public class Sale {
 
 	/*
 	 * Returns the list of sold items
-	 * 
+	 *
 	 * @return <code>soldItems</code>, represents the list of items sold in sale
 	 */
 	public List<Item> getSoldItems() {
@@ -112,7 +112,7 @@ public class Sale {
 
 	/*
 	 * Changes the List<item> soldItems to parameter
-	 * 
+	 *
 	 * @parameter <code>soldItems</code>, represents the new list of items to be
 	 * sold in sale
 	 */
@@ -122,7 +122,7 @@ public class Sale {
 
 	/*
 	 * Returns the double TotalPrice
-	 * 
+	 *
 	 * @return <code>TotalPrice</code>, represents the total price of sale
 	 */
 	public double getTotalPrice() {
@@ -131,10 +131,19 @@ public class Sale {
 
 	/*
 	 * Returns the double TotalVAT
-	 * 
+	 *
 	 * @return <code>TotalVAT</code>, represents the total value of VAT
 	 */
 	public double getTotalVAT() {
 		return this.totalVAT;
+	}
+
+	boolean getItemFromSaleItemId(Sale saleToSearchItemId, int id) {
+		for (Item itemInSaleFound : soldItems) {
+			if (itemInSaleFound.getItemDescriptionDTO().getItemId() == id) {
+				return true;
+			}
+		}
+		return false;
 	}
 }
