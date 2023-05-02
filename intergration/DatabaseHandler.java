@@ -101,9 +101,18 @@ public class DatabaseHandler {
 
 		List<ItemDescriptionDTO> inventoryItems;
 		inventoryItems = new ArrayList<ItemDescriptionDTO>();
-		ItemDescriptionDTO DTO = new ItemDescriptionDTO(0, "name", 0, 0, "description");
+		ItemDescriptionDTO DTO = new ItemDescriptionDTO(0, "Item 1", 1, 0, "description 1");
 		inventoryItems.add(DTO);
-
+		DTO = new ItemDescriptionDTO(1, "Item 2", 10, 10, "description 2");
+		inventoryItems.add(DTO);
+		DTO = new ItemDescriptionDTO(2, "Item 3", 30, 15, "description 3");
+		inventoryItems.add(DTO);
+		DTO = new ItemDescriptionDTO(3, "Item 4", 50, 20, "description 4");
+		inventoryItems.add(DTO);
+		DTO = new ItemDescriptionDTO(4, "Item 5", 100, 50, "description 5");
+		inventoryItems.add(DTO);
+		DTO = new ItemDescriptionDTO(5, "Item 6", 25, 10, "description 6");
+		inventoryItems.add(DTO);
 		return inventoryItems;
 	}
 

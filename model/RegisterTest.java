@@ -20,9 +20,9 @@ public class RegisterTest {
         int quantity = 1;
         Sale registerSale = testRegister.registerItem(dto, quantity, testSale);
         Item testItem = new Item(dto, quantity);
-        assertNotNull(registerSale);
-        assertEquals(false, registerSale.getSoldItems().isEmpty());
-        assertEquals(false, testSale.getSoldItems().isEmpty());
+        assertNotNull("Register Sale Null",registerSale);
+        assertEquals("RegisterSale Sold Items Empty",false, registerSale.getSoldItems().isEmpty());
+        assertEquals("TestSale Sold Items Empty",false, testSale.getSoldItems().isEmpty());
         boolean identicalItemExists = false;
         for (Item item : registerSale.getSoldItems()) {
             if (item.getQuantity() == testItem.getQuantity()) {
@@ -32,7 +32,7 @@ public class RegisterTest {
                 }
             }
         }
-        assertEquals(true, identicalItemExists);
+        assertEquals("Identical Items Does Not Exist",true, identicalItemExists);
     }
 
 }

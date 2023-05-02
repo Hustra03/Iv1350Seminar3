@@ -32,10 +32,9 @@ public class SaleInfoTest {
         int customerId=10;
         List<Discount> discountList=new ArrayList<Discount>();
         discountList.add(new Discount(customerId, null, null, customerId, customerId));
-        
         saleInfo.setDiscountAndCustomerId(discountList, customerId);
-        assertEquals(saleInfo.getCustomerId(),customerId);
-        assertEquals(saleInfo.getRecordedDiscounts(),discountList);
+        assertEquals("Customer Id Incorrect",saleInfo.getCustomerId(),customerId);
+        assertEquals("Discount List Incorrect",saleInfo.getRecordedDiscounts(),discountList);
     }
 
     @Test

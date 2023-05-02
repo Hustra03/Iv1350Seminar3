@@ -71,28 +71,39 @@ public class Controller {
 		return saleInfo;
 	}
 
-	/* Retrives the discount from database based on sale and customerId, and adds information to saleInfo
+	/*
+	 * Retrives the discount from database based on sale and customerId, and adds
+	 * information to saleInfo
 	 * 
 	 * 
 	 */
 	public SaleInfo getDiscount(int customerId) {
-		List<Discount> discountList= databaseHandler.findDiscount(saleInfo, customerId);
+		List<Discount> discountList = databaseHandler.findDiscount(saleInfo, customerId);
 		saleInfo.setDiscountAndCustomerId(discountList, customerId);
 		return saleInfo;
 	}
 
+	/*
+	 * Updates saleInfo with information about customer payment
+	 * 
+	 */
 	public SaleInfo recivePayment(int amountPayment) {
-		this.saleInfo=paymentHandler.handlePayment(amountPayment, saleInfo);
+		this.saleInfo = paymentHandler.handlePayment(amountPayment, saleInfo);
 		sendSaleInfo();
 		return this.saleInfo;
 	}
 
+	/*
+	 * Sends saleInfo to external systems and returns reciept
+	 * 
+	 */
 	public Receipt sendSaleInfo() {
 		Receipt receipt = new Receipt(saleInfo);
-		this.databaseHandler.sendSaleInfo(saleInfo,receipt);
+		this.databaseHandler.sendSaleInfo(saleInfo, receipt);
 		return receipt;
 	}
 
+	/* Returns sale from controller */
 	public Sale GetSale() {
 		return this.sale;
 	}

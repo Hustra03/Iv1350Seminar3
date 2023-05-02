@@ -24,10 +24,10 @@ public class PaymentHandlerTest {
         saleInfo = paymentHandler.handlePayment(amountPayment, saleInfo);
         CustomerPaymentDTO customerPaymentDTO = new CustomerPaymentDTO(amountPayment,
         amountPayment - saleInfo.getTotalPriceAfterDiscount(), paymentHandler.getTime(), paymentHandler.getDate());
-        assertEquals(true, saleInfo.getCustomerPaymentDTO() != null);
-        assertEquals(true, saleInfo.getCustomerPaymentDTO().getPaymentAmount() == customerPaymentDTO.getPaymentAmount());
-        assertEquals(true, saleInfo.getCustomerPaymentDTO().getChange() == customerPaymentDTO.getChange());
-        assertEquals(true, saleInfo.getCustomerPaymentDTO().getTime() == customerPaymentDTO.getTime());
-        assertEquals(true, saleInfo.getCustomerPaymentDTO().getDate() == customerPaymentDTO.getDate());
+        assertEquals("Customer Payment Does Not Exist",true, saleInfo.getCustomerPaymentDTO() != null);
+        assertEquals("Payment Amount Incorrect",true, saleInfo.getCustomerPaymentDTO().getPaymentAmount() == customerPaymentDTO.getPaymentAmount());
+        assertEquals("Change Amount Incorrect",true, saleInfo.getCustomerPaymentDTO().getChange() == customerPaymentDTO.getChange());
+        assertEquals("Time Amount Incorrect",true, saleInfo.getCustomerPaymentDTO().getTime() == customerPaymentDTO.getTime());
+        assertEquals("Date Amount Incorrect",true, saleInfo.getCustomerPaymentDTO().getDate() == customerPaymentDTO.getDate());
     }
 }

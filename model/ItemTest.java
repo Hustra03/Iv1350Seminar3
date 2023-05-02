@@ -16,7 +16,7 @@ public class ItemTest {
     public void ItemTest() {
 		ItemDescriptionDTO dto= new ItemDescriptionDTO();
         Item item = new Item(dto,10);
-        assertNotNull(item);
+        assertNotNull("Item Not Created",item);
 	}
     /*
      * Tests that increaseQuantity changes quantity with specified amount
@@ -26,9 +26,9 @@ public class ItemTest {
 	{
         ItemDescriptionDTO dto= new ItemDescriptionDTO();
         Item item = new Item(dto,10);
-        assertEquals(item.getQuantity(),10);
+        assertEquals("Quantity Not Equivilent",item.getQuantity(),10);
 		item.increaseQuantity(10);
-        assertEquals(item.getQuantity(),20);
+        assertEquals("Quantity Not Correctly Changed",item.getQuantity(),20);
 	}
 
      /*
@@ -39,7 +39,7 @@ public class ItemTest {
 	{
 		ItemDescriptionDTO dto= new ItemDescriptionDTO();
         Item item = new Item(dto,10);
-        assertEquals(item.getQuantity(),10);
+        assertEquals("Quantity Not Returned",item.getQuantity(),10);
 	}
 
     /*
@@ -50,6 +50,6 @@ public class ItemTest {
 	{
 		ItemDescriptionDTO dto= new ItemDescriptionDTO();
         Item item = new Item(dto,10);
-        assertEquals(item.getItemDescriptionDTO(),dto);
+        assertEquals("Item Description Not Returned",item.getItemDescriptionDTO(),dto);
 	}
 }
