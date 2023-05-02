@@ -41,7 +41,7 @@ public class SaleInfo {
 	 * @return discountTotalPrice represents the total price after every discount
 	 * has been applied
 	 */
-	double getTotalPriceAfterDiscount() {
+	public double getTotalPriceAfterDiscount() {
 		return this.discountTotalPrice;
 	}
 
@@ -51,7 +51,7 @@ public class SaleInfo {
 	 * @return discountetTotalVAT represents the total VAT after every discount has
 	 * been applied
 	 */
-	double getTotalVATAfterDiscount() {
+	public double getTotalVATAfterDiscount() {
 		return this.discountTotalVAT;
 	}
 

@@ -4,6 +4,7 @@ import controller.Controller;
 import model.Receipt;
 import model.Sale;
 import model.SaleInfo;
+import model.Item;
 import java.util.Scanner; // Import the Scanner class
 
 public class View {
@@ -27,7 +28,7 @@ public class View {
 		boolean endOperation = false;
 
 		Scanner myObj = new Scanner(System.in); // Create a Scanner object
-		int level = 0;
+		int level = 1;
 		while (endOperation == false) {
 			int i;
 			System.out.println("Enter menu alternative");
@@ -48,7 +49,12 @@ public class View {
 
 	}
 
+	/*
+	 * Handles menu and input/output for first menu option
+	 */
 	private int optionOne(int level) {
+		Scanner myObj = new Scanner(System.in); // Create a Scanner object
+
 		if (level == 1) {
 			controller.startSale();
 			System.out.println("Starting Sale");
@@ -56,26 +62,39 @@ public class View {
 		}
 
 		if (level == 2) {
-			printSale(controller.registerItem(0, 0));
+			System.out.println("Enter item identifyer");
+			int itemId = myObj.nextInt();
+			System.out.println("Item id is: " + itemId);
+
+			System.out.println("Enter quantity");
+			int quantity = myObj.nextInt();
+			System.out.println("Quantity is: " + quantity);
+			printSale(controller.registerItem(itemId, quantity));
 			return 2;
 		}
 
-		if(level == 3)
-		{
+		if (level == 3) {
 			return 4;
 		}
 
 		if (level == 4) {
-			printSaleInfo(controller.recivePayment(0));
+			System.out.println("Enter amount payment");
+			int amountPayment = myObj.nextInt();
+			System.out.println("Amount payment is: " + amountPayment);
+			printSaleInfo(controller.recivePayment(amountPayment));
 			printReciept(controller.sendSaleInfo());
 			return 4;
 		}
 		return 1;
 	}
 
+	/*
+	 * Handles menu and input/output for second menu option
+	 */
 	private int optionTwo(int level) {
 		if (level == 2) {
-			printSaleInfo(controller.endSale());
+			SaleInfo saleInfo= controller.endSale();
+			System.out.println("Total Price :" +saleInfo.getTotalPriceAfterDiscount() + " Total VAT" + saleInfo.getTotalVATAfterDiscount());
 			return 3;
 		}
 		if (level == 3) {
@@ -87,10 +106,45 @@ public class View {
 
 	private void printSale(Sale sale) {
 
+		if (sale.getItemFound() == false) {
+			System.out.println("Identifyer was invalid");
+		} 
+		else {
+			System.out.println("Sale Information : ");
+			System.out.print("[");	
+			int itemNumber =0;
+			for (Item item : sale.getSoldItems()) {
+				System.out.println("Item Information : ");
+				itemNumber+=1;
+				printItem(item,itemNumber);
+			}
+			System.out.print("]");
+			System.out.println("Total Price : " + sale.getTotalPrice());
+			System.out.println("Total VAT : " + sale.getTotalVAT());
+		}
 	}
 
 	private void printSaleInfo(SaleInfo saleInfo) {
 
+		printSale(saleInfo.getSale());
+		System.out.println("Change : " + saleInfo.getCustomerPaymentDTO().getChange());
+		System.out.println("Discounted total price : " + saleInfo.getTotalPriceAfterDiscount());
+		System.out.println("Discounted total VAT : " + saleInfo.getTotalVATAfterDiscount());
+		System.out.println("Customer id : " + saleInfo.getCustomerId());
+		
+	}
+
+
+	private void printItem(Item item, int itemNumber) {
+		System.out.print("{");
+		System.out.print("Item number :" + itemNumber + " ||");
+		System.out.print("ItemId :" + item.getItemDescriptionDTO().getItemId() + " ||");
+		System.out.print("Name :"  + item.getItemDescriptionDTO().getItemId()+ " ||");
+		System.out.print("Price :"  + item.getItemDescriptionDTO().getPrice()+ " ||");
+		System.out.print("VATrate :"  + item.getItemDescriptionDTO().getItemId()+ " ||");
+		System.out.print("Description :" + item.getItemDescriptionDTO().getItemId()+ " ||");
+		System.out.println("");
+		System.out.print("}");
 	}
 
 	private void printReciept(Receipt receipt) {
@@ -99,28 +153,24 @@ public class View {
 
 	private void printMenu(int level) {
 
-		if(level==1)
-		{
+		if (level == 1) {
 			System.out.println("1. Start Sale");
 			System.out.println("2. Do Nothing");
 
 		}
-		if(level==2)
-		{
+		if (level == 2) {
 			System.out.println("1. Register New Item");
 			System.out.println("2. Stop Registering Items");
 
 		}
-		if(level==3)
-		{
+		if (level == 3) {
 			System.out.println("1. No Discount");
 			System.out.println("2. Register Discount");
 
 		}
-		if(level==4)
-		{
-			System.out.println("1.");
-			System.out.println("2.");
+		if (level == 4) {
+			System.out.println("1. End Sale");
+			System.out.println("2. Restart Sale");
 		}
 
 	}
