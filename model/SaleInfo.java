@@ -33,11 +33,10 @@ public class SaleInfo {
 
 	void updateSaleInfoPayment(CustomerPaymentDTO customerPayment) {
 		this.customerPayment = customerPayment;
-
 	}
 
 	/*
-	 * Returns iscounted total price
+	 * Returns discounted total price
 	 * 
 	 * @return discountTotalPrice represents the total price after every discount
 	 * has been applied
@@ -46,10 +45,21 @@ public class SaleInfo {
 		return this.discountTotalPrice;
 	}
 
+	/*
+	 * Returns total Value Added Tax after discount
+	 * 
+	 * @return discountetTotalVAT represents the total VAT after every discount has
+	 * been applied
+	 */
 	double getTotalVATAfterDiscount() {
 		return this.discountTotalVAT;
 	}
 
+	/*
+	 * This method updates discountTotalPrice and discountTotalVAT for sale based on
+	 * current discount
+	 * 
+	 */
 	private void calculateTotalPriceAndVATAfterDiscount() {
 		if (!recordedDiscounts.isEmpty()) {
 			List<Item> soldItems = sale.getSoldItems();
@@ -78,10 +88,22 @@ public class SaleInfo {
 		discountTotalVAT = sale.getTotalVAT();
 	}
 
+	/*
+	 * Returns the sale object this class describes
+	 * 
+	 * @this.sale represents the sale this saleInfo should describe
+	 */
 	public Sale getSale() {
 		return this.sale;
 	}
 
+	/*
+	 * Returns the customerPayment included in this object and for the sale it
+	 * describes
+	 * 
+	 * @this.customerPayment represents the payment made by the customer along with
+	 * information about it
+	 */
 	public CustomerPaymentDTO getCustomerPaymentDTO() {
 		return this.customerPayment;
 	}
