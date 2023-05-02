@@ -10,40 +10,45 @@ public class View {
 		this.controller = controller;
 	}
 
-	/*
-	 * Starts system operation to start Sale
-	 * 
-	 */
-	public void StartSale() {
-		controller.startSale();
+	public void startSystem() {
+		boolean endOperation = true;
+
+		while (endOperation == true) {
+			int i = 0;
+			switch (i) {
+				case 1:
+					optionOne(1);
+					break;
+				case 2:
+					optionOne(2);
+					break;
+			}
+		}
+
 	}
 
-	/*
-	 * Starts system operation to register an item
-	 * 
-	 */
-	public void registerItem() {
-		controller.registerItem(0, 0);
+	private void optionOne(int i) {
+		if (i == 1) {
+			controller.startSale();
+		}
+
+		if (i == 2) {
+			controller.registerItem(0, 0);
+		}
+
+		if (i == 4) {
+			controller.recivePayment(0);
+			controller.sendSaleInfo();
+		}
 	}
 
-	/*
-	 * Starts system operation to stop registering items, or end while loop
-	 * 
-	 */
-	public void endSale() {
-		controller.endSale();
+	private void optionTwo(int i) {
+		if (i == 2) {
+			controller.endSale();
+		}
+		if (i == 3) {
+			controller.getDiscount(0);
+		}
 	}
 
-	/*
-	 * Starts system operation to get and apply discount to sale
-	 * 
-	 */
-	public void getDiscount() {
-		controller.getDiscount(0);
-	}
-
-	public void recivePaymentAndSendSaleInfo() {
-		controller.recivePayment(0);
-		controller.sendSaleInfo();
-	}
 }
