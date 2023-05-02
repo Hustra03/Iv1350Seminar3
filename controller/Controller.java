@@ -87,9 +87,10 @@ public class Controller {
 		return this.saleInfo;
 	}
 
-	public void sendSaleInfo() {
+	public Receipt sendSaleInfo() {
 		Receipt receipt = new Receipt(saleInfo);
 		this.databaseHandler.sendSaleInfo(saleInfo,receipt);
+		return receipt;
 	}
 
 	public Sale GetSale() {

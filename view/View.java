@@ -1,6 +1,9 @@
 package view;
 
 import controller.Controller;
+import model.Receipt;
+import model.Sale;
+import model.SaleInfo;
 
 public class View {
 
@@ -15,7 +18,7 @@ public class View {
 
 		while (endOperation == true) {
 			int i = 0;
-			int level = 0; 
+			int level = 0;
 			switch (i) {
 				case 1:
 					optionOne(level);
@@ -34,22 +37,34 @@ public class View {
 		}
 
 		if (i == 2) {
-			controller.registerItem(0, 0);
+			printSale(controller.registerItem(0, 0));
 		}
 
 		if (i == 4) {
-			controller.recivePayment(0);
-			controller.sendSaleInfo();
+			printSaleInfo(controller.recivePayment(0));
+			printReciept(controller.sendSaleInfo());
 		}
 	}
 
 	private void optionTwo(int i) {
 		if (i == 2) {
-			controller.endSale();
+			printSaleInfo(controller.endSale());
 		}
 		if (i == 3) {
-			controller.getDiscount(0);
+			printSaleInfo(controller.getDiscount(0));
 		}
+	}
+
+	private void printSale(Sale sale) {
+
+	}
+
+	private void printSaleInfo(SaleInfo saleInfo) {
+
+	}
+
+	private void printReciept(Receipt receipt) {
+
 	}
 
 }
