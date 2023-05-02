@@ -16,14 +16,14 @@ public class RegisterTest {
     public void registerItemTest() {
         Sale testSale = new Sale();
         Register testRegister = new Register();
-        ItemDescriptionDTO dto = new ItemDescriptionDTO(33, 1, 2);
+        ItemDescriptionDTO dto = new ItemDescriptionDTO(1, 1, 2);
         int quantity = 1;
         Sale registerSale = testRegister.registerItem(dto, quantity, testSale);
         Item testItem = new Item(dto, quantity);
         assertNotNull(registerSale);
         assertEquals(registerSale.getSoldItems().isEmpty(), false);
         assertEquals(testSale.getSoldItems().isEmpty(), false);
-        assertEquals(registerSale.getSoldItems().contains(testItem), true);// todo vi jämför objekt av olika typ DTO resp Itemmdärför blir detta test fel
+        assertEquals(registerSale.getSoldItems().contains(testItem), true);
     }
 
 }
