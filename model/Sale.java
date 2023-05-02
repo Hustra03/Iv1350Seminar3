@@ -137,4 +137,12 @@ public class Sale {
 	public double getTotalVAT() {
 		return this.totalVAT;
 	}
+	boolean getItemFromSaleItemId(Sale saleToSearchItemId, int id) {
+		for (Item itemInSaleFound : soldItems) {
+			if (itemInSaleFound.getItemDescriptionDTO().getItemId() == id) {
+				return true;
+			}
+		}
+		return false;
+	}
 }
