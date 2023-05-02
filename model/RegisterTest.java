@@ -25,7 +25,7 @@ public class RegisterTest {
         assertEquals(testSale.getSoldItems().isEmpty(), false);
         boolean expected = true;
         boolean foundItem = registerSale.getItemFromSaleItemId( registerSale,id);
-        assertTrue("Varan finns inte med i listan över sold item", foundItem);
+        assertTrue("Varan finns inte med i listan över sålda varor", foundItem);
 
     }
 
