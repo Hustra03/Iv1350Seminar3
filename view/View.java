@@ -113,10 +113,12 @@ public class View {
 			System.out.println("Sale Information : ");
 			System.out.println("Item Information : ");
 			int itemNumber =0;
+			System.out.print("[");
 			for (Item item : sale.getSoldItems()) {
 				itemNumber+=1;
 				printItem(item,itemNumber);
 			}
+			System.out.print("]");
 			System.out.println("Total Price : " + sale.getTotalPrice());
 			System.out.println("Total VAT : " + sale.getTotalVAT());
 		}
@@ -124,10 +126,18 @@ public class View {
 
 	private void printSaleInfo(SaleInfo saleInfo) {
 
+		printSale(saleInfo.getSale());
+		System.out.println("recordedDiscounts : " + saleInfo.getRecordedDiscounts());
+		System.out.println("customerPayment : " + saleInfo.getCustomerPaymentDTO());
+		System.out.println("discountTotalPrice : " + saleInfo.getTotalPriceAfterDiscount());
+		System.out.println("discountTotalVAT : " + saleInfo.getTotalVATAfterDiscount());
+		System.out.println("customerId : " + saleInfo.getCustomerId());
+		
 	}
 
 
 	private void printItem(Item item, int itemNumber) {
+		System.out.print("{");
 		System.out.print("Item number :" + itemNumber + " ||");
 		System.out.print("ItemId :" + item.getItemDescriptionDTO().getItemId() + " ||");
 		System.out.print("Name :"  + item.getItemDescriptionDTO().getItemId()+ " ||");
@@ -135,6 +145,7 @@ public class View {
 		System.out.print("VATrate :"  + item.getItemDescriptionDTO().getItemId()+ " ||");
 		System.out.print("Description :" + item.getItemDescriptionDTO().getItemId()+ " ||");
 		System.out.println("");
+		System.out.print("}");
 	}
 
 	private void printReciept(Receipt receipt) {
