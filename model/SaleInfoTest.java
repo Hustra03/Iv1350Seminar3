@@ -30,7 +30,7 @@ public class SaleInfoTest {
     @Test
     public void setDiscountAndCustomerIdTest() {
         int customerId=10;
-        List<Discount> discountList=new ArrayList<Discount>(null);
+        List<Discount> discountList=new ArrayList<Discount>();
         discountList.add(new Discount(customerId, null, null, customerId, customerId));
         
         saleInfo.setDiscountAndCustomerId(discountList, customerId);

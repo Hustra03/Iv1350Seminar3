@@ -80,12 +80,10 @@ public class SaleInfo {
 				this.discountTotalVAT += item.getPriceForQuantity() * actualDiscount
 						* item.getItemDescriptionDTO().getVATrate() / 100;
 			}
+		} else {
+			discountTotalPrice = sale.getTotalPrice();
+			discountTotalVAT = sale.getTotalVAT();
 		}
-	}
-
-	{
-		discountTotalPrice = sale.getTotalPrice();
-		discountTotalVAT = sale.getTotalVAT();
 	}
 
 	/*
