@@ -15,12 +15,13 @@ public class View {
 
 		while (endOperation == true) {
 			int i = 0;
+			int level = 0; 
 			switch (i) {
 				case 1:
-					optionOne(1);
+					optionOne(level);
 					break;
 				case 2:
-					optionOne(2);
+					optionOne(level);
 					break;
 			}
 		}
