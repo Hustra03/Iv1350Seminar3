@@ -107,14 +107,14 @@ public class View {
 	private void printSale(Sale sale) {
 
 		if (sale.getItemFound() == false) {
-			System.out.println("Item Not Found");
+			System.out.println("Identifyer was invalid");
 		} 
 		else {
 			System.out.println("Sale Information : ");
-			System.out.println("Item Information : ");
+			System.out.print("[");	
 			int itemNumber =0;
-			System.out.print("[");
 			for (Item item : sale.getSoldItems()) {
+				System.out.println("Item Information : ");
 				itemNumber+=1;
 				printItem(item,itemNumber);
 			}
@@ -127,11 +127,10 @@ public class View {
 	private void printSaleInfo(SaleInfo saleInfo) {
 
 		printSale(saleInfo.getSale());
-		System.out.println("recordedDiscounts : " + saleInfo.getRecordedDiscounts());
-		System.out.println("customerPayment : " + saleInfo.getCustomerPaymentDTO());
-		System.out.println("discountTotalPrice : " + saleInfo.getTotalPriceAfterDiscount());
-		System.out.println("discountTotalVAT : " + saleInfo.getTotalVATAfterDiscount());
-		System.out.println("customerId : " + saleInfo.getCustomerId());
+		System.out.println("Change : " + saleInfo.getCustomerPaymentDTO().getChange());
+		System.out.println("Discounted total price : " + saleInfo.getTotalPriceAfterDiscount());
+		System.out.println("Discounted total VAT : " + saleInfo.getTotalVATAfterDiscount());
+		System.out.println("Customer id : " + saleInfo.getCustomerId());
 		
 	}
 
