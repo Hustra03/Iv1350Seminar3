@@ -93,13 +93,18 @@ public class View {
 	 * Handles menu and input/output for second menu option
 	 */
 	private int optionTwo(int level) {
+		Scanner myObj = new Scanner(System.in); // Create a Scanner object
+
 		if (level == 2) {
 			SaleInfo saleInfo= controller.endSale();
 			System.out.println("Total Price :" +saleInfo.getTotalPriceAfterDiscount() + "|| Total VAT : " + saleInfo.getTotalVATAfterDiscount());
 			return 3;
 		}
 		if (level == 3) {
-			printSaleInfo(controller.getDiscount(0));
+			System.out.println("Enter Customer Id");
+			int customerId = myObj.nextInt();
+			System.out.println("Amount Customer Id: " + customerId);
+			printSaleInfo(controller.getDiscount(customerId));
 			return 4;
 		}
 		return 1;
@@ -128,7 +133,8 @@ public class View {
 	private void printSaleInfo(SaleInfo saleInfo) {
 
 		printSale(saleInfo.getSale());
-		System.out.println("Change : " + saleInfo.getCustomerPaymentDTO().getChange());
+		if(saleInfo.getCustomerPaymentDTO()!=null)
+		{System.out.println("Change : " + saleInfo.getCustomerPaymentDTO().getChange());}
 		System.out.println("Discounted total price : " + saleInfo.getTotalPriceAfterDiscount());
 		System.out.println("Discounted total VAT : " + saleInfo.getTotalVATAfterDiscount());
 		System.out.println("Customer id : " + saleInfo.getCustomerId());
