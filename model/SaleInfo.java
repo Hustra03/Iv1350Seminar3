@@ -45,25 +45,6 @@ public class SaleInfo {
 		this.customerPayment = customerPayment;
 	}
 
-	/*
-	 * Returns discounted total price
-	 * 
-	 * @return discountTotalPrice represents the total price after every discount
-	 * has been applied
-	 */
-	public double getTotalPriceAfterDiscount() {
-		return this.discountTotalPrice;
-	}
-
-	/*
-	 * Returns total Value Added Tax after discount
-	 * 
-	 * @return discountetTotalVAT represents the total VAT after every discount has
-	 * been applied
-	 */
-	public double getTotalVATAfterDiscount() {
-		return this.discountTotalVAT;
-	}
 
 	/*
 	 * This method updates discountTotalPrice and discountTotalVAT for sale based on
@@ -93,6 +74,25 @@ public class SaleInfo {
 		}
 	}
 
+	/*
+	 * Returns discounted total price
+	 * 
+	 * @return discountTotalPrice represents the total price after every discount
+	 * has been applied
+	 */
+	public double getTotalPriceAfterDiscount() {
+		return this.discountTotalPrice;
+	}
+
+	/*
+	 * Returns total Value Added Tax after discount
+	 * 
+	 * @return discountetTotalVAT represents the total VAT after every discount has
+	 * been applied
+	 */
+	public double getTotalVATAfterDiscount() {
+		return this.discountTotalVAT;
+	}
 	/*
 	 * Returns the sale object this class describes
 	 * 

@@ -8,7 +8,7 @@ public class Discount {
 
 	private List<Integer> applicableIds;
 
-	private List<Item> applicableItems;
+	private List<Integer> applicableItemsId;
 
 	private int minimumItemAmount;
 
@@ -31,11 +31,11 @@ public class Discount {
 	 * for this discount to be valid
 	 * 
 	 */
-	public Discount(int discountPercent, List<Integer> applicableId, List<Item> applicableItems, int minimumItemAmount,
+	public Discount(int discountPercent, List<Integer> applicableId, List<Integer> applicableItemsId, int minimumItemAmount,
 			int minimumTotalPrice) {
 		this.discountPercent = discountPercent;
 		this.applicableIds = applicableId;
-		this.applicableItems = applicableItems;
+		this.applicableItemsId = applicableItemsId;
 		this.minimumItemAmount = minimumItemAmount;
 		this.minimumTotalPrice = minimumTotalPrice;
 	}
@@ -72,8 +72,8 @@ public class Discount {
 	 * @return applicableItems contains information about this discounts applicable
 	 * items
 	 */
-	public List<Item> getApplicableItems() {
-		return this.applicableItems;
+	public List<Integer> getApplicableItemId() {
+		return this.applicableItemsId;
 	}
 
 	/*

@@ -67,7 +67,7 @@ public class DatabaseHandler {
 		for (Discount discount : everyDiscount) {
 			if (discount.getApplicableId().contains(customerId)) {
 				for (Item item : saleInfo.getSale().getSoldItems()) {
-					if (discount.getApplicableItems().contains(item)) {
+					if (discount.getApplicableItemId().contains(item.getItemDescriptionDTO().getItemId())) {
 						if (saleInfo.getSale().getSoldItems().size() > discount.getMinimumItemAmount()) {
 							if (saleInfo.getSale().getTotalPrice() > discount.getMinimumTotalPrice()) {
 								discountList.add(discount);
@@ -125,12 +125,12 @@ public class DatabaseHandler {
 	private List<Discount> createEveryDiscount() {
 
 		List<Integer> applicableIds = new ArrayList<Integer>();
-		List<Item> applicableItems = new ArrayList<Item>();
+		List<Integer> applicableItemsId = new ArrayList<Integer>();
 		int discountPercent = 0;
 		int minimumItemAmount = 0;
 		int minimumTotalPrice = 0;
 
-		Discount discount = new Discount(discountPercent, applicableIds, applicableItems, minimumItemAmount,
+		Discount discount = new Discount(discountPercent, applicableIds, applicableItemsId, minimumItemAmount,
 				minimumTotalPrice);
 		List<Discount> everyDiscount = new ArrayList<Discount>();
 		everyDiscount.add(discount);
