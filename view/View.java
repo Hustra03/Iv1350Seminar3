@@ -119,7 +119,7 @@ public class View {
 				itemNumber+=1;
 				printItem(item,itemNumber);
 			}
-			System.out.print("]");
+			System.out.println("]");
 			System.out.println("Total Price : " + sale.getTotalPrice());
 			System.out.println("Total VAT : " + sale.getTotalVAT());
 		}
@@ -137,7 +137,7 @@ public class View {
 
 
 	private void printItem(Item item, int itemNumber) {
-		System.out.print("{");
+		System.out.println("{");
 		System.out.print("Item number :" + itemNumber + " ||");
 		System.out.print("ItemId :" + item.getItemDescriptionDTO().getItemId() + " ||");
 		System.out.print("Item Quantity :" + item.getQuantity() + " ||");
