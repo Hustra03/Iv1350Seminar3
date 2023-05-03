@@ -79,8 +79,13 @@ public class View {
 		}
 
 		if (level == 4) {
-			System.out.println("Enter amount payment");
+			System.out.print("Enter amount payment : ");
 			int amountPayment = myObj.nextInt();
+			while(amountPayment<=controller.GetSaleInfo().getTotalPriceAfterDiscount())
+			{
+				System.out.print("Enter amount payment : ");
+				amountPayment = myObj.nextInt();
+			}
 			System.out.println("Amount payment is: " + amountPayment);
 			printSaleInfo(controller.recivePayment(amountPayment));
 			printReciept(controller.sendSaleInfo());
@@ -191,8 +196,8 @@ public class View {
 
 		}
 		if (level == 4) {
-			System.out.println("1. End Sale");
-			System.out.println("2. Restart Sale");
+			System.out.println("1. Enter Payment");
+			System.out.println("2. Remove Current Sale");
 		}
 
 	}

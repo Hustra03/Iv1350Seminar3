@@ -101,17 +101,17 @@ public class DatabaseHandler {
 
 		List<ItemDescriptionDTO> inventoryItems;
 		inventoryItems = new ArrayList<ItemDescriptionDTO>();
-		ItemDescriptionDTO DTO = new ItemDescriptionDTO(0, "Item 1", 1, 0, "Apple");
+		ItemDescriptionDTO DTO = new ItemDescriptionDTO(0, "Apple", 1, 0, "A number of Apple(s)");
 		inventoryItems.add(DTO);
-		DTO = new ItemDescriptionDTO(1, "Item 2", 10, 10, "Banana");
+		DTO = new ItemDescriptionDTO(1, "Banana", 10, 10, "A bunch of Banana(s)");
 		inventoryItems.add(DTO);
-		DTO = new ItemDescriptionDTO(2, "Item 3", 30, 15, "Citrus");
+		DTO = new ItemDescriptionDTO(2, "Citrus", 30, 15, "A flock of Citrus");
 		inventoryItems.add(DTO);
-		DTO = new ItemDescriptionDTO(3, "Item 4", 50, 20, "Bred");
+		DTO = new ItemDescriptionDTO(3, "Bread", 50, 20, "LoafBread");
 		inventoryItems.add(DTO);
-		DTO = new ItemDescriptionDTO(4, "Item 5", 100, 50, "Milk");
+		DTO = new ItemDescriptionDTO(4, "Milk", 100, 50, "Milk Carton");
 		inventoryItems.add(DTO);
-		DTO = new ItemDescriptionDTO(5, "Item 6", 25, 10, "Butter");
+		DTO = new ItemDescriptionDTO(5, "Butter", 25, 10, "ButterStick Knockback 2");
 		inventoryItems.add(DTO);
 		return inventoryItems;
 	}
@@ -125,7 +125,11 @@ public class DatabaseHandler {
 	private List<Discount> createEveryDiscount() {
 
 		List<Integer> applicableIds = new ArrayList<Integer>();
+		applicableIds.add(1);
+		applicableIds.add(2);
+		applicableIds.add(3);
 		List<Integer> applicableItemsId = new ArrayList<Integer>();
+		applicableIds.add(1);
 		int discountPercent = 0;
 		int minimumItemAmount = 0;
 		int minimumTotalPrice = 0;

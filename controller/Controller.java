@@ -79,8 +79,8 @@ public class Controller {
 	 */
 	public SaleInfo getDiscount(int customerId) {
 		List<Discount> discountList = dbHandler.findDiscount(saleInfo, customerId);
-		saleInfo.setDiscountAndCustomerId(discountList, customerId);
-		return saleInfo;
+		this.saleInfo.setDiscountAndCustomerId(discountList, customerId);
+		return this.saleInfo;
 	}
 
 	/*
@@ -106,5 +106,9 @@ public class Controller {
 	/* Returns sale from controller */
 	public Sale GetSale() {
 		return this.sale;
+	}
+	/* Returns saleInfo from controller */
+	public SaleInfo GetSaleInfo() {
+		return this.saleInfo;
 	}
 }
