@@ -13,7 +13,7 @@ import intergration.ItemDescriptionDTO;
 
 public class Controller {
 
-	private DatabaseHandler databaseHandler;
+	private DatabaseHandler dbHandler;
 
 	private PaymentHandler paymentHandler;
 
@@ -34,7 +34,7 @@ public class Controller {
 	 * @param date represents the time of sale initializatin
 	 */
 	public Controller(DatabaseHandler dbHandler) {
-		this.databaseHandler = dbHandler;
+		this.dbHandler = dbHandler;
 		this.paymentHandler = new PaymentHandler();
 		this.register = new Register();
 	}
@@ -57,7 +57,7 @@ public class Controller {
 	 * @return represents the sale items are registered to
 	 */
 	public Sale registerItem(int itemId, int quantity) {
-		ItemDescriptionDTO itemInfo = databaseHandler.getItem(itemId);
+		ItemDescriptionDTO itemInfo = dbHandler.getItem(itemId);
 		this.sale = register.registerItem(itemInfo, quantity, sale);
 		return this.sale;
 	}
@@ -78,7 +78,7 @@ public class Controller {
 	 * 
 	 */
 	public SaleInfo getDiscount(int customerId) {
-		List<Discount> discountList = databaseHandler.findDiscount(saleInfo, customerId);
+		List<Discount> discountList = dbHandler.findDiscount(saleInfo, customerId);
 		saleInfo.setDiscountAndCustomerId(discountList, customerId);
 		return saleInfo;
 	}
@@ -99,7 +99,7 @@ public class Controller {
 	 */
 	public Receipt sendSaleInfo() {
 		Receipt receipt = new Receipt(saleInfo);
-		this.databaseHandler.sendSaleInfo(saleInfo, receipt);
+		this.dbHandler.sendSaleInfo(saleInfo, receipt);
 		return receipt;
 	}
 

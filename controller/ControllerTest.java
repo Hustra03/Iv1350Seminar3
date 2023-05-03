@@ -11,37 +11,34 @@ import org.junit.Before;
 import org.junit.After;
 
 import intergration.DatabaseHandler;
-import model.PaymentHandler;
-import model.Register;
 import model.Sale;
-import model.Discount;
 import model.SaleInfo;
 
 public class ControllerTest {
 
-	private Controller controller;
+	private Controller contr;
 
 	@Before
 	public void setUp() {
-		DatabaseHandler databaseHandler = new DatabaseHandler();
-		controller = new Controller(databaseHandler);
+		DatabaseHandler dbHandler = new DatabaseHandler();
+		contr = new Controller(dbHandler);
 	}
 
 	@After
 	public void tearDown() {
-		controller = null;
+		contr = null;
 	}
 
 	@Test
 	public void ControllerCreateTest() {
-		assertNotNull("Controller Not Created",controller);
+		assertNotNull("Controller Not Created", contr);
 	}
 
 	@Test
 	public void startSaleTest() {
-		assertNull("Sale Not Started",controller.GetSale());
-		controller.startSale();
-		assertNotNull("Sale Not Started",controller.GetSale());
+		assertNull("Sale Not Started", contr.GetSale());
+		contr.startSale();
+		assertNotNull("Sale Not Started", contr.GetSale());
 	}
 
 	/*
@@ -51,8 +48,8 @@ public class ControllerTest {
 	public void registerItemTest() {
 		int itemId=1;
 		int quantity = 1;
-		controller.startSale();
-		Sale sale = controller.registerItem(itemId, quantity);
+		contr.startSale();
+		Sale sale = contr.registerItem(itemId, quantity);
 		assertNotNull("Item Not Registered", sale.getSoldItems());
 		int registeredId=sale.getSoldItems().get(0).getItemDescriptionDTO().getItemId();
 		assertTrue("Item id incorrectly registered",0!=registeredId);
@@ -62,25 +59,25 @@ public class ControllerTest {
 
 	@Test
 	public void endSaleTest() {
-		controller.startSale();
-		Sale beforeSale=controller.GetSale();
-		SaleInfo saleInfo = controller.endSale();
+		contr.startSale();
+		Sale beforeSale= contr.GetSale();
+		SaleInfo saleInfo = contr.endSale();
 		int itemId=1;
 		int quantity = 1;
 		assertNotNull("Sale Not Ended", saleInfo.getSale());
 		assertEquals("Sale Not Ended Correctly",saleInfo.getSale(),beforeSale);
-		controller.startSale();
-		controller.registerItem(itemId, quantity);
-		saleInfo = controller.endSale();
+		contr.startSale();
+		contr.registerItem(itemId, quantity);
+		saleInfo = contr.endSale();
 		assertNotEquals("Sale returned after end incorrect",saleInfo.getSale(),beforeSale);
 	}
 
 	@Test
 	public void getDiscountTest() {
-		controller.startSale();
+		contr.startSale();
 		int customerId=0;
-		controller.endSale();
-		SaleInfo saleInfo =controller.getDiscount(customerId);
+		contr.endSale();
+		SaleInfo saleInfo = contr.getDiscount(customerId);
 		assertNotNull("Discount Not Found",saleInfo.getRecordedDiscounts());
 
 	}
@@ -88,21 +85,21 @@ public class ControllerTest {
 	@Test
 	public void recivePaymentTest() {
 		
-		controller.startSale();
-		int amountPayment=0;
-		SaleInfo saleInfo=controller.endSale();
-		saleInfo=controller.recivePayment(amountPayment);
+		contr.startSale();
+		int amountPayment = 0;
+		SaleInfo saleInfo = contr.endSale();
+		saleInfo = contr.recivePayment(amountPayment);
 		assertNotNull("Payment Not Recived",saleInfo.getCustomerPaymentDTO());
 	}
 
 	@Test
 	public void sendSaleInfoTest() {
 
-		controller.startSale();
+		contr.startSale();
 		int amountPayment=0;
-		SaleInfo saleInfo=controller.endSale();
-		saleInfo=controller.recivePayment(amountPayment);
-		controller.sendSaleInfo();
+		SaleInfo saleInfo= contr.endSale();
+		saleInfo= contr.recivePayment(amountPayment);
+		contr.sendSaleInfo();
 	}
 
 }
