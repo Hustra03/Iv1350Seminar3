@@ -49,6 +49,7 @@ public class ControllerTest {
 		int itemId=1;
 		int quantity = 1;
 		contr.startSale();
+		assertTrue("Sold Items has item before registration ", contr.GetSale().getSoldItems().isEmpty());
 		Sale sale = contr.registerItem(itemId, quantity);
 		assertNotNull("Item Not Registered", sale.getSoldItems());
 		int registeredId=sale.getSoldItems().get(0).getItemDescriptionDTO().getItemId();
@@ -65,7 +66,7 @@ public class ControllerTest {
 		int itemId=1;
 		int quantity = 1;
 		assertNotNull("Sale Not Ended", saleInfo.getSale());
-		assertEquals("Sale Not Ended Correctly",saleInfo.getSale(),beforeSale);
+		assertEquals("Sale Changed By Being Ended",saleInfo.getSale(),beforeSale);
 		contr.startSale();
 		contr.registerItem(itemId, quantity);
 		saleInfo = contr.endSale();

@@ -56,7 +56,6 @@ public class Sale {
 	 * @param sold this object is the item which was added to the soldItems,
 	 * and which is to be checked for and potentially merged if another exists
 	 */
-	// Update below to pricate, needs package for testing
 	void itemMerger(Item soldItem) {
 		if (soldItems.size() > 1 && soldItems.contains(soldItem)) {
 			for (Item item : this.soldItems) {
@@ -74,7 +73,6 @@ public class Sale {
 	 * Updates runningTotals to represent current soldItems list
 	 * 
 	 */
-	// Update below to pricate, needs package for testing
 	void calculateRunningTotal() {
 		this.totalPrice = 0;
 		this.totalVAT = 0;
