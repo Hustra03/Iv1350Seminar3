@@ -148,6 +148,19 @@ public class View {
 	}
 
 	private void printReciept(Receipt receipt) {
+		System.out.println("Reciept info :");
+		System.out.print("Time"+receipt.getTime()+"||");
+		System.out.print("Date"+receipt.getDate()+"||");
+		System.out.print("Total Price" + receipt.getTotalPrice()+"||");
+		System.out.print("Total VAT"+receipt.getTotalVAT()+"||");
+		System.out.print("Total Payment" + receipt.getTotalPayment()+ "||");
+		System.out.print("Total Change" + receipt.getTotalChange()+"||" );
+		System.out.println("Items sold:");
+		int itemNumber=0;
+		for (Item item : receipt.getSoldItems()) {
+			printItem(item,itemNumber);
+		}
+
 
 	}
 

@@ -30,4 +30,58 @@ public class Receipt {
 		this.totalChange = saleInfo.getCustomerPaymentDTO().getChange();
 	}
 
+
+	/*
+	 * Returns the list of sold items
+	 * 
+	 * @return <code>soldItems</code>, represents the list of items sold in sale
+	 */
+	public List<Item> getSoldItems() {
+		return this.soldItems;
+	}
+
+	/*
+	 * Returns the double TotalPrice
+	 * 
+	 * @return <code>TotalPrice</code>, represents the total price of sale
+	 */
+	public double getTotalPrice() {
+		return this.totalPrice;
+	}
+
+	/*
+	 * Returns the double TotalVAT
+	 * 
+	 * @return <code>TotalVAT</code>, represents the total value of VAT
+	 */
+	public double getTotalVAT() {
+		return this.totalVAT;
+	}
+
+	
+	public LocalDate getDate() {
+		return this.date;
+	}
+
+	public long getTime() {
+		return this.time;
+	}
+
+	/*
+	 * Returns objects paymentAmount
+	 * 
+	 * @return paymentAmount represents the amount of payment given to
+	 */
+	public double getTotalPayment() {
+		return this.totalPayment;
+	}
+
+	/*
+	 * Returns objects change
+	 * 
+	 * @return change represents the diffrence in totalPrice and amountPayment
+	 */
+	public double getTotalChange() {
+		return this.totalChange;
+	}
 }
