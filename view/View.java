@@ -139,7 +139,7 @@ public class View {
 		System.out.print("{");
 		System.out.print("Item number :" + itemNumber + " ||");
 		System.out.print("ItemId :" + item.getItemDescriptionDTO().getItemId() + " ||");
-		System.out.print("Name :"  + item.getItemDescriptionDTO().getName()+ " ||");1
+		System.out.print("Name :"  + item.getItemDescriptionDTO().getName()+ " ||");
 		System.out.print("Price :"  + item.getItemDescriptionDTO().getPrice()+ " ||");
 		System.out.print("VATrate :"  + item.getItemDescriptionDTO().getVATrate()+ "% ||");
 		System.out.print("Description :" + item.getItemDescriptionDTO().getDescription()+ " ||");
