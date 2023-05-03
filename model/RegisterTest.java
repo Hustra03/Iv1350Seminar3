@@ -36,9 +36,13 @@ public class RegisterTest {
         registerSale = testRegister.registerItem(dto, quantity, registerSale);
         assertTrue("Register Sale incorrect size, expected 1",registerSale.getSoldItems().size()==1);
         assertTrue("Item quantity incorrect, expected 1",registerSale.getSoldItems().get(0).getQuantity()==2);
+        assertTrue("Total Price incorrect value",registerSale.getTotalPrice()==2);
+
 
         registerSale = testRegister.registerItem(dto2, quantity, registerSale);
         assertTrue("Register Sale incorrect size, expected 2",registerSale.getSoldItems().size()==2);
+        assertTrue("Total Price incorrect value",registerSale.getTotalPrice()==3);
+
 
 
 
