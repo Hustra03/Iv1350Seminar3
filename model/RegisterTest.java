@@ -23,9 +23,9 @@ public class RegisterTest {
         Sale registerSale = testRegister.registerItem(dto, quantity, testSale);
         assertNotNull(registerSale);
         assertEquals(registerSale.getSoldItems().isEmpty(), false);
-        boolean expected = true;
+        //boolean expected = true;
         boolean foundItem = registerSale.getItemFromSaleItemId(registerSale, id);
-        assertTrue("Varan finns inte med i listan över sålda varor", foundItem);
+        assertTrue("Item doesnt exist in the list of sold items", foundItem);
         assertTrue("Total Price not updated", registerSale.getTotalPrice() > 0);
         assertTrue("Total Price incorrect value", registerSale.getTotalPrice() == 1);
         assertTrue("Total Price both ==1 and ==2", registerSale.getTotalPrice() != 2);
