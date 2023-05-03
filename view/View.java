@@ -174,8 +174,6 @@ public class View {
 		for (Item item : receipt.getSoldItems()) {
 			printItem(item,itemNumber);
 		}
-
-
 	}
 
 	private void printMenu(int level) {
