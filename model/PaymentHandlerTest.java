@@ -4,6 +4,8 @@ import intergration.CustomerPaymentDTO;
 import intergration.ItemDescriptionDTO;
 
 import static org.junit.Assert.assertEquals;
+import static org.junit.Assert.assertNotNull;
+import static org.junit.Assert.assertTrue;
 
 import org.junit.Test;
 
@@ -25,14 +27,13 @@ public class PaymentHandlerTest {
         CustomerPaymentDTO customerPaymentDTO = new CustomerPaymentDTO(amountPayment,
                 amountPayment - saleInfo.getTotalPriceAfterDiscount(), paymentHandler.getTime(),
                 paymentHandler.getDate());
-        assertEquals("Customer Payment Does Not Exist", true, saleInfo.getCustomerPaymentDTO() != null);
-        assertEquals("Payment Amount Incorrect Value", true,
-                saleInfo.getCustomerPaymentDTO().getPaymentAmount() == customerPaymentDTO.getPaymentAmount());
-        assertEquals("Change Amount Incorrect Value", true,
+        assertNotNull("Customer Payment Does Not Exist", saleInfo.getCustomerPaymentDTO());
+        assertTrue("Payment Amount Incorrect Value", saleInfo.getCustomerPaymentDTO().getPaymentAmount() == customerPaymentDTO.getPaymentAmount());
+        assertTrue("Change Amount Incorrect Value",
                 saleInfo.getCustomerPaymentDTO().getChange() == customerPaymentDTO.getChange());
-        assertEquals("Time Amount Incorrect Value", true,
+        assertTrue("Time Amount Incorrect Value",
                 saleInfo.getCustomerPaymentDTO().getTime() == customerPaymentDTO.getTime());
-        assertEquals("Date Amount Incorrect Value", true,
+        assertTrue("Date Amount Incorrect Value",
                 saleInfo.getCustomerPaymentDTO().getDate() == customerPaymentDTO.getDate());
     }
 }
