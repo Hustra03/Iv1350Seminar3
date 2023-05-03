@@ -83,7 +83,12 @@ public class SaleInfoTest {
         sale = testRegister.registerItem(itemDTO, 10, sale); 
         saleInfo = new SaleInfo(sale);
         saleInfo.setDiscountAndCustomerId(discountList, itemId);
-        
+        assertTrue("Discounted total price not initialized",saleInfo.getTotalPriceAfterDiscount()!=0);
+        assertTrue("Discounted total price not discounted",saleInfo.getTotalPriceAfterDiscount()!=12);
+        assertTrue("Discounted total price incorrect, currently : " + saleInfo.getTotalPriceAfterDiscount() +" ",saleInfo.getTotalPriceAfterDiscount()==12*0.8);
+
+
+
     }
 
     @Test

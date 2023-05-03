@@ -65,8 +65,7 @@ public class SaleInfo {
 					}
 				}
 				this.discountTotalPrice += item.getPriceForQuantity() * actualDiscount;
-				this.discountTotalVAT += item.getPriceForQuantity() * actualDiscount
-						* item.getItemDescriptionDTO().getVATrate() / 100;
+				this.discountTotalVAT += this.discountTotalPrice * item.getItemDescriptionDTO().getVATrate() / 100;
 			}
 		} else {
 			discountTotalPrice = sale.getTotalPrice();
