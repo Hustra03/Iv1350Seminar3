@@ -18,6 +18,9 @@ public class SaleInfo {
 
 	private int customerId;
 
+	/* Creates an SaleInfo object based upon a sale with an empty discount list and calculates discountTotalPrice and discountTotalVAT
+	 * @param Sale is the sale object this saleInfo describes and becomes the sale attribute
+	 */
 	public SaleInfo(Sale sale) {
 		this.sale = sale;
 		List<Discount> recordedDiscounts = new ArrayList<Discount>();
@@ -25,12 +28,19 @@ public class SaleInfo {
 		calculateTotalPriceAndVATAfterDiscount();
 	}
 
+	/* Replaces customerId and recordedDiscount attributes with respective parameters and recalculates discountTotalPrice and discountTotalVAT
+	 * @param recordedDiscounts represents the list of discounts which will apply to this sale
+	 * @param customerId represents the customerId of the customer this sale is made for/by/to
+	 */
 	public void setDiscountAndCustomerId(List<Discount> recordedDiscounts, int customerId) {
 		this.customerId = customerId;
 		this.recordedDiscounts = recordedDiscounts;
 		calculateTotalPriceAndVATAfterDiscount();
 	}
 
+	/* Replaces customerPayment with the respective attribute
+	 * @param customerPayment is the CustomerPaymentDTO which this 
+	 */
 	void updateSaleInfoPayment(CustomerPaymentDTO customerPayment) {
 		this.customerPayment = customerPayment;
 	}
@@ -66,14 +76,11 @@ public class SaleInfo {
 			this.discountTotalPrice = 0;
 			this.discountTotalVAT = 0;
 			for (Item item : soldItems) {
-				double actualDiscount = 0;
+				double actualDiscount = 1;
 				for (Discount discount : recordedDiscounts) {
 					if (discount.getApplicableId().contains(item.getItemDescriptionDTO().getItemId())) {
-						if (actualDiscount == 0) {
-							actualDiscount += discount.getDiscountPercent() / 100;
-						}
-					} else {
-						actualDiscount *= discount.getDiscountPercent() / 100;
+						
+						actualDiscount *= (100-(discount.getDiscountPercent()) / 100);
 					}
 				}
 				this.discountTotalPrice += item.getPriceForQuantity() * actualDiscount;
@@ -89,7 +96,7 @@ public class SaleInfo {
 	/*
 	 * Returns the sale object this class describes
 	 * 
-	 * @this.sale represents the sale this saleInfo should describe
+	 * @return this.sale represents the sale this saleInfo should describe
 	 */
 	public Sale getSale() {
 		return this.sale;
@@ -99,17 +106,28 @@ public class SaleInfo {
 	 * Returns the customerPayment included in this object and for the sale it
 	 * describes
 	 * 
-	 * @this.customerPayment represents the payment made by the customer along with
+	 * @return this.customerPayment represents the payment made by the customer along with
 	 * information about it
 	 */
 	public CustomerPaymentDTO getCustomerPaymentDTO() {
 		return this.customerPayment;
 	}
 
+	/*
+	 * Returns the customerId included in this object and for the sale it
+	 * describes
+	 * 
+	 * @return this.customerId represents the customerId for the customer this sale is for
+	 */
 	public int getCustomerId() {
 		return this.customerId;
 	}
-
+/*
+	 * Returns the recordedDiscounts included in this object and for the sale it
+	 * describes
+	 * 
+	 * @return this.recordedDiscounts list of applicable discounts applied to this sale
+	 */
 	public List<Discount> getRecordedDiscounts() {
 		return this.recordedDiscounts;
 	}
