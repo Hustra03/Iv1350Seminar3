@@ -137,6 +137,11 @@ public class Sale {
 	public double getTotalVAT() {
 		return this.totalVAT;
 	}
+	/* Returns a boolean describing if a sale contains an item with specified id
+	 * @param saleToSearchItemId is the sale which is being searched for an item with the id
+	 * @param id is the id being searched for
+	 * @return is a boolean describing if an item with matching id was found or not, true if one was, and false if not
+	 */
 	boolean getItemFromSaleItemId(Sale saleToSearchItemId, int id) {
 		for (Item itemInSaleFound : soldItems) {
 			if (itemInSaleFound.getItemDescriptionDTO().getItemId() == id) {

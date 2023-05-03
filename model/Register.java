@@ -39,10 +39,9 @@ public class Register {
 		if ((quantity > 0) && (foundItem != null)) {
 			Item foundActualItem = new Item(foundItem, quantity);
 			this.sale.addItemInfo(foundActualItem);
-			/*
-			 * this.sale.itemMerger(foundActualItem);
-			 * this.sale.calculateRunningTotal();
-			 */
+			this.sale.itemMerger(foundActualItem);
+			this.sale.calculateRunningTotal();
+
 		}
 		return this.sale;
 	}
