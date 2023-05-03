@@ -12,7 +12,7 @@ public class PaymentHandlerTest {
     @Test
     public void handlePaymentTest() {
         PaymentHandler paymentHandler = new PaymentHandler();
-        double price=200;
+        double price = 200;
         ItemDescriptionDTO itemDescriptionDTO = new ItemDescriptionDTO(19, price, 19);
         Item item = new Item(itemDescriptionDTO, 1);
         Sale sale = new Sale(item);
@@ -23,11 +23,16 @@ public class PaymentHandlerTest {
         int amountPayment = 10;
         saleInfo = paymentHandler.handlePayment(amountPayment, saleInfo);
         CustomerPaymentDTO customerPaymentDTO = new CustomerPaymentDTO(amountPayment,
-        amountPayment - saleInfo.getTotalPriceAfterDiscount(), paymentHandler.getTime(), paymentHandler.getDate());
-        assertEquals("Customer Payment Does Not Exist",true, saleInfo.getCustomerPaymentDTO() != null);
-        assertEquals("Payment Amount Incorrect",true, saleInfo.getCustomerPaymentDTO().getPaymentAmount() == customerPaymentDTO.getPaymentAmount());
-        assertEquals("Change Amount Incorrect",true, saleInfo.getCustomerPaymentDTO().getChange() == customerPaymentDTO.getChange());
-        assertEquals("Time Amount Incorrect",true, saleInfo.getCustomerPaymentDTO().getTime() == customerPaymentDTO.getTime());
-        assertEquals("Date Amount Incorrect",true, saleInfo.getCustomerPaymentDTO().getDate() == customerPaymentDTO.getDate());
+                amountPayment - saleInfo.getTotalPriceAfterDiscount(), paymentHandler.getTime(),
+                paymentHandler.getDate());
+        assertEquals("Customer Payment Does Not Exist", true, saleInfo.getCustomerPaymentDTO() != null);
+        assertEquals("Payment Amount Incorrect Value", true,
+                saleInfo.getCustomerPaymentDTO().getPaymentAmount() == customerPaymentDTO.getPaymentAmount());
+        assertEquals("Change Amount Incorrect Value", true,
+                saleInfo.getCustomerPaymentDTO().getChange() == customerPaymentDTO.getChange());
+        assertEquals("Time Amount Incorrect Value", true,
+                saleInfo.getCustomerPaymentDTO().getTime() == customerPaymentDTO.getTime());
+        assertEquals("Date Amount Incorrect Value", true,
+                saleInfo.getCustomerPaymentDTO().getDate() == customerPaymentDTO.getDate());
     }
 }

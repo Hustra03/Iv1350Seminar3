@@ -28,7 +28,7 @@ public class ItemTest {
         Item item = new Item(dto,10);
         assertEquals("Quantity Not Equivilent",item.getQuantity(),10);
 		item.increaseQuantity(10);
-        assertEquals("Quantity Not Correctly Changed",item.getQuantity(),20);
+        assertEquals("Quantity Not Correctly Increased",item.getQuantity(),20);
 	}
 
      /*
