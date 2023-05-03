@@ -78,19 +78,31 @@ public class SaleInfoTest {
         
         Sale sale = new Sale();
         int itemId=1;
-        ItemDescriptionDTO itemDTO = new ItemDescriptionDTO(itemId, "name", 12, 12, "null");
+        double price = 12;
+        int Vatrate=12;
+        ItemDescriptionDTO itemDTO = new ItemDescriptionDTO(itemId, "name", price, Vatrate, "null");
         Register testRegister = new Register();
-        sale = testRegister.registerItem(itemDTO, 10, sale); 
+        int quantity = 10;
+        sale = testRegister.registerItem(itemDTO, quantity, sale); 
         saleInfo = new SaleInfo(sale);
         saleInfo.setDiscountAndCustomerId(discountList, itemId);
+        assertTrue("RecordedDiscounts does not exist", saleInfo.getRecordedDiscounts() != null);
+        assertTrue("RecordedDiscounts size incorrect", saleInfo.getRecordedDiscounts().size() ==1);
+        assertTrue("RecordedDiscounts percentage incorrect", saleInfo.getRecordedDiscounts().get(0).getDiscountPercent() ==20);
         assertTrue("Discounted total price not initialized",saleInfo.getTotalPriceAfterDiscount()!=0);
-        assertTrue("Discounted total price not discounted",saleInfo.getTotalPriceAfterDiscount()!=12);
-        assertTrue("Discounted total price incorrect, currently : " + saleInfo.getTotalPriceAfterDiscount() +" ",saleInfo.getTotalPriceAfterDiscount()==12*0.8);
-
-
+        assertTrue("Discounted total price not discounted",saleInfo.getTotalPriceAfterDiscount()!=price);
+        double expectedPrice = price*0.8*quantity;
+        assertTrue("Discounted total price to high, currently : " + saleInfo.getTotalPriceAfterDiscount() +" | Should be :" + expectedPrice,saleInfo.getTotalPriceAfterDiscount()>=expectedPrice-0.001);
+        assertTrue("Discounted total price to low, currently : " + saleInfo.getTotalPriceAfterDiscount() +" | Should be :" + expectedPrice,saleInfo.getTotalPriceAfterDiscount()<=expectedPrice+0.001);
+        //Ovan används eftersom double inte verkar bli exakt det samma, men är inom 0.001 vilket är avrundingsfel någonstans
 
     }
 
+
+    /*
+     * Fixa nedan test om tid finns, getter tester behövs inte man kan vara bra att ha gjort för säkerhets skull
+     * 
+     */
     @Test
     public void getTotalPriceAfterDiscountTest() {
     }

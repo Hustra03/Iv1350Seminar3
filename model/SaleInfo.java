@@ -18,8 +18,12 @@ public class SaleInfo {
 
 	private int customerId;
 
-	/* Creates an SaleInfo object based upon a sale with an empty discount list and calculates discountTotalPrice and discountTotalVAT
-	 * @param Sale is the sale object this saleInfo describes and becomes the sale attribute
+	/*
+	 * Creates an SaleInfo object based upon a sale with an empty discount list and
+	 * calculates discountTotalPrice and discountTotalVAT
+	 * 
+	 * @param Sale is the sale object this saleInfo describes and becomes the sale
+	 * attribute
 	 */
 	public SaleInfo(Sale sale) {
 		this.sale = sale;
@@ -28,9 +32,15 @@ public class SaleInfo {
 		calculateTotalPriceAndVATAfterDiscount();
 	}
 
-	/* Replaces customerId and recordedDiscount attributes with respective parameters and recalculates discountTotalPrice and discountTotalVAT
-	 * @param recordedDiscounts represents the list of discounts which will apply to this sale
-	 * @param customerId represents the customerId of the customer this sale is made for/by/to
+	/*
+	 * Replaces customerId and recordedDiscount attributes with respective
+	 * parameters and recalculates discountTotalPrice and discountTotalVAT
+	 * 
+	 * @param recordedDiscounts represents the list of discounts which will apply to
+	 * this sale
+	 * 
+	 * @param customerId represents the customerId of the customer this sale is made
+	 * for/by/to
 	 */
 	public void setDiscountAndCustomerId(List<Discount> recordedDiscounts, int customerId) {
 		this.customerId = customerId;
@@ -38,13 +48,14 @@ public class SaleInfo {
 		calculateTotalPriceAndVATAfterDiscount();
 	}
 
-	/* Replaces customerPayment with the respective attribute
-	 * @param customerPayment is the CustomerPaymentDTO which this 
+	/*
+	 * Replaces customerPayment with the respective attribute
+	 * 
+	 * @param customerPayment is the CustomerPaymentDTO which this
 	 */
 	void updateSaleInfoPayment(CustomerPaymentDTO customerPayment) {
 		this.customerPayment = customerPayment;
 	}
-
 
 	/*
 	 * This method updates discountTotalPrice and discountTotalVAT for sale based on
@@ -52,16 +63,16 @@ public class SaleInfo {
 	 * 
 	 */
 	private void calculateTotalPriceAndVATAfterDiscount() {
-		if (!recordedDiscounts.isEmpty()) {
-			List<Item> soldItems = sale.getSoldItems();
+		if (!this.recordedDiscounts.isEmpty()) {
 			this.discountTotalPrice = 0;
 			this.discountTotalVAT = 0;
-			for (Item item : soldItems) {
+			for (Item item : sale.getSoldItems()) {
 				double actualDiscount = 1;
-				for (Discount discount : recordedDiscounts) {
+				for (Discount discount : this.recordedDiscounts) {
 					if (discount.getApplicableId().contains(item.getItemDescriptionDTO().getItemId())) {
-						
-						actualDiscount *= (100-(discount.getDiscountPercent()) / 100);
+						double thisDiscount = 100 - discount.getDiscountPercent();
+						thisDiscount /= 100;
+						actualDiscount = actualDiscount * thisDiscount;
 					}
 				}
 				this.discountTotalPrice += item.getPriceForQuantity() * actualDiscount;
@@ -92,6 +103,7 @@ public class SaleInfo {
 	public double getTotalVATAfterDiscount() {
 		return this.discountTotalVAT;
 	}
+
 	/*
 	 * Returns the sale object this class describes
 	 * 
@@ -105,7 +117,8 @@ public class SaleInfo {
 	 * Returns the customerPayment included in this object and for the sale it
 	 * describes
 	 * 
-	 * @return this.customerPayment represents the payment made by the customer along with
+	 * @return this.customerPayment represents the payment made by the customer
+	 * along with
 	 * information about it
 	 */
 	public CustomerPaymentDTO getCustomerPaymentDTO() {
@@ -116,16 +129,19 @@ public class SaleInfo {
 	 * Returns the customerId included in this object and for the sale it
 	 * describes
 	 * 
-	 * @return this.customerId represents the customerId for the customer this sale is for
+	 * @return this.customerId represents the customerId for the customer this sale
+	 * is for
 	 */
 	public int getCustomerId() {
 		return this.customerId;
 	}
-/*
+
+	/*
 	 * Returns the recordedDiscounts included in this object and for the sale it
 	 * describes
 	 * 
-	 * @return this.recordedDiscounts list of applicable discounts applied to this sale
+	 * @return this.recordedDiscounts list of applicable discounts applied to this
+	 * sale
 	 */
 	public List<Discount> getRecordedDiscounts() {
 		return this.recordedDiscounts;
