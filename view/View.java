@@ -34,6 +34,7 @@ public class View {
 			System.out.println("Enter menu alternative");
 			printMenu(level);
 			i = myObj.nextInt();
+			System.out.println("");
 			System.out.println("Option choosen is: " + i);
 			switch (i) {
 				case 1:
@@ -68,7 +69,7 @@ public class View {
 
 			System.out.println("Enter quantity");
 			int quantity = myObj.nextInt();
-			System.out.println("Quantity is: " + quantity);
+			System.out.println("Quantity increase is: " + quantity);
 			printSale(controller.registerItem(itemId, quantity));
 			return 2;
 		}
@@ -94,7 +95,7 @@ public class View {
 	private int optionTwo(int level) {
 		if (level == 2) {
 			SaleInfo saleInfo= controller.endSale();
-			System.out.println("Total Price :" +saleInfo.getTotalPriceAfterDiscount() + " Total VAT" + saleInfo.getTotalVATAfterDiscount());
+			System.out.println("Total Price :" +saleInfo.getTotalPriceAfterDiscount() + "|| Total VAT : " + saleInfo.getTotalVATAfterDiscount());
 			return 3;
 		}
 		if (level == 3) {
@@ -139,6 +140,7 @@ public class View {
 		System.out.print("{");
 		System.out.print("Item number :" + itemNumber + " ||");
 		System.out.print("ItemId :" + item.getItemDescriptionDTO().getItemId() + " ||");
+		System.out.print("Item Quantity :" + item.getQuantity() + " ||");
 		System.out.print("Name :"  + item.getItemDescriptionDTO().getName()+ " ||");
 		System.out.print("Price :"  + item.getItemDescriptionDTO().getPrice()+ " ||");
 		System.out.print("VATrate :"  + item.getItemDescriptionDTO().getVATrate()+ "% ||");
@@ -149,14 +151,15 @@ public class View {
 
 	private void printReciept(Receipt receipt) {
 		System.out.println("Reciept info :");
-		System.out.print("Time"+receipt.getTime()+"||");
-		System.out.print("Date"+receipt.getDate()+"||");
-		System.out.print("Total Price" + receipt.getTotalPrice()+"||");
-		System.out.print("Total VAT"+receipt.getTotalVAT()+"||");
-		System.out.print("Total Payment" + receipt.getTotalPayment()+ "||");
-		System.out.print("Total Change" + receipt.getTotalChange()+"||" );
+		System.out.print("Time :"+receipt.getTime()+"||");
+		System.out.print("Date :"+receipt.getDate()+"||");
+		System.out.print("Total Price :" + receipt.getTotalPrice()+"||");
+		System.out.print("Total VAT :"+receipt.getTotalVAT()+"||");
+		System.out.print("Total Payment :" + receipt.getTotalPayment()+ "||");
+		System.out.print("Total Change :" + receipt.getTotalChange()+"||" );
+		System.out.println("");
 		System.out.println("Items sold:");
-		int itemNumber=0;
+		int itemNumber=1;
 		for (Item item : receipt.getSoldItems()) {
 			printItem(item,itemNumber);
 		}
