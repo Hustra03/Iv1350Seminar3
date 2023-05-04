@@ -29,7 +29,7 @@ public class Sale {
 	}
 
 	/*
-	 * Creates a sale with null attributes
+	 * Creates a sale with empty attributes
 	 * 
 	 */
 	public Sale() {

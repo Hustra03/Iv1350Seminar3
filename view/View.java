@@ -52,6 +52,9 @@ public class View {
 
 	/*
 	 * Handles menu and input/output for first menu option
+	 * 
+	 * @param level determines where in the program the user is located, and thus
+	 * what should be shown at any one time
 	 */
 	private int optionOne(int level) {
 		Scanner myObj = new Scanner(System.in); // Create a Scanner object
@@ -81,8 +84,7 @@ public class View {
 		if (level == 4) {
 			System.out.print("Enter amount payment : ");
 			int amountPayment = myObj.nextInt();
-			while(amountPayment<=controller.GetSaleInfo().getTotalPriceAfterDiscount())
-			{
+			while (amountPayment <= controller.GetSaleInfo().getTotalPriceAfterDiscount()) {
 				System.out.print("Enter amount payment : ");
 				amountPayment = myObj.nextInt();
 			}
@@ -96,13 +98,17 @@ public class View {
 
 	/*
 	 * Handles menu and input/output for second menu option
+	 * 
+	 * @param level determines where in the program the user is located, and thus
+	 * what should be shown at any one time
 	 */
 	private int optionTwo(int level) {
 		Scanner myObj = new Scanner(System.in); // Create a Scanner object
 
 		if (level == 2) {
-			SaleInfo saleInfo= controller.endSale();
-			System.out.println("Total Price :" +saleInfo.getTotalPriceAfterDiscount() + "|| Total VAT : " + saleInfo.getTotalVATAfterDiscount());
+			SaleInfo saleInfo = controller.endSale();
+			System.out.println("Total Price :" + saleInfo.getTotalPriceAfterDiscount() + "|| Total VAT : "
+					+ saleInfo.getTotalVATAfterDiscount());
 			return 3;
 		}
 		if (level == 3) {
@@ -115,19 +121,25 @@ public class View {
 		return 1;
 	}
 
+	/*
+	 * Prints information from <code>sale</code> to System.out
+	 * 
+	 * @param sale determines what should be printed and how that information should
+	 * be printed
+	 * 
+	 */
 	private void printSale(Sale sale) {
 
 		if (sale.getItemFound() == false) {
 			System.out.println("Identifyer was invalid");
-		} 
-		else {
+		} else {
 			System.out.println("Sale Information : ");
-			System.out.print("[");	
-			int itemNumber =0;
+			System.out.print("[");
+			int itemNumber = 0;
 			for (Item item : sale.getSoldItems()) {
 				System.out.println("Item Information : ");
-				itemNumber+=1;
-				printItem(item,itemNumber);
+				itemNumber += 1;
+				printItem(item, itemNumber);
 			}
 			System.out.println("]");
 			System.out.println("Total Price : " + sale.getTotalPrice());
@@ -135,44 +147,66 @@ public class View {
 		}
 	}
 
+	/*
+	 * Prints information from <code>saleInfo</code> to System.out
+	 * 
+	 * @param saleInfo determines what should be printed and how that information
+	 * should be printed
+	 * 
+	 */
 	private void printSaleInfo(SaleInfo saleInfo) {
 
 		printSale(saleInfo.getSale());
-		if(saleInfo.getCustomerPaymentDTO()!=null)
-		{System.out.println("Change : " + saleInfo.getCustomerPaymentDTO().getChange());}
+		if (saleInfo.getCustomerPaymentDTO() != null) {
+			System.out.println("Change : " + saleInfo.getCustomerPaymentDTO().getChange());
+		}
 		System.out.println("Discounted total price : " + saleInfo.getTotalPriceAfterDiscount());
 		System.out.println("Discounted total VAT : " + saleInfo.getTotalVATAfterDiscount());
 		System.out.println("Customer id : " + saleInfo.getCustomerId());
-		
+
 	}
 
-
+	/*
+	 * Prints information from <code>item</code> to System.out
+	 * 
+	 * @param item determines what should be printed and how that information
+	 * should be printed
+	 * 
+	 * @param itemNumber determines the number printed before item information
+	 */
 	private void printItem(Item item, int itemNumber) {
 		System.out.println("{");
-		System.out.print("Item number :" + itemNumber + " ||");
+		System.out.print(itemNumber + ". ||");
 		System.out.print("ItemId :" + item.getItemDescriptionDTO().getItemId() + " ||");
 		System.out.print("Item Quantity :" + item.getQuantity() + " ||");
-		System.out.print("Name :"  + item.getItemDescriptionDTO().getName()+ " ||");
-		System.out.print("Price :"  + item.getItemDescriptionDTO().getPrice()+ " ||");
-		System.out.print("VATrate :"  + item.getItemDescriptionDTO().getVATrate()+ "% ||");
-		System.out.print("Description :" + item.getItemDescriptionDTO().getDescription()+ " ||");
+		System.out.print("Name :" + item.getItemDescriptionDTO().getName() + " ||");
+		System.out.print("Price :" + item.getItemDescriptionDTO().getPrice() + " ||");
+		System.out.print("VATrate :" + item.getItemDescriptionDTO().getVATrate() + "% ||");
+		System.out.print("Description :" + item.getItemDescriptionDTO().getDescription() + " ||");
 		System.out.println("");
 		System.out.print("}");
 	}
 
+	/*
+	 * Prints information from <code>receipt</code> to System.out
+	 * 
+	 * @param receipt determines what should be printed and how that information
+	 * should be printed
+	 * 
+	 */
 	private void printReciept(Receipt receipt) {
 		System.out.println("Reciept info :");
-		System.out.print("Time :"+receipt.getTime()+"||");
-		System.out.print("Date :"+receipt.getDate()+"||");
-		System.out.print("Total Price :" + receipt.getTotalPrice()+"||");
-		System.out.print("Total VAT :"+receipt.getTotalVAT()+"||");
-		System.out.print("Total Payment :" + receipt.getTotalPayment()+ "||");
-		System.out.print("Total Change :" + receipt.getTotalChange()+"||" );
+		System.out.print("Time :" + receipt.getTime() + "||");
+		System.out.print("Date :" + receipt.getDate() + "||");
+		System.out.print("Total Price :" + receipt.getTotalPrice() + "||");
+		System.out.print("Total VAT :" + receipt.getTotalVAT() + "||");
+		System.out.print("Total Payment :" + receipt.getTotalPayment() + "||");
+		System.out.print("Total Change :" + receipt.getTotalChange() + "||");
 		System.out.println("");
 		System.out.println("Items sold:");
-		int itemNumber=1;
+		int itemNumber = 1;
 		for (Item item : receipt.getSoldItems()) {
-			printItem(item,itemNumber);
+			printItem(item, itemNumber);
 		}
 	}
 

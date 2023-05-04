@@ -35,15 +35,7 @@ public class DatabaseHandler {
 	 * @return foundItem this is the itemDescriptionDTO returned to controller
 	 */
 	public ItemDescriptionDTO getItem(int itemId) {
-		// ItemDescriptionDTO foundItem = new ItemDescriptionDTO();
-		/*
-		 * kod för att hitta item
-		 * 
-		 * findItem.invSystem
-		 *
-		 */
 
-		// ItemDescriptionDTO foundItem = inventory.get(itemId);
 		for (ItemDescriptionDTO foundItem : inventoryItems) {
 			if (foundItem.getItemId() == itemId) {
 				return foundItem;
