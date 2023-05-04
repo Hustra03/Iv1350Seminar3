@@ -8,6 +8,7 @@ import java.util.List;
 public class Register {
 
 	private Sale sale;
+	private double registerBalance;
 
 	/*
 	 * Creates a new empty object of the Register class
@@ -18,6 +19,7 @@ public class Register {
 		Sale testSale = new Sale();
 		testSale.setSoldItems(soldItems);
 		this.sale = testSale;
+		this.registerBalance=0;
 	}
 
 	/*
@@ -54,6 +56,13 @@ public class Register {
 	 */
 	public Sale getSale() {
 		return this.sale;
+	}
+	/* Increases registerBalance by the specified amount
+	 * @param increase the amount registerBalance is increased by 
+	 */
+	public void increaseBalance(double increase)
+	{
+		this.registerBalance+=increase;
 	}
 
 }

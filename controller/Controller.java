@@ -90,6 +90,7 @@ public class Controller {
 	public SaleInfo recivePayment(int amountPayment) {
 		this.saleInfo = paymentHandler.handlePayment(amountPayment, saleInfo);
 		sendSaleInfo();
+		this.register.increaseBalance(saleInfo.getCustomerPaymentDTO().getPaymentAmount());
 		return this.saleInfo;
 	}
 
