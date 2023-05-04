@@ -2,14 +2,13 @@ package model;
 
 import intergration.CustomerPaymentDTO;
 
-import java.time.LocalDate;
+import java.time.LocalDateTime;
 
 public class PaymentHandler {
 
 	private CustomerPaymentDTO customerPayment;
 
-	private LocalDate date;
-	private long time;
+	private LocalDateTime dateAndTime;
 
 	public PaymentHandler() {
 	}
@@ -26,8 +25,8 @@ public class PaymentHandler {
 	 */
 	public SaleInfo handlePayment(int amountPayment, SaleInfo saleInfo) {
 		double totalPrice = saleInfo.getTotalPriceAfterDiscount();
-		updateTimeAndDate();
-		this.customerPayment = new CustomerPaymentDTO(amountPayment, amountPayment - totalPrice, time, date);
+		updateDateAndTime();
+		this.customerPayment = new CustomerPaymentDTO(amountPayment, amountPayment - totalPrice,dateAndTime);
 		saleInfo.updateSaleInfoPayment(customerPayment);
 		return saleInfo;
 	}
@@ -36,18 +35,14 @@ public class PaymentHandler {
 	 * Updates time and date with information from system
 	 * 
 	 */
-	private void updateTimeAndDate() {
+	private void updateDateAndTime() {
 
-		this.time = System.currentTimeMillis();
-		this.date = java.time.LocalDate.now();
+		this.dateAndTime = java.time.LocalDateTime.now();
 	}
 
-	public LocalDate getDate() {
-		return this.date;
+	public LocalDateTime getDateAndTime() {
+		return this.dateAndTime;
 	}
 
-	public long getTime() {
-		return this.time;
-	}
 
 }

@@ -25,14 +25,11 @@ public class PaymentHandlerTest {
         int amountPayment = 10;
         saleInfo = paymentHandler.handlePayment(amountPayment, saleInfo);
         CustomerPaymentDTO customerPaymentDTO = new CustomerPaymentDTO(amountPayment,
-                amountPayment - saleInfo.getTotalPriceAfterDiscount(), paymentHandler.getTime(),
-                paymentHandler.getDate());
+                amountPayment - saleInfo.getTotalPriceAfterDiscount(), paymentHandler.getDateAndTime());
         assertNotNull("Customer Payment Does Not Exist", saleInfo.getCustomerPaymentDTO());
         assertTrue("Payment Amount Incorrect Value", saleInfo.getCustomerPaymentDTO().getPaymentAmount() == customerPaymentDTO.getPaymentAmount());
         assertTrue("Change Amount Incorrect Value",
                 saleInfo.getCustomerPaymentDTO().getChange() == customerPaymentDTO.getChange());
-        assertTrue("Time Amount Incorrect Value",
-                saleInfo.getCustomerPaymentDTO().getTime() == customerPaymentDTO.getTime());
         assertTrue("Date Amount Incorrect Value",
                 saleInfo.getCustomerPaymentDTO().getDate() == customerPaymentDTO.getDate());
     }

@@ -5,7 +5,7 @@ import static org.junit.Assert.assertTrue;
 
 import java.util.ArrayList;
 import java.util.List;
-import java.time.LocalDate;
+import java.time.LocalDateTime;
 
 import org.junit.Before;
 import org.junit.After;
@@ -62,14 +62,12 @@ public class SaleInfoTest {
     public void updateSaleInfoPaymentTest() {
         int amountPayment = 10;
         int amountChange = 5;
-        long time = System.currentTimeMillis();
-        LocalDate date = java.time.LocalDate.now();
-        CustomerPaymentDTO payment = new CustomerPaymentDTO(amountPayment, amountChange, time, date);
+        LocalDateTime dateAndTime = java.time.LocalDateTime.now();
+        CustomerPaymentDTO payment = new CustomerPaymentDTO(amountPayment, amountChange,dateAndTime);
         saleInfo.updateSaleInfoPayment(payment);
         assertTrue("AmountPayment incorrect", payment.getPaymentAmount() == amountPayment);
         assertTrue("AmountChange incorrect", payment.getChange() == amountChange);
-        assertEquals("Time incorrect", time, payment.getTime());
-        assertEquals("Date incorrect", date, payment.getDate());
+        assertEquals("Date and Time incorrect", dateAndTime, payment.getDate());
 
     }
 

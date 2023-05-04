@@ -196,8 +196,7 @@ public class View {
 	 */
 	private void printReciept(Receipt receipt) {
 		System.out.println("Reciept info :");
-		System.out.print("Time :" + receipt.getTime() + "||");
-		System.out.print("Date :" + receipt.getDate() + "||");
+		System.out.print("Date And Time :" + receipt.getDateAndTime() + "||");
 		System.out.print("Total Price :" + receipt.getTotalPrice() + "||");
 		System.out.print("Total VAT :" + receipt.getTotalVAT() + "||");
 		System.out.print("Total Payment :" + receipt.getTotalPayment() + "||");
