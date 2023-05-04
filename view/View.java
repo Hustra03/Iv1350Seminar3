@@ -210,6 +210,10 @@ public class View {
 		}
 	}
 
+	/* Prints menu options information to System.out
+	 * @param level determines which strings should be printed
+	 * 
+	 */
 	private void printMenu(int level) {
 
 		if (level == 1) {
