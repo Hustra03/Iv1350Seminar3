@@ -93,34 +93,4 @@ public class SaleInfoTest {
         assertTrue("Discounted total price to high, currently : " + saleInfo.getTotalPriceAfterDiscount() +" | Should be :" + expectedPrice,saleInfo.getTotalPriceAfterDiscount()>=expectedPrice-0.001);
         assertTrue("Discounted total price to low, currently : " + saleInfo.getTotalPriceAfterDiscount() +" | Should be :" + expectedPrice,saleInfo.getTotalPriceAfterDiscount()<=expectedPrice+0.001);
     }
-
-
-    /*
-     * Fixa nedan test om tid finns, getter tester behövs inte man kan vara bra att ha gjort för säkerhets skull
-     * 
-     */
-    @Test
-    public void getTotalPriceAfterDiscountTest() {
-    }
-
-    @Test
-    public void getTotalVATAfterDiscountTest() {
-    }
-
-    @Test
-    public void getSaleTest() {
-    }
-
-    @Test
-    public void getCustomerPaymentDTOTest() {
-    }
-
-    @Test
-    public void getCustomerIdTest() {
-    }
-
-    @Test
-    public void getRecordedDiscountsTest() {
-    }
-
 }
