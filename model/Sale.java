@@ -53,7 +53,7 @@ public class Sale {
 	 * This method merges any items with identical descriptions, ensuring only one
 	 * of each type exists in the list
 	 * 
-	 * @param sold this object is the item which was added to the soldItems,
+	 * @param soldItem this object is the item which was added to the soldItems,
 	 * and which is to be checked for and potentially merged if another exists
 	 */
 	void itemMerger(Item soldItem) {
@@ -70,7 +70,7 @@ public class Sale {
 	}
 
 	/*
-	 * Updates runningTotals to represent current soldItems list
+	 * Updates totalPrice and totalVAT to represent current soldItems list
 	 * 
 	 */
 	void calculateRunningTotal() {
