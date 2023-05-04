@@ -33,31 +33,6 @@ public class SaleInfo {
 	}
 
 	/*
-	 * Replaces customerId and recordedDiscount attributes with respective
-	 * parameters and recalculates discountTotalPrice and discountTotalVAT
-	 * 
-	 * @param recordedDiscounts represents the list of discounts which will apply to
-	 * this sale
-	 * 
-	 * @param customerId represents the customerId of the customer this sale is made
-	 * for/by/to
-	 */
-	public void setDiscountAndCustomerId(List<Discount> recordedDiscounts, int customerId) {
-		this.customerId = customerId;
-		this.recordedDiscounts = recordedDiscounts;
-		calculateTotalPriceAndVATAfterDiscount();
-	}
-
-	/*
-	 * Replaces customerPayment with the respective attribute
-	 * 
-	 * @param customerPayment is the CustomerPaymentDTO which this
-	 */
-	void updateSaleInfoPayment(CustomerPaymentDTO customerPayment) {
-		this.customerPayment = customerPayment;
-	}
-
-	/*
 	 * This method updates discountTotalPrice and discountTotalVAT for sale based on
 	 * current discount
 	 * 
@@ -82,6 +57,31 @@ public class SaleInfo {
 			this.discountTotalPrice = sale.getTotalPrice();
 			this.discountTotalVAT = sale.getTotalVAT();
 		}
+	}
+
+	/*
+	 * Replaces customerId and recordedDiscount attributes with respective
+	 * parameters and recalculates discountTotalPrice and discountTotalVAT
+	 * 
+	 * @param recordedDiscounts represents the list of discounts which will apply to
+	 * this sale
+	 * 
+	 * @param customerId represents the customerId of the customer this sale is made
+	 * for/by/to
+	 */
+	public void setDiscountAndCustomerId(List<Discount> recordedDiscounts, int customerId) {
+		this.customerId = customerId;
+		this.recordedDiscounts = recordedDiscounts;
+		calculateTotalPriceAndVATAfterDiscount();
+	}
+
+	/*
+	 * Replaces customerPayment with the respective attribute
+	 * 
+	 * @param customerPayment is the CustomerPaymentDTO which this
+	 */
+	void updateSaleInfoPayment(CustomerPaymentDTO customerPayment) {
+		this.customerPayment = customerPayment;
 	}
 
 	/*
