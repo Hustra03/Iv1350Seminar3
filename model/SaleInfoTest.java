@@ -67,7 +67,7 @@ public class SaleInfoTest {
         saleInfo.updateSaleInfoPayment(payment);
         assertTrue("AmountPayment incorrect", payment.getPaymentAmount() == amountPayment);
         assertTrue("AmountChange incorrect", payment.getChange() == amountChange);
-        assertEquals("Date and Time incorrect", dateAndTime, payment.getDate());
+        assertEquals("Date and Time incorrect", dateAndTime, payment.getDateAndTime());
 
     }
 

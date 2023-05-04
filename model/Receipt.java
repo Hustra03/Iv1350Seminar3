@@ -19,7 +19,7 @@ public class Receipt {
 	private double totalChange;
 
 	public Receipt(SaleInfo saleInfo) {
-		this.dateAndTime = saleInfo.getCustomerPaymentDTO().getDate();
+		this.dateAndTime = saleInfo.getCustomerPaymentDTO().getDateAndTime();
 		this.soldItems = saleInfo.getSale().getSoldItems();
 		this.totalPrice = saleInfo.getTotalPriceAfterDiscount();
 		this.totalVAT = saleInfo.getTotalVATAfterDiscount();

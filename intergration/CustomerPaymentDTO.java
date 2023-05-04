@@ -61,7 +61,7 @@ public class CustomerPaymentDTO {
 	 * 
 	 * @return date represents date of payment
 	 */
-	public LocalDateTime getDate() {
+	public LocalDateTime getDateAndTime() {
 		return this.dateAndTime;
 	}
 }
