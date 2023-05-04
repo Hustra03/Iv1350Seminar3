@@ -54,7 +54,7 @@ public class ControllerTest {
 		assertNotNull("Item Not Registered", sale.getSoldItems());
 		int registeredId=sale.getSoldItems().get(0).getItemDescriptionDTO().getItemId();
 		assertTrue("Item id incorrectly registered",0!=registeredId);
-		assertTrue("Wrong item id incorrect",itemId==registeredId);
+		assertTrue("Wrong item id",itemId==registeredId);
 
 	}
 

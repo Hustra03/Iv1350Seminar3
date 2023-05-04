@@ -75,6 +75,7 @@ public class Controller {
 	 * Retrives the discount from database based on sale and customerId, and adds
 	 * information to saleInfo
 	 * 
+	 * @param customerId is the id for the customer this sale belongs to
 	 * 
 	 */
 	public SaleInfo getDiscount(int customerId) {
@@ -86,6 +87,7 @@ public class Controller {
 	/*
 	 * Updates saleInfo with information about customer payment
 	 * 
+	 * @amountPayment is the amount payed by customer for sale
 	 */
 	public SaleInfo recivePayment(int amountPayment) {
 		this.saleInfo = paymentHandler.handlePayment(amountPayment, saleInfo);
@@ -108,6 +110,7 @@ public class Controller {
 	public Sale GetSale() {
 		return this.sale;
 	}
+
 	/* Returns saleInfo from controller */
 	public SaleInfo GetSaleInfo() {
 		return this.saleInfo;

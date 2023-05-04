@@ -92,8 +92,6 @@ public class SaleInfoTest {
         double expectedPrice = price*0.8*quantity;
         assertTrue("Discounted total price to high, currently : " + saleInfo.getTotalPriceAfterDiscount() +" | Should be :" + expectedPrice,saleInfo.getTotalPriceAfterDiscount()>=expectedPrice-0.001);
         assertTrue("Discounted total price to low, currently : " + saleInfo.getTotalPriceAfterDiscount() +" | Should be :" + expectedPrice,saleInfo.getTotalPriceAfterDiscount()<=expectedPrice+0.001);
-        //Ovan används eftersom double inte verkar bli exakt det samma, men är inom 0.001 vilket är avrundingsfel någonstans
-
     }
 
 
