@@ -31,6 +31,6 @@ public class PaymentHandlerTest {
         assertTrue("Change Amount Incorrect Value",
                 saleInfo.getCustomerPaymentDTO().getChange() == customerPaymentDTO.getChange());
         assertTrue("Date Amount Incorrect Value",
-                saleInfo.getCustomerPaymentDTO().getDate() == customerPaymentDTO.getDate());
+                saleInfo.getCustomerPaymentDTO().getDateAndTime() == customerPaymentDTO.getDateAndTime());
     }
 }
