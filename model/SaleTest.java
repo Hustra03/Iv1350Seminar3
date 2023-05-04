@@ -47,14 +47,14 @@ public class SaleTest {
     @Test
     public void itemMergerTest() {
 
-        assertEquals(testSale.getSoldItems().isEmpty(), true);
+        assertEquals("The created list isnt empty as it should be",testSale.getSoldItems().isEmpty(), true);
         testSale.addItemInfo(item);
         testSale.addItemInfo(item2);
-        assertEquals(testSale.getSoldItems().size(), 2);
-        assertEquals(testSale.getSoldItems().get(0).getQuantity(), 10);
+        assertEquals("TestSale doesnt consists of two items as it should",testSale.getSoldItems().size(), 2);
+        assertEquals("Wrong amount of the first item",testSale.getSoldItems().get(0).getQuantity(), 10);
         testSale.itemMerger(item2);
-        assertEquals(testSale.getSoldItems().size(), 1);
-        assertEquals(testSale.getSoldItems().get(0).getQuantity(), 30);
+        assertEquals("Wrong number of items",testSale.getSoldItems().size(), 1);
+        assertEquals("Total amount of quantity deviates from the expected value",testSale.getSoldItems().get(0).getQuantity(), 30);
     }
 
     /*
@@ -74,12 +74,12 @@ public class SaleTest {
      */
     @Test
     public void addItemInfoTest() {
-        assertEquals(testSale.getSoldItems().isEmpty(), true);
+        assertEquals("Solditems is not empty",testSale.getSoldItems().isEmpty(), true);
 
         testSale.addItemInfo(item);
         testSale.addItemInfo(item2);
-        assertEquals(testSale.getSoldItems().isEmpty(), false);
-        assertEquals(testSale.getSoldItems().contains(item), true);
-        assertEquals(testSale.getSoldItems().contains(item2), true);
+        assertEquals("Solditems are missing items!",testSale.getSoldItems().isEmpty(), false);
+        assertEquals("Item is missing in the list of solditems",testSale.getSoldItems().contains(item), true);
+        assertEquals("Item2 is missing in the list of solditems",testSale.getSoldItems().contains(item2), true);
     }
 }
