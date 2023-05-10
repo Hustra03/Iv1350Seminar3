@@ -14,7 +14,6 @@ import intergration.DatabaseHandler;
 import intergration.SaleDTO;
 import intergration.SaleInfoDTO;
 import model.Sale;
-import model.SaleInfo;
 
 public class ControllerTest {
 
@@ -100,8 +99,8 @@ public class ControllerTest {
 
 		contr.startSale();
 		double amountPayment=0;
-		SaleInfoDTO saleInfo= contr.endSale();
-		saleInfo= contr.recivePayment(amountPayment);
+		contr.endSale();
+		contr.recivePayment(amountPayment);
 		contr.sendSaleInfo();
 	}
 

@@ -1,6 +1,5 @@
 package intergration;
 import java.util.List;
-import model.Sale;
 import model.SaleInfo;
 
 public class SaleInfoDTO {

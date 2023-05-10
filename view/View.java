@@ -4,8 +4,6 @@ import controller.Controller;
 import intergration.ReceiptDTO;
 import intergration.SaleDTO;
 import intergration.SaleInfoDTO;
-import model.Sale;
-import model.SaleInfo;
 import model.Item;
 import java.util.Scanner; // Import the Scanner class
 
@@ -263,6 +261,7 @@ public class View {
 			}
 			
 		}
+		
 		return i;
 	}
 
