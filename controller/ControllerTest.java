@@ -68,7 +68,7 @@ public class ControllerTest {
 		int itemId=1;
 		int quantity = 1;
 		assertNotNull("Sale Not Ended", saleInfo.getSale());
-		assertEquals("Sale Changed By Being Ended",saleInfo.getSale(),beforeSale);
+		assertEquals("Sale Changed By Being Ended",saleInfo.getSale().getSoldItems(),beforeSale.getSoldItems());
 		contr.startSale();
 		contr.registerItem(itemId, quantity);
 		saleInfo = contr.endSale();
