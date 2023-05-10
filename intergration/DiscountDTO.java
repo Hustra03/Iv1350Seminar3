@@ -1,8 +1,8 @@
-package model;
+package intergration;
 
 import java.util.List;
 
-public class Discount {
+public class DiscountDTO {
 
 	private int discountPercent;
 
@@ -31,7 +31,7 @@ public class Discount {
 	 * for this discount to be valid
 	 * 
 	 */
-	public Discount(int discountPercent, List<Integer> applicableId, List<Integer> applicableItemsId, int minimumItemAmount,
+	public DiscountDTO(int discountPercent, List<Integer> applicableId, List<Integer> applicableItemsId, int minimumItemAmount,
 			int minimumTotalPrice) {
 		this.discountPercent = discountPercent;
 		this.applicableIds = applicableId;
@@ -44,7 +44,7 @@ public class Discount {
 	 * Creates a discount of 0 percent and with null for any other attribute
 	 * 
 	 */
-	public Discount() {
+	public DiscountDTO() {
 		this.discountPercent = 0;
 	}
 

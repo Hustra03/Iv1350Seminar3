@@ -1,8 +1,6 @@
 package intergration;
 
-import model.Discount;
 import model.Item;
-import model.Receipt;
 import model.SaleInfo;
 
 import java.util.ArrayList;
@@ -12,7 +10,7 @@ public class DatabaseHandler {
 
 	private List<ItemDescriptionDTO> inventoryItems;
 
-	private List<Discount> everyDiscount;
+	private List<DiscountDTO> everyDiscount;
 
 	/*
 	 * Creates a new object of the DatabaseHandler class, along with the list
@@ -53,10 +51,10 @@ public class DatabaseHandler {
 	 * 
 	 * @return discountList the list of applicable discounts
 	 */
-	public List<Discount> findDiscount(SaleInfo saleInfo, int customerId) {
+	public List<DiscountDTO> findDiscount(SaleInfo saleInfo, int customerId) {
 
-		List<Discount> discountList = new ArrayList<Discount>();
-		for (Discount discount : everyDiscount) {
+		List<DiscountDTO> discountList = new ArrayList<DiscountDTO>();
+		for (DiscountDTO discount : everyDiscount) {
 			if (discount.getApplicableId().contains(customerId)) {
 				for (Item item : saleInfo.getSale().getSoldItems()) {
 					if (discount.getApplicableItemId().contains(item.getItemDescriptionDTO().getItemId())) {
@@ -80,7 +78,7 @@ public class DatabaseHandler {
 	 * 
 	 */
 
-	public void sendSaleInfo(SaleInfo saleInfo, Receipt receipt) {
+	public void sendSaleInfo(SaleInfo saleInfo, ReceiptDTO receipt) {
 
 	}
 
@@ -114,7 +112,7 @@ public class DatabaseHandler {
 	 * @return everyDiscount the list of discount which the system can add to the
 	 * sale
 	 */
-	private List<Discount> createEveryDiscount() {
+	private List<DiscountDTO> createEveryDiscount() {
 
 		List<Integer> applicableIds = new ArrayList<Integer>();
 		applicableIds.add(1);
@@ -126,9 +124,9 @@ public class DatabaseHandler {
 		int minimumItemAmount = 0;
 		int minimumTotalPrice = 0;
 
-		Discount discount = new Discount(discountPercent, applicableIds, applicableItemsId, minimumItemAmount,
+		DiscountDTO discount = new DiscountDTO(discountPercent, applicableIds, applicableItemsId, minimumItemAmount,
 				minimumTotalPrice);
-		List<Discount> everyDiscount = new ArrayList<Discount>();
+		List<DiscountDTO> everyDiscount = new ArrayList<DiscountDTO>();
 		everyDiscount.add(discount);
 
 		return everyDiscount;

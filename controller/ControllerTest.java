@@ -11,6 +11,8 @@ import org.junit.Before;
 import org.junit.After;
 
 import intergration.DatabaseHandler;
+import intergration.SaleDTO;
+import intergration.SaleInfoDTO;
 import model.Sale;
 import model.SaleInfo;
 
@@ -50,7 +52,7 @@ public class ControllerTest {
 		int quantity = 1;
 		contr.startSale();
 		assertTrue("Sold Items has item before registration ", contr.GetSale().getSoldItems().isEmpty());
-		Sale sale = contr.registerItem(itemId, quantity);
+		SaleDTO sale = contr.registerItem(itemId, quantity);
 		assertNotNull("Item Not Registered", sale.getSoldItems());
 		int registeredId=sale.getSoldItems().get(0).getItemDescriptionDTO().getItemId();
 		assertTrue("Item id incorrectly registered",0!=registeredId);
@@ -62,7 +64,7 @@ public class ControllerTest {
 	public void endSaleTest() {
 		contr.startSale();
 		Sale beforeSale= contr.GetSale();
-		SaleInfo saleInfo = contr.endSale();
+		SaleInfoDTO saleInfo = contr.endSale();
 		int itemId=1;
 		int quantity = 1;
 		assertNotNull("Sale Not Ended", saleInfo.getSale());
@@ -78,7 +80,7 @@ public class ControllerTest {
 		contr.startSale();
 		int customerId=0;
 		contr.endSale();
-		SaleInfo saleInfo = contr.getDiscount(customerId);
+		SaleInfoDTO saleInfo = contr.getDiscount(customerId);
 		assertNotNull("Discount Not Found",saleInfo.getRecordedDiscounts());
 
 	}
@@ -87,8 +89,8 @@ public class ControllerTest {
 	public void recivePaymentTest() {
 		
 		contr.startSale();
-		int amountPayment = 0;
-		SaleInfo saleInfo = contr.endSale();
+		double amountPayment = 0;
+		SaleInfoDTO saleInfo = contr.endSale();
 		saleInfo = contr.recivePayment(amountPayment);
 		assertNotNull("Payment Not Recived",saleInfo.getCustomerPaymentDTO());
 	}
@@ -97,8 +99,8 @@ public class ControllerTest {
 	public void sendSaleInfoTest() {
 
 		contr.startSale();
-		int amountPayment=0;
-		SaleInfo saleInfo= contr.endSale();
+		double amountPayment=0;
+		SaleInfoDTO saleInfo= contr.endSale();
 		saleInfo= contr.recivePayment(amountPayment);
 		contr.sendSaleInfo();
 	}
