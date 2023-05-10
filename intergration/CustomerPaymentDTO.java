@@ -31,7 +31,7 @@ public class CustomerPaymentDTO {
 	 * 
 	 * @param date represents date of payment
 	 */
-	public CustomerPaymentDTO(int amountPayment, double change, LocalDateTime dateAndTime) {
+	public CustomerPaymentDTO(double amountPayment, double change, LocalDateTime dateAndTime) {
 		this.paymentAmount = amountPayment;
 		this.change = change;
 		this.dateAndTime = dateAndTime;

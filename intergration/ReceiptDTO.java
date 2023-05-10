@@ -1,10 +1,12 @@
-package model;
+package intergration;
 
 import java.time.LocalDateTime;
 
 import java.util.*; //For List to function
+import model.Item;
+import model.SaleInfo;
 
-public class Receipt {
+public class ReceiptDTO {
 
 	private LocalDateTime dateAndTime;
 
@@ -18,7 +20,7 @@ public class Receipt {
 
 	private double totalChange;
 
-	public Receipt(SaleInfo saleInfo) {
+	public ReceiptDTO(SaleInfo saleInfo) {
 		this.dateAndTime = saleInfo.getCustomerPaymentDTO().getDateAndTime();
 		this.soldItems = saleInfo.getSale().getSoldItems();
 		this.totalPrice = saleInfo.getTotalPriceAfterDiscount();

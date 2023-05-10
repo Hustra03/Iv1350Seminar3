@@ -38,7 +38,7 @@ public class SaleTest {
     @Test
     public void setItemFoundFalseTest() {
         testSale.setItemFoundFalse();
-        assertEquals(testSale.getItemFound(), false);
+        assertEquals("Item Found False Is Not False",testSale.getItemFound(), false);
     }
 
     /*
@@ -47,14 +47,14 @@ public class SaleTest {
     @Test
     public void itemMergerTest() {
 
-        assertEquals("The created list isnt empty as it should be",testSale.getSoldItems().isEmpty(), true);
+        assertEquals("Sold Items Is Not Empty At Sale Creation",testSale.getSoldItems().isEmpty(), true);
         testSale.addItemInfo(item);
         testSale.addItemInfo(item2);
-        assertEquals("TestSale doesnt consists of two items as it should",testSale.getSoldItems().size(), 2);
-        assertEquals("Wrong amount of the first item",testSale.getSoldItems().get(0).getQuantity(), 10);
+        assertEquals("More or Less Than Two Items Have Been Added To TestSale",testSale.getSoldItems().size(), 2);
+        assertEquals("Quantity Of First Item Is Incorrect",testSale.getSoldItems().get(0).getQuantity(), 10);
         testSale.itemMerger(item2);
-        assertEquals("Wrong number of items",testSale.getSoldItems().size(), 1);
-        assertEquals("Total amount of quantity deviates from the expected value",testSale.getSoldItems().get(0).getQuantity(), 30);
+        assertEquals("Items Objects Not Removed Correctly From Sold Items",testSale.getSoldItems().size(), 1);
+        assertEquals("Quantity Of Items Not Merged Successfully",testSale.getSoldItems().get(0).getQuantity(), 30);
     }
 
     /*
@@ -63,10 +63,10 @@ public class SaleTest {
     @Test
     public void calculateRunningTotalTest() {
         testSale.addItemInfo(item);
-        assertEquals(testSale.getSoldItems().size(), 1);
+        assertEquals("Size Of Sold Items Incorrect",testSale.getSoldItems().size(), 1);
         testSale.calculateRunningTotal();
-        assertNotNull(testSale.getTotalPrice());
-        assertNotNull(testSale.getTotalVAT());
+        assertNotNull("Total Price Does Not Exist",testSale.getTotalPrice());
+        assertNotNull("Total VAT Does Not Exist",testSale.getTotalVAT());
     }
 
     /*
@@ -74,12 +74,12 @@ public class SaleTest {
      */
     @Test
     public void addItemInfoTest() {
-        assertEquals("Solditems is not empty",testSale.getSoldItems().isEmpty(), true);
+        assertEquals("Sold Items Is Not Empty At Sale Creation",testSale.getSoldItems().isEmpty(), true);
 
         testSale.addItemInfo(item);
         testSale.addItemInfo(item2);
-        assertEquals("Solditems are missing items!",testSale.getSoldItems().isEmpty(), false);
-        assertEquals("Item is missing in the list of solditems",testSale.getSoldItems().contains(item), true);
-        assertEquals("Item2 is missing in the list of solditems",testSale.getSoldItems().contains(item2), true);
+        assertEquals("Sold Items Empty After Adding Items",testSale.getSoldItems().isEmpty(), false);
+        assertEquals("Sold Items Does Not Contain Item Which Should Have Been Added",testSale.getSoldItems().contains(item), true);
+        assertEquals("Sold Items Does Not Contain Item2 Which Should Have Been Added",testSale.getSoldItems().contains(item2), true);
     }
 }

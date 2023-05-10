@@ -12,13 +12,13 @@ import org.junit.After;
 import org.junit.Test;
 
 import intergration.CustomerPaymentDTO;
+import intergration.DiscountDTO;
 import intergration.ItemDescriptionDTO;
-import model.Discount;
 
 public class SaleInfoTest {
 
     private SaleInfo saleInfo;
-    private List<Discount> discountList;
+    private List<DiscountDTO> discountList;
     private int customerId;
 
     @Before
@@ -26,7 +26,7 @@ public class SaleInfoTest {
         Sale sale = new Sale();
         saleInfo = new SaleInfo(sale);
         customerId = 10;
-        discountList = new ArrayList<Discount>();
+        discountList = new ArrayList<DiscountDTO>();
 		List<Integer> applicableIds = new ArrayList<Integer>();
         applicableIds.add(1);
         applicableIds.add(2);
@@ -41,7 +41,7 @@ public class SaleInfoTest {
         int minimumItemAmount=0;
         int minimumTotalPrice=0;
 
-        discountList.add(new Discount(discountPercent, applicableIds, applicableItems, minimumItemAmount, minimumTotalPrice));
+        discountList.add(new DiscountDTO(discountPercent, applicableIds, applicableItems, minimumItemAmount, minimumTotalPrice));
         saleInfo.setDiscountAndCustomerId(discountList, customerId);
     }
 

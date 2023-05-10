@@ -22,7 +22,7 @@ public class PaymentHandlerTest {
         assertEquals(false, sale.getTotalPrice() == 0);
         SaleInfo saleInfo = new SaleInfo(sale);
         assertEquals(true, saleInfo.getTotalPriceAfterDiscount() == price);
-        int amountPayment = 10;
+        double amountPayment = 10;
         saleInfo = paymentHandler.handlePayment(amountPayment, saleInfo);
         CustomerPaymentDTO customerPaymentDTO = new CustomerPaymentDTO(amountPayment,
                 amountPayment - saleInfo.getTotalPriceAfterDiscount(), paymentHandler.getDateAndTime());

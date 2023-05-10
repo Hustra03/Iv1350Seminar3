@@ -3,13 +3,15 @@ package controller;
 import java.util.*; //For List to function
 
 import intergration.DatabaseHandler;
+import intergration.DiscountDTO;
 import model.PaymentHandler;
 import model.Register;
 import model.Sale;
-import model.Discount;
 import model.SaleInfo;
-import model.Receipt;
 import intergration.ItemDescriptionDTO;
+import intergration.ReceiptDTO;
+import intergration.SaleDTO;
+import intergration.SaleInfoDTO;
 
 public class Controller {
 
@@ -56,19 +58,20 @@ public class Controller {
 	 * 
 	 * @return represents the sale items are registered to
 	 */
-	public Sale registerItem(int itemId, int quantity) {
+	public SaleDTO registerItem(int itemId, int quantity) {
 		ItemDescriptionDTO itemInfo = dbHandler.getItem(itemId);
 		this.sale = register.registerItem(itemInfo, quantity, sale);
-		return this.sale;
+		
+		return new SaleDTO(sale);
 	}
 
 	/*
 	 * Ends sale and creates a SaleInfo based upon it
 	 * 
 	 */
-	public SaleInfo endSale() {
+	public SaleInfoDTO endSale() {
 		this.saleInfo = new SaleInfo(sale);
-		return saleInfo;
+		return new SaleInfoDTO(this.saleInfo);
 	}
 
 	/*
@@ -78,10 +81,10 @@ public class Controller {
 	 * @param customerId is the id for the customer this sale belongs to
 	 * 
 	 */
-	public SaleInfo getDiscount(int customerId) {
-		List<Discount> discountList = dbHandler.findDiscount(saleInfo, customerId);
+	public SaleInfoDTO getDiscount(int customerId) {
+		List<DiscountDTO> discountList = dbHandler.findDiscount(saleInfo, customerId);
 		this.saleInfo.setDiscountAndCustomerId(discountList, customerId);
-		return this.saleInfo;
+		return new SaleInfoDTO(this.saleInfo);
 	}
 
 	/*
@@ -89,19 +92,19 @@ public class Controller {
 	 * 
 	 * @amountPayment is the amount payed by customer for sale
 	 */
-	public SaleInfo recivePayment(int amountPayment) {
+	public SaleInfoDTO recivePayment(Double amountPayment) {
 		this.saleInfo = paymentHandler.handlePayment(amountPayment, saleInfo);
 		sendSaleInfo();
 		this.register.increaseBalance(saleInfo.getCustomerPaymentDTO().getPaymentAmount());
-		return this.saleInfo;
+		return new SaleInfoDTO(this.saleInfo);
 	}
 
 	/*
 	 * Sends saleInfo to external systems and returns reciept
 	 * 
 	 */
-	public Receipt sendSaleInfo() {
-		Receipt receipt = new Receipt(saleInfo);
+	public ReceiptDTO sendSaleInfo() {
+		ReceiptDTO receipt = new ReceiptDTO(saleInfo);
 		this.dbHandler.sendSaleInfo(saleInfo, receipt);
 		return receipt;
 	}

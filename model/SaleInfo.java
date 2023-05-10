@@ -1,6 +1,8 @@
 package model;
 
 import intergration.CustomerPaymentDTO;
+import intergration.DiscountDTO;
+
 import java.util.ArrayList;
 import java.util.List;
 
@@ -8,7 +10,7 @@ public class SaleInfo {
 
 	private Sale sale;
 
-	private List<Discount> recordedDiscounts;
+	private List<DiscountDTO> recordedDiscounts;
 
 	private CustomerPaymentDTO customerPayment;
 
@@ -27,7 +29,7 @@ public class SaleInfo {
 	 */
 	public SaleInfo(Sale sale) {
 		this.sale = sale;
-		List<Discount> recordedDiscounts = new ArrayList<Discount>();
+		List<DiscountDTO> recordedDiscounts = new ArrayList<DiscountDTO>();
 		this.recordedDiscounts = recordedDiscounts;
 		calculateTotalPriceAndVATAfterDiscount();
 	}
@@ -43,7 +45,7 @@ public class SaleInfo {
 			this.discountTotalVAT = 0;
 			for (Item item : sale.getSoldItems()) {
 				double actualDiscount = 1;
-				for (Discount discount : this.recordedDiscounts) {
+				for (DiscountDTO discount : this.recordedDiscounts) {
 					if (discount.getApplicableId().contains(item.getItemDescriptionDTO().getItemId())) {
 						double thisDiscount = 100 - discount.getDiscountPercent();
 						thisDiscount /= 100;
@@ -69,7 +71,7 @@ public class SaleInfo {
 	 * @param customerId represents the customerId of the customer this sale is made
 	 * for/by/to
 	 */
-	public void setDiscountAndCustomerId(List<Discount> recordedDiscounts, int customerId) {
+	public void setDiscountAndCustomerId(List<DiscountDTO> recordedDiscounts, int customerId) {
 		this.customerId = customerId;
 		this.recordedDiscounts = recordedDiscounts;
 		calculateTotalPriceAndVATAfterDiscount();
@@ -143,7 +145,7 @@ public class SaleInfo {
 	 * @return this.recordedDiscounts list of applicable discounts applied to this
 	 * sale
 	 */
-	public List<Discount> getRecordedDiscounts() {
+	public List<DiscountDTO> getRecordedDiscounts() {
 		return this.recordedDiscounts;
 	}
 

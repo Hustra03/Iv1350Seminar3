@@ -1,9 +1,9 @@
 package view;
 
 import controller.Controller;
-import model.Receipt;
-import model.Sale;
-import model.SaleInfo;
+import intergration.ReceiptDTO;
+import intergration.SaleDTO;
+import intergration.SaleInfoDTO;
 import model.Item;
 import java.util.Scanner; // Import the Scanner class
 
@@ -26,15 +26,11 @@ public class View {
 	 */
 	public void startSystem() {
 		boolean endOperation = false;
-
-		Scanner myObj = new Scanner(System.in); // Create a Scanner object
 		int level = 1;
 		while (endOperation == false) {
 			int i;
-			System.out.println("Enter menu alternative");
 			printMenu(level);
-			i = myObj.nextInt();
-			System.out.println("");
+			i = intUserInput("Enter menu alternative : ");
 			System.out.println("Option choosen is: " + i);
 			switch (i) {
 				case 1:
@@ -57,7 +53,6 @@ public class View {
 	 * what should be shown at any one time
 	 */
 	private int optionOne(int level) {
-		Scanner myObj = new Scanner(System.in); // Create a Scanner object
 
 		if (level == 1) {
 			controller.startSale();
@@ -66,14 +61,12 @@ public class View {
 		}
 
 		if (level == 2) {
-			System.out.println("Enter item identifyer");
-			int itemId = myObj.nextInt();
-			System.out.println("Item id is: " + itemId);
+			int itemId = intUserInput("Enter item identifyer : ");
+			System.out.println("Item identifyer is: " + itemId);
 
-			System.out.println("Enter quantity");
-			int quantity = myObj.nextInt();
-			System.out.println("Quantity increase is: " + quantity);
-			printSale(controller.registerItem(itemId, quantity));
+			int quantity = intUserInput("Enter quantity : ");
+			System.out.println("Quantity is: " + quantity);
+			printSaleDTO(controller.registerItem(itemId, quantity));
 			return 2;
 		}
 
@@ -82,11 +75,10 @@ public class View {
 		}
 
 		if (level == 4) {
-			System.out.print("Enter amount payment : ");
-			int amountPayment = myObj.nextInt();
+			System.out.println("Total Price :" +controller.GetSaleInfo().getTotalPriceAfterDiscount());
+			double amountPayment = doubleUserInput("Enter amount payment : ");
 			while (amountPayment <= controller.GetSaleInfo().getTotalPriceAfterDiscount()) {
-				System.out.print("Enter amount payment : ");
-				amountPayment = myObj.nextInt();
+				amountPayment = intUserInput("Enter amount payment : ");
 			}
 			System.out.println("Amount payment is: " + amountPayment);
 			printSaleInfo(controller.recivePayment(amountPayment));
@@ -103,18 +95,15 @@ public class View {
 	 * what should be shown at any one time
 	 */
 	private int optionTwo(int level) {
-		Scanner myObj = new Scanner(System.in); // Create a Scanner object
-
 		if (level == 2) {
-			SaleInfo saleInfo = controller.endSale();
+			SaleInfoDTO saleInfo = controller.endSale();
 			System.out.println("Total Price :" + saleInfo.getTotalPriceAfterDiscount() + "|| Total VAT : "
 					+ saleInfo.getTotalVATAfterDiscount());
 			return 3;
 		}
 		if (level == 3) {
-			System.out.println("Enter Customer Id");
-			int customerId = myObj.nextInt();
-			System.out.println("Amount Customer Id: " + customerId);
+			int customerId = intUserInput("Enter customer identifyer : ");
+			System.out.println("Customer identifyer registered: " + customerId);
 			printSaleInfo(controller.getDiscount(customerId));
 			return 4;
 		}
@@ -128,7 +117,7 @@ public class View {
 	 * be printed
 	 * 
 	 */
-	private void printSale(Sale sale) {
+	private void printSaleDTO(SaleDTO sale) {
 
 		if (sale.getItemFound() == false) {
 			System.out.println("Identifyer was invalid");
@@ -154,9 +143,9 @@ public class View {
 	 * should be printed
 	 * 
 	 */
-	private void printSaleInfo(SaleInfo saleInfo) {
+	private void printSaleInfo(SaleInfoDTO saleInfo) {
 
-		printSale(saleInfo.getSale());
+		printSaleDTO(saleInfo.getSale());
 		if (saleInfo.getCustomerPaymentDTO() != null) {
 			System.out.println("Change : " + saleInfo.getCustomerPaymentDTO().getChange());
 		}
@@ -180,7 +169,7 @@ public class View {
 		System.out.print("ItemId :" + item.getItemDescriptionDTO().getItemId() + " ||");
 		System.out.print("Item Quantity :" + item.getQuantity() + " ||");
 		System.out.print("Name :" + item.getItemDescriptionDTO().getName() + " ||");
-		System.out.print("Price :" + item.getItemDescriptionDTO().getPrice() + " ||");
+		System.out.print("Per Quantity Price :" + item.getItemDescriptionDTO().getPrice() + " ||");
 		System.out.print("VATrate :" + item.getItemDescriptionDTO().getVATrate() + "% ||");
 		System.out.print("Description :" + item.getItemDescriptionDTO().getDescription() + " ||");
 		System.out.println("");
@@ -194,7 +183,7 @@ public class View {
 	 * should be printed
 	 * 
 	 */
-	private void printReciept(Receipt receipt) {
+	private void printReciept(ReceiptDTO receipt) {
 		System.out.println("Reciept info :");
 		System.out.print("Date And Time :" + receipt.getDateAndTime() + "||");
 		System.out.print("Total Price :" + receipt.getTotalPrice() + "||");
@@ -209,7 +198,9 @@ public class View {
 		}
 	}
 
-	/* Prints menu options information to System.out
+	/*
+	 * Prints menu options information to System.out
+	 * 
 	 * @param level determines which strings should be printed
 	 * 
 	 */
@@ -235,6 +226,43 @@ public class View {
 			System.out.println("2. Remove Current Sale");
 		}
 
+	}
+
+	private int intUserInput(String stringToBePrinted) {
+		
+		int i = 404;
+		while (true) {
+			try {
+			Scanner myObj = new Scanner(System.in);
+			System.out.println("");
+			System.out.print(stringToBePrinted);
+			i = myObj.nextInt();
+			break;
+			} catch (Exception e) {
+			System.out.println("Invald Input, try again with valid INT");
+			}
+			
+		}
+		return i;
+	}
+
+	private double doubleUserInput(String stringToBePrinted) {
+		
+		double i = 404;
+		while (true) {
+			try {
+			Scanner myObj = new Scanner(System.in);
+			System.out.println("");
+			System.out.print(stringToBePrinted);
+			i = myObj.nextDouble();
+			break;
+			} catch (Exception e) {
+			System.out.println("Invald Input, try again with valid DOUBLE");
+			}
+			
+		}
+		
+		return i;
 	}
 
 }
