@@ -1,6 +1,6 @@
-package model;
+package se.kth.iv1350.erikmichael.seminar3.model;
 
-import intergration.CustomerPaymentDTO;
+import se.kth.iv1350.erikmichael.seminar3.intergration.CustomerPaymentDTO;
 
 import java.time.LocalDateTime;
 

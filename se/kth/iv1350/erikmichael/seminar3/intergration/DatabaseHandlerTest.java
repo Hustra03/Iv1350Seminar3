@@ -1,7 +1,7 @@
-package intergration;
+package se.kth.iv1350.erikmichael.seminar3.intergration;
 
-import model.Sale;
-import model.SaleInfo;
+import se.kth.iv1350.erikmichael.seminar3.model.Sale;
+import se.kth.iv1350.erikmichael.seminar3.model.SaleInfo;
 
 import static org.junit.Assert.assertNotNull;
 

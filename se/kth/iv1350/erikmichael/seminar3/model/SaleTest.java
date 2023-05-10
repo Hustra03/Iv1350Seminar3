@@ -1,4 +1,4 @@
-package model;
+package se.kth.iv1350.erikmichael.seminar3.model;
 
 import org.junit.Test;
 
@@ -8,7 +8,7 @@ import static org.junit.Assert.assertNotNull;
 import org.junit.After;
 import org.junit.Before;
 
-import intergration.ItemDescriptionDTO;
+import se.kth.iv1350.erikmichael.seminar3.intergration.ItemDescriptionDTO;
 
 public class SaleTest {
     private Sale testSale;

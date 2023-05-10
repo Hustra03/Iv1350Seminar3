@@ -1,8 +1,8 @@
-package model;
+package se.kth.iv1350.erikmichael.seminar3.model;
 
 import org.junit.Test;
 
-import intergration.ItemDescriptionDTO;
+import se.kth.iv1350.erikmichael.seminar3.intergration.ItemDescriptionDTO;
 
 import org.junit.Before;
 import org.junit.After;

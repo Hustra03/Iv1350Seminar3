@@ -1,9 +1,9 @@
-package startup;
+package se.kth.iv1350.erikmichael.seminar3.startup;
 
-import view.View;
+import se.kth.iv1350.erikmichael.seminar3.view.View;
 
-import controller.Controller;
-import intergration.DatabaseHandler;
+import se.kth.iv1350.erikmichael.seminar3.controller.Controller;
+import se.kth.iv1350.erikmichael.seminar3.intergration.DatabaseHandler;
 
 public class Main {
 
