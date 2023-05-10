@@ -1,17 +1,18 @@
-package se.kth.iv1350.erikmichael.seminar3.controller;
+package se.kth.iv1350.erikmichel.seminar3.controller;
 
 import java.util.*; //For List to function
 
-import se.kth.iv1350.erikmichael.seminar3.intergration.DatabaseHandler;
+import se.kth.iv1350.erikmichel.seminar3.intergration.DatabaseHandler;
 import se.kth.iv1350.erikmichael.seminar3.intergration.DiscountDTO;
 import se.kth.iv1350.erikmichael.seminar3.model.PaymentHandler;
 import se.kth.iv1350.erikmichael.seminar3.model.Register;
-import se.kth.iv1350.erikmichael.seminar3.model.Sale;
-import se.kth.iv1350.erikmichael.seminar3.model.SaleInfo;
+import se.kth.iv1350.erikmichel.seminar3.model.Sale;
+import se.kth.iv1350.erikmichel.seminar3.model.SaleInfo;
 import se.kth.iv1350.erikmichael.seminar3.intergration.ItemDescriptionDTO;
 import se.kth.iv1350.erikmichael.seminar3.intergration.ReceiptDTO;
 import se.kth.iv1350.erikmichael.seminar3.intergration.SaleDTO;
 import se.kth.iv1350.erikmichael.seminar3.intergration.SaleInfoDTO;
+import se.kth.iv1350.erikmichel.seminar3.intergration.*;
 
 public class Controller {
 

@@ -1,10 +1,10 @@
-package se.kth.iv1350.erikmichael.seminar3.model;
+package se.kth.iv1350.erikmichel.seminar3.model;
 
 import static org.junit.Assert.assertEquals;
 import static org.junit.Assert.assertNotNull;
 
 
-import se.kth.iv1350.erikmichael.seminar3.intergration.ItemDescriptionDTO;
+import se.kth.iv1350.erikmichel.seminar3.intergration.ItemDescriptionDTO;
 import org.junit.Test;
 
 public class ItemTest {

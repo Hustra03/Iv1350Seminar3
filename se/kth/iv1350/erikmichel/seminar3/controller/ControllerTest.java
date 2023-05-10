@@ -1,4 +1,4 @@
-package se.kth.iv1350.erikmichael.seminar3.controller;
+package se.kth.iv1350.erikmichel.seminar3.controller;
 
 import org.junit.Test;
 import static org.junit.Assert.assertEquals;
@@ -13,7 +13,10 @@ import org.junit.After;
 import se.kth.iv1350.erikmichael.seminar3.intergration.DatabaseHandler;
 import se.kth.iv1350.erikmichael.seminar3.intergration.SaleDTO;
 import se.kth.iv1350.erikmichael.seminar3.intergration.SaleInfoDTO;
-import se.kth.iv1350.erikmichael.seminar3.model.Sale;
+import se.kth.iv1350.erikmichel.seminar3.model.Sale;
+import se.kth.iv1350.erikmichel.seminar3.intergration.DatabaseHandler;
+import se.kth.iv1350.erikmichel.seminar3.intergration.SaleDTO;
+import se.kth.iv1350.erikmichel.seminar3.intergration.SaleInfoDTO;
 
 public class ControllerTest {
 

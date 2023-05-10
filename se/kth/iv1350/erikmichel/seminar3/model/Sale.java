@@ -1,4 +1,4 @@
-package se.kth.iv1350.erikmichael.seminar3.model;
+package se.kth.iv1350.erikmichel.seminar3.model;
 
 import java.util.ArrayList;
 import java.util.List;

@@ -1,10 +1,15 @@
-package se.kth.iv1350.erikmichael.seminar3.view;
+package se.kth.iv1350.erikmichel.seminar3.view;
 
 import se.kth.iv1350.erikmichael.seminar3.controller.Controller;
 import se.kth.iv1350.erikmichael.seminar3.intergration.ReceiptDTO;
 import se.kth.iv1350.erikmichael.seminar3.intergration.SaleDTO;
 import se.kth.iv1350.erikmichael.seminar3.intergration.SaleInfoDTO;
-import se.kth.iv1350.erikmichael.seminar3.model.Item;
+import se.kth.iv1350.erikmichel.seminar3.model.Item;
+import se.kth.iv1350.erikmichel.seminar3.controller.Controller;
+import se.kth.iv1350.erikmichel.seminar3.intergration.ReceiptDTO;
+import se.kth.iv1350.erikmichel.seminar3.intergration.SaleDTO;
+import se.kth.iv1350.erikmichel.seminar3.intergration.SaleInfoDTO;
+
 import java.util.Scanner; // Import the Scanner class
 
 public class View {

@@ -1,4 +1,4 @@
-package se.kth.iv1350.erikmichael.seminar3.intergration;
+package se.kth.iv1350.erikmichel.seminar3.intergration;
 
 import se.kth.iv1350.erikmichael.seminar3.model.Item;
 import se.kth.iv1350.erikmichael.seminar3.model.SaleInfo;

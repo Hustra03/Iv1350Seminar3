@@ -1,4 +1,4 @@
-package se.kth.iv1350.erikmichael.seminar3.model;
+package se.kth.iv1350.erikmichel.seminar3.model;
 
 import se.kth.iv1350.erikmichael.seminar3.intergration.CustomerPaymentDTO;
 import se.kth.iv1350.erikmichael.seminar3.intergration.ItemDescriptionDTO;
@@ -8,6 +8,8 @@ import static org.junit.Assert.assertNotNull;
 import static org.junit.Assert.assertTrue;
 
 import org.junit.Test;
+import se.kth.iv1350.erikmichel.seminar3.intergration.CustomerPaymentDTO;
+import se.kth.iv1350.erikmichel.seminar3.intergration.ItemDescriptionDTO;
 
 public class PaymentHandlerTest {
 

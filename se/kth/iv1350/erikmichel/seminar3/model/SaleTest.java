@@ -1,4 +1,4 @@
-package se.kth.iv1350.erikmichael.seminar3.model;
+package se.kth.iv1350.erikmichel.seminar3.model;
 
 import org.junit.Test;
 
@@ -9,6 +9,7 @@ import org.junit.After;
 import org.junit.Before;
 
 import se.kth.iv1350.erikmichael.seminar3.intergration.ItemDescriptionDTO;
+import se.kth.iv1350.erikmichel.seminar3.intergration.ItemDescriptionDTO;
 
 public class SaleTest {
     private Sale testSale;

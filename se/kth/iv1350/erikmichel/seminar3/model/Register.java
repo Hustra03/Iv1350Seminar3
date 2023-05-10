@@ -1,6 +1,6 @@
-package se.kth.iv1350.erikmichael.seminar3.model;
+package se.kth.iv1350.erikmichel.seminar3.model;
 
-import se.kth.iv1350.erikmichael.seminar3.intergration.ItemDescriptionDTO;
+import se.kth.iv1350.erikmichel.seminar3.intergration.ItemDescriptionDTO;
 
 import java.util.ArrayList;
 import java.util.List;
