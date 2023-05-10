@@ -1,4 +1,4 @@
-package intergration;
+package se.kth.iv1350.erikmichael.seminar3.intergration;
 
 import java.util.List;
 

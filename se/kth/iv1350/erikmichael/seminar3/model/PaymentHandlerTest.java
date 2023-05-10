@@ -1,7 +1,7 @@
-package model;
+package se.kth.iv1350.erikmichael.seminar3.model;
 
-import intergration.CustomerPaymentDTO;
-import intergration.ItemDescriptionDTO;
+import se.kth.iv1350.erikmichael.seminar3.intergration.CustomerPaymentDTO;
+import se.kth.iv1350.erikmichael.seminar3.intergration.ItemDescriptionDTO;
 
 import static org.junit.Assert.assertEquals;
 import static org.junit.Assert.assertNotNull;

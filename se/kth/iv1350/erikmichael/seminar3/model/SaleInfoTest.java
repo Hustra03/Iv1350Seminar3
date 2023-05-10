@@ -1,4 +1,4 @@
-package model;
+package se.kth.iv1350.erikmichael.seminar3.model;
 
 import static org.junit.Assert.assertEquals;
 import static org.junit.Assert.assertTrue;
@@ -11,9 +11,9 @@ import org.junit.Before;
 import org.junit.After;
 import org.junit.Test;
 
-import intergration.CustomerPaymentDTO;
-import intergration.DiscountDTO;
-import intergration.ItemDescriptionDTO;
+import se.kth.iv1350.erikmichael.seminar3.intergration.CustomerPaymentDTO;
+import se.kth.iv1350.erikmichael.seminar3.intergration.DiscountDTO;
+import se.kth.iv1350.erikmichael.seminar3.intergration.ItemDescriptionDTO;
 
 public class SaleInfoTest {
 

@@ -1,6 +1,6 @@
-package intergration;
-import model.Item;
-import model.Sale;
+package se.kth.iv1350.erikmichael.seminar3.intergration;
+import se.kth.iv1350.erikmichael.seminar3.model.Item;
+import se.kth.iv1350.erikmichael.seminar3.model.Sale;
 import java.util.List;
 
 public class SaleDTO {

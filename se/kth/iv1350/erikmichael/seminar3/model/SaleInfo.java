@@ -1,7 +1,7 @@
-package model;
+package se.kth.iv1350.erikmichael.seminar3.model;
 
-import intergration.CustomerPaymentDTO;
-import intergration.DiscountDTO;
+import se.kth.iv1350.erikmichael.seminar3.intergration.CustomerPaymentDTO;
+import se.kth.iv1350.erikmichael.seminar3.intergration.DiscountDTO;
 
 import java.util.ArrayList;
 import java.util.List;

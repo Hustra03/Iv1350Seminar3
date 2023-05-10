@@ -1,10 +1,10 @@
-package view;
+package se.kth.iv1350.erikmichael.seminar3.view;
 
-import controller.Controller;
-import intergration.ReceiptDTO;
-import intergration.SaleDTO;
-import intergration.SaleInfoDTO;
-import model.Item;
+import se.kth.iv1350.erikmichael.seminar3.controller.Controller;
+import se.kth.iv1350.erikmichael.seminar3.intergration.ReceiptDTO;
+import se.kth.iv1350.erikmichael.seminar3.intergration.SaleDTO;
+import se.kth.iv1350.erikmichael.seminar3.intergration.SaleInfoDTO;
+import se.kth.iv1350.erikmichael.seminar3.model.Item;
 import java.util.Scanner; // Import the Scanner class
 
 public class View {
