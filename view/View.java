@@ -1,7 +1,9 @@
 package view;
 
 import controller.Controller;
-import model.Receipt;
+import intergration.ReceiptDTO;
+import intergration.SaleDTO;
+import intergration.SaleInfoDTO;
 import model.Sale;
 import model.SaleInfo;
 import model.Item;
@@ -26,15 +28,11 @@ public class View {
 	 */
 	public void startSystem() {
 		boolean endOperation = false;
-
-		Scanner myObj = new Scanner(System.in); // Create a Scanner object
 		int level = 1;
 		while (endOperation == false) {
 			int i;
-			System.out.println("Enter menu alternative");
 			printMenu(level);
-			i = myObj.nextInt();
-			System.out.println("");
+			i = intUserInput("Enter menu alternative");
 			System.out.println("Option choosen is: " + i);
 			switch (i) {
 				case 1:
@@ -57,7 +55,6 @@ public class View {
 	 * what should be shown at any one time
 	 */
 	private int optionOne(int level) {
-		Scanner myObj = new Scanner(System.in); // Create a Scanner object
 
 		if (level == 1) {
 			controller.startSale();
@@ -66,14 +63,12 @@ public class View {
 		}
 
 		if (level == 2) {
-			System.out.println("Enter item identifyer");
-			int itemId = myObj.nextInt();
+			int itemId =intUserInput("Enter item identifyer");
 			System.out.println("Item id is: " + itemId);
 
-			System.out.println("Enter quantity");
-			int quantity = myObj.nextInt();
+			int quantity = intUserInput("Enter quantity");
 			System.out.println("Quantity increase is: " + quantity);
-			printSale(controller.registerItem(itemId, quantity));
+			printSaleDTO(controller.registerItem(itemId, quantity));
 			return 2;
 		}
 
@@ -82,11 +77,10 @@ public class View {
 		}
 
 		if (level == 4) {
-			System.out.print("Enter amount payment : ");
-			int amountPayment = myObj.nextInt();
+
+			double amountPayment = doubleUserInput("Enter amount payment : ");
 			while (amountPayment <= controller.GetSaleInfo().getTotalPriceAfterDiscount()) {
-				System.out.print("Enter amount payment : ");
-				amountPayment = myObj.nextInt();
+				amountPayment = intUserInput("Enter amount payment : ");
 			}
 			System.out.println("Amount payment is: " + amountPayment);
 			printSaleInfo(controller.recivePayment(amountPayment));
@@ -103,17 +97,14 @@ public class View {
 	 * what should be shown at any one time
 	 */
 	private int optionTwo(int level) {
-		Scanner myObj = new Scanner(System.in); // Create a Scanner object
-
 		if (level == 2) {
-			SaleInfo saleInfo = controller.endSale();
+			SaleInfoDTO saleInfo = controller.endSale();
 			System.out.println("Total Price :" + saleInfo.getTotalPriceAfterDiscount() + "|| Total VAT : "
 					+ saleInfo.getTotalVATAfterDiscount());
 			return 3;
 		}
 		if (level == 3) {
-			System.out.println("Enter Customer Id");
-			int customerId = myObj.nextInt();
+			int customerId = intUserInput("Enter Customer Id");
 			System.out.println("Amount Customer Id: " + customerId);
 			printSaleInfo(controller.getDiscount(customerId));
 			return 4;
@@ -128,7 +119,7 @@ public class View {
 	 * be printed
 	 * 
 	 */
-	private void printSale(Sale sale) {
+	private void printSaleDTO(SaleDTO sale) {
 
 		if (sale.getItemFound() == false) {
 			System.out.println("Identifyer was invalid");
@@ -154,9 +145,9 @@ public class View {
 	 * should be printed
 	 * 
 	 */
-	private void printSaleInfo(SaleInfo saleInfo) {
+	private void printSaleInfo(SaleInfoDTO saleInfo) {
 
-		printSale(saleInfo.getSale());
+		printSaleDTO(saleInfo.getSale());
 		if (saleInfo.getCustomerPaymentDTO() != null) {
 			System.out.println("Change : " + saleInfo.getCustomerPaymentDTO().getChange());
 		}
@@ -194,7 +185,7 @@ public class View {
 	 * should be printed
 	 * 
 	 */
-	private void printReciept(Receipt receipt) {
+	private void printReciept(ReceiptDTO receipt) {
 		System.out.println("Reciept info :");
 		System.out.print("Date And Time :" + receipt.getDateAndTime() + "||");
 		System.out.print("Total Price :" + receipt.getTotalPrice() + "||");
@@ -235,6 +226,26 @@ public class View {
 			System.out.println("2. Remove Current Sale");
 		}
 
+	}
+
+	private int intUserInput(String stringToBePrinted)
+	{
+		Scanner myObj = new Scanner(System.in);
+		System.out.println("");
+		System.out.print(stringToBePrinted);
+		int i = myObj.nextInt();
+		myObj.close();
+		return i;
+	}
+
+	private double doubleUserInput(String stringToBePrinted)
+	{
+		Scanner myObj = new Scanner(System.in);
+		System.out.println("");
+		System.out.print(stringToBePrinted);
+		double i = myObj.nextDouble();
+		myObj.close();
+		return i;
 	}
 
 }

@@ -23,7 +23,7 @@ public class PaymentHandler {
 	 * @return saleInfo represents the updated information about the sale,
 	 * specifically with information in customerPayment
 	 */
-	public SaleInfo handlePayment(int amountPayment, SaleInfo saleInfo) {
+	public SaleInfo handlePayment(Double amountPayment, SaleInfo saleInfo) {
 		double totalPrice = saleInfo.getTotalPriceAfterDiscount();
 		updateDateAndTime();
 		this.customerPayment = new CustomerPaymentDTO(amountPayment, amountPayment - totalPrice,dateAndTime);
