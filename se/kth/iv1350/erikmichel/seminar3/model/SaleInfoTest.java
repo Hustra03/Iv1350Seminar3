@@ -11,9 +11,6 @@ import org.junit.Before;
 import org.junit.After;
 import org.junit.Test;
 
-import se.kth.iv1350.erikmichael.seminar3.intergration.CustomerPaymentDTO;
-import se.kth.iv1350.erikmichael.seminar3.intergration.DiscountDTO;
-import se.kth.iv1350.erikmichael.seminar3.intergration.ItemDescriptionDTO;
 import se.kth.iv1350.erikmichel.seminar3.intergration.CustomerPaymentDTO;
 import se.kth.iv1350.erikmichel.seminar3.intergration.DiscountDTO;
 import se.kth.iv1350.erikmichel.seminar3.intergration.ItemDescriptionDTO;

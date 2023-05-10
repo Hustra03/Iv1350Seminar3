@@ -3,8 +3,8 @@ package se.kth.iv1350.erikmichel.seminar3.intergration;
 import java.time.LocalDateTime;
 
 import java.util.*; //For List to function
-import se.kth.iv1350.erikmichael.seminar3.model.Item;
-import se.kth.iv1350.erikmichael.seminar3.model.SaleInfo;
+import se.kth.iv1350.erikmichel.seminar3.model.Item;
+import se.kth.iv1350.erikmichel.seminar3.model.SaleInfo;
 
 public class ReceiptDTO {
 

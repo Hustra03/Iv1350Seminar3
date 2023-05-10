@@ -10,13 +10,10 @@ import static org.junit.Assert.assertTrue;
 import org.junit.Before;
 import org.junit.After;
 
-import se.kth.iv1350.erikmichael.seminar3.intergration.DatabaseHandler;
-import se.kth.iv1350.erikmichael.seminar3.intergration.SaleDTO;
-import se.kth.iv1350.erikmichael.seminar3.intergration.SaleInfoDTO;
-import se.kth.iv1350.erikmichel.seminar3.model.Sale;
 import se.kth.iv1350.erikmichel.seminar3.intergration.DatabaseHandler;
 import se.kth.iv1350.erikmichel.seminar3.intergration.SaleDTO;
 import se.kth.iv1350.erikmichel.seminar3.intergration.SaleInfoDTO;
+import se.kth.iv1350.erikmichel.seminar3.model.Sale;
 
 public class ControllerTest {
 

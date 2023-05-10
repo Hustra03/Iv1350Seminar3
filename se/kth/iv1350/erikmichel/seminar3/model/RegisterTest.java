@@ -2,11 +2,10 @@ package se.kth.iv1350.erikmichel.seminar3.model;
 
 import org.junit.Test;
 
-import se.kth.iv1350.erikmichael.seminar3.intergration.ItemDescriptionDTO;
+import se.kth.iv1350.erikmichel.seminar3.intergration.ItemDescriptionDTO;
 
 import org.junit.Before;
 import org.junit.After;
-import se.kth.iv1350.erikmichel.seminar3.intergration.ItemDescriptionDTO;
 
 import static org.junit.Assert.*;
 

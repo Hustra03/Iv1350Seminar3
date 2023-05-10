@@ -1,9 +1,8 @@
 package se.kth.iv1350.erikmichel.seminar3.startup;
 
-import se.kth.iv1350.erikmichael.seminar3.view.View;
+import se.kth.iv1350.erikmichel.seminar3.view.View;
 
-import se.kth.iv1350.erikmichael.seminar3.controller.Controller;
-import se.kth.iv1350.erikmichael.seminar3.intergration.DatabaseHandler;
+
 import se.kth.iv1350.erikmichel.seminar3.controller.Controller;
 import se.kth.iv1350.erikmichel.seminar3.intergration.DatabaseHandler;
 

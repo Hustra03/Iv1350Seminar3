@@ -1,7 +1,7 @@
 package se.kth.iv1350.erikmichel.seminar3.intergration;
 
-import se.kth.iv1350.erikmichael.seminar3.model.Item;
-import se.kth.iv1350.erikmichael.seminar3.model.SaleInfo;
+import se.kth.iv1350.erikmichel.seminar3.model.Item;
+import se.kth.iv1350.erikmichel.seminar3.model.SaleInfo;
 
 import java.util.ArrayList;
 import java.util.List;
