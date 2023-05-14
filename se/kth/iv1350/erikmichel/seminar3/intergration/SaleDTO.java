@@ -12,25 +12,18 @@ public class SaleDTO {
 
 	private double totalVAT;
 
-	private boolean itemFound;
     /*
 	 * Creates a sale with empty attributes
 	 * 
 	 */
 	public SaleDTO(Sale sale) {
-		this.soldItems=sale.getSoldItems();
+		if(sale.getSoldItems()==null)
+		{this.soldItems=null;}
+		else
+		{this.soldItems=sale.getSoldItems();}
+		
         this.totalPrice=sale.getTotalPrice();
         this.totalVAT=sale.getTotalVAT();
-        this.itemFound=sale.getItemFound();
-	}
-    /*
-	 * Returns the boolean itemFound to false
-	 * 
-	 * @return itemFound returns the bool representing if an item was found last
-	 * registering attempt
-	 */
-	public boolean getItemFound() {
-		return this.itemFound;
 	}
 
 	/*

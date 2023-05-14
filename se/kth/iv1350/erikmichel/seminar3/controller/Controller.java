@@ -39,13 +39,13 @@ public class Controller {
 		this.dbHandler = dbHandler;
 		this.paymentHandler = new PaymentHandler();
 		this.register = new Register();
+		this.sale=null;
 	}
 
 	/*
 	 * Creates a new object of the Sale class in controller
 	 */
 	public void startSale() {
-
 		this.sale = new Sale();
 	}
 
@@ -57,8 +57,9 @@ public class Controller {
 	 * @param quantity represents the quantity of the above item to register
 	 * 
 	 * @return represents the sale items are registered to
+	 * @throws RegisterItemException if dbHandler can not find a specific item
 	 */
-	public SaleDTO registerItem(int itemId, int quantity) {
+	public SaleDTO registerItem(int itemId, int quantity) throws ItemLookUpException{
 		ItemDescriptionDTO itemInfo = dbHandler.getItem(itemId);
 		this.sale = register.registerItem(itemInfo, quantity, sale);
 		
@@ -110,12 +111,15 @@ public class Controller {
 	}
 
 	/* Returns sale from controller */
-	public Sale GetSale() {
-		return this.sale;
+	public SaleDTO GetSale() {
+		if(this.sale!=null)
+		{return new SaleDTO(this.sale);}
+		else
+		{return null;}
 	}
 
 	/* Returns saleInfo from controller */
-	public SaleInfo GetSaleInfo() {
-		return this.saleInfo;
+	public SaleInfoDTO GetSaleInfo() {
+		return new SaleInfoDTO(saleInfo);
 	}
 }

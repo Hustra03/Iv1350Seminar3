@@ -37,7 +37,6 @@ public class Register {
 	public Sale registerItem(ItemDescriptionDTO foundItem, int quantity, Sale saleIn) {
 
 		this.sale = saleIn;
-		this.sale.setItemFoundFalse();
 		if ((quantity > 0) && (foundItem != null)) {
 			Item foundActualItem = new Item(foundItem, quantity);
 			this.sale.addItemInfo(foundActualItem);

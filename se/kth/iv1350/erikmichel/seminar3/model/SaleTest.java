@@ -32,14 +32,6 @@ public class SaleTest {
         item2 = null;
     }
 
-    /*
-     * Tests if setItemFoundFalse does so
-     */
-    @Test
-    public void setItemFoundFalseTest() {
-        testSale.setItemFoundFalse();
-        assertEquals("Item Found False Is Not False",testSale.getItemFound(), false);
-    }
 
     /*
      * Tests if itemMerger merges items with identical DTOs

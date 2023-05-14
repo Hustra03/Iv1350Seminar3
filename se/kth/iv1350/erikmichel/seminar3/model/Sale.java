@@ -3,6 +3,8 @@ package se.kth.iv1350.erikmichel.seminar3.model;
 import java.util.ArrayList;
 import java.util.List;
 
+import se.kth.iv1350.erikmichel.seminar3.intergration.SaleDTO;
+
 public class Sale {
 
 	private List<Item> soldItems;
@@ -11,7 +13,6 @@ public class Sale {
 
 	private double totalVAT;
 
-	private boolean itemFound;
 
 	/*
 	 * Creates a sale with null attributes execpt soldItems
@@ -25,7 +26,17 @@ public class Sale {
 		soldItems.add(firstItem);
 		this.soldItems = soldItems;
 		calculateRunningTotal();
-		this.itemFound=false;
+	}
+
+	/*
+	 * Creates a sale with attributes based on saleDTO
+	 * 
+	 * @param saleDTO is the dto the sale is created based upon
+	 */
+	public Sale(SaleDTO saleDTO) {
+		this.soldItems=saleDTO.getSoldItems();
+		this.totalPrice=saleDTO.getTotalPrice();
+		this.totalVAT=saleDTO.getTotalVAT();
 	}
 
 	/*
@@ -36,7 +47,6 @@ public class Sale {
 		List<Item> soldItems = new ArrayList<Item>();
 		this.soldItems = soldItems;
 		calculateRunningTotal();
-		this.itemFound=false;
 	}
 
 	/*
@@ -46,7 +56,6 @@ public class Sale {
 	 */
 	void addItemInfo(Item sold) {
 		this.soldItems.add(sold);
-		this.itemFound = true;
 	}
 
 	/*
@@ -80,23 +89,6 @@ public class Sale {
 			this.totalPrice += item.getPriceForQuantity();
 			this.totalVAT += item.getPriceForQuantity() * item.getItemDescriptionDTO().getVATrate() / 100;
 		}
-	}
-
-	/*
-	 * Sets the boolean itemFound to false
-	 */
-	public void setItemFoundFalse() {
-		this.itemFound = false;
-	}
-
-	/*
-	 * Returns the boolean itemFound to false
-	 * 
-	 * @return itemFound returns the bool representing if an item was found last
-	 * registering attempt
-	 */
-	public boolean getItemFound() {
-		return this.itemFound;
 	}
 
 	/*

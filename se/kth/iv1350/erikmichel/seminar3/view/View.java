@@ -1,8 +1,8 @@
 package se.kth.iv1350.erikmichel.seminar3.view;
 
-
 import se.kth.iv1350.erikmichel.seminar3.model.Item;
 import se.kth.iv1350.erikmichel.seminar3.controller.Controller;
+import se.kth.iv1350.erikmichel.seminar3.controller.ItemLookUpException;
 import se.kth.iv1350.erikmichel.seminar3.intergration.ReceiptDTO;
 import se.kth.iv1350.erikmichel.seminar3.intergration.SaleDTO;
 import se.kth.iv1350.erikmichel.seminar3.intergration.SaleInfoDTO;
@@ -68,7 +68,14 @@ public class View {
 
 			int quantity = intUserInput("Enter quantity : ");
 			System.out.println("Quantity is: " + quantity);
-			printSaleDTO(controller.registerItem(itemId, quantity));
+
+			try {
+				printSaleDTO(controller.registerItem(itemId, quantity));
+			} catch (ItemLookUpException e) {
+				printSaleDTO(controller.GetSale());
+				System.out.println("Item Could Not Be Found, try another id");
+			}
+
 			return 2;
 		}
 
@@ -77,7 +84,7 @@ public class View {
 		}
 
 		if (level == 4) {
-			System.out.println("Total Price :" +controller.GetSaleInfo().getTotalPriceAfterDiscount());
+			System.out.println("Total Price :" + controller.GetSaleInfo().getTotalPriceAfterDiscount());
 			double amountPayment = doubleUserInput("Enter amount payment : ");
 			while (amountPayment <= controller.GetSaleInfo().getTotalPriceAfterDiscount()) {
 				amountPayment = intUserInput("Enter amount payment : ");
@@ -121,21 +128,18 @@ public class View {
 	 */
 	private void printSaleDTO(SaleDTO sale) {
 
-		if (sale.getItemFound() == false) {
-			System.out.println("Identifyer was invalid");
-		} else {
-			System.out.println("Sale Information : ");
-			System.out.print("[");
-			int itemNumber = 0;
-			for (Item item : sale.getSoldItems()) {
-				System.out.println("Item Information : ");
-				itemNumber += 1;
-				printItem(item, itemNumber);
-			}
-			System.out.println("]");
-			System.out.println("Total Price : " + sale.getTotalPrice());
-			System.out.println("Total VAT : " + sale.getTotalVAT());
+		System.out.println("Sale Information : ");
+		System.out.print("[");
+		int itemNumber = 0;
+		for (Item item : sale.getSoldItems()) {
+			System.out.println("Item Information : ");
+			itemNumber += 1;
+			printItem(item, itemNumber);
 		}
+		System.out.println("]");
+		System.out.println("Total Price : " + sale.getTotalPrice());
+		System.out.println("Total VAT : " + sale.getTotalVAT());
+
 	}
 
 	/*
@@ -231,39 +235,39 @@ public class View {
 	}
 
 	private int intUserInput(String stringToBePrinted) {
-		
+
 		int i = 404;
 		while (true) {
 			try {
-			Scanner myObj = new Scanner(System.in);
-			System.out.println("");
-			System.out.print(stringToBePrinted);
-			i = myObj.nextInt();
-			break;
+				Scanner myObj = new Scanner(System.in);
+				System.out.println("");
+				System.out.print(stringToBePrinted);
+				i = myObj.nextInt();
+				break;
 			} catch (Exception e) {
-			System.out.println("Invald Input, try again with valid INT");
+				System.out.println("Invald Input, try again with valid INT");
 			}
-			
+
 		}
 		return i;
 	}
 
 	private double doubleUserInput(String stringToBePrinted) {
-		
+
 		double i = 404;
 		while (true) {
 			try {
-			Scanner myObj = new Scanner(System.in);
-			System.out.println("");
-			System.out.print(stringToBePrinted);
-			i = myObj.nextDouble();
-			break;
+				Scanner myObj = new Scanner(System.in);
+				System.out.println("");
+				System.out.print(stringToBePrinted);
+				i = myObj.nextDouble();
+				break;
 			} catch (Exception e) {
-			System.out.println("Invald Input, try again with valid DOUBLE");
+				System.out.println("Invald Input, try again with valid DOUBLE");
 			}
-			
+
 		}
-		
+
 		return i;
 	}
 
