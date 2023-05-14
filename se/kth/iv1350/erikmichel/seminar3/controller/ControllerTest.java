@@ -6,6 +6,7 @@ import static org.junit.Assert.assertNotEquals;
 import static org.junit.Assert.assertNotNull;
 import static org.junit.Assert.assertNull;
 import static org.junit.Assert.assertTrue;
+import static org.junit.Assert.fail;
 
 import org.junit.Before;
 import org.junit.After;
@@ -56,7 +57,7 @@ public class ControllerTest {
 		try {
 			sale = contr.registerItem(itemId, quantity);
 		} catch (ItemLookUpException e) {
-			
+			fail("Could not register item with id which exists");
 		}
 		catch (Exception e) {
 		}
@@ -82,10 +83,17 @@ public class ControllerTest {
 		try {
 			contr.registerItem(itemId, quantity);
 		} catch (ItemLookUpException e) {
+			fail("Could Not Resiter Item With Known ID");
 		}
-		catch (Exception e) {
+		SaleDTO beforeWrongItemRegisterAttemptSale = contr.GetSale();
+		//New Part Of Test
+		try {
+			contr.registerItem(123123132, 123123);
+			fail("Could Register Item With Invalid ID");
+		} catch (ItemLookUpException e) {
+			assertTrue("Sale Incorrectly Updated Following Failed Item Registration", beforeWrongItemRegisterAttemptSale.getSoldItems().equals(contr.GetSale().getSoldItems()));
 		}
-		
+		//
 		saleInfo = contr.endSale();
 		assertNotEquals("Sale returned after end incorrect",saleInfo.getSale(),beforeSale);
 	}
