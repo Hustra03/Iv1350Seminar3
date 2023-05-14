@@ -2,7 +2,7 @@ package se.kth.iv1350.erikmichel.seminar3.view;
 
 import se.kth.iv1350.erikmichel.seminar3.model.Item;
 import se.kth.iv1350.erikmichel.seminar3.controller.Controller;
-import se.kth.iv1350.erikmichel.seminar3.controller.ItemLookUpException;
+import se.kth.iv1350.erikmichel.seminar3.intergration.ItemLookUpException;
 import se.kth.iv1350.erikmichel.seminar3.intergration.ReceiptDTO;
 import se.kth.iv1350.erikmichel.seminar3.intergration.SaleDTO;
 import se.kth.iv1350.erikmichel.seminar3.intergration.SaleInfoDTO;
@@ -73,7 +73,7 @@ public class View {
 				printSaleDTO(controller.registerItem(itemId, quantity));
 			} catch (ItemLookUpException e) {
 				printSaleDTO(controller.GetSale());
-				System.out.println("Item Could Not Be Found, try another id");
+				System.out.println("Operation Faliure: " + e.getItemId() + " ID Was Not Found In Database");
 			}
 
 			return 2;

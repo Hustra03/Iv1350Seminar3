@@ -1,6 +1,5 @@
 package se.kth.iv1350.erikmichel.seminar3.intergration;
 
-import se.kth.iv1350.erikmichel.seminar3.controller.ItemLookUpException;
 import se.kth.iv1350.erikmichel.seminar3.model.Sale;
 import se.kth.iv1350.erikmichel.seminar3.model.SaleInfo;
 

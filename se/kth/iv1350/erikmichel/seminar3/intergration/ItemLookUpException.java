@@ -1,4 +1,4 @@
-package se.kth.iv1350.erikmichel.seminar3.controller;
+package se.kth.iv1350.erikmichel.seminar3.intergration;
 
 public class ItemLookUpException extends Exception {
 

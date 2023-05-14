@@ -1,6 +1,5 @@
 package se.kth.iv1350.erikmichel.seminar3.intergration;
 
-import se.kth.iv1350.erikmichel.seminar3.controller.ItemLookUpException;
 import se.kth.iv1350.erikmichel.seminar3.model.Item;
 import se.kth.iv1350.erikmichel.seminar3.model.Register;
 import se.kth.iv1350.erikmichel.seminar3.model.SaleInfo;
@@ -34,17 +33,18 @@ public class DatabaseHandler {
 	 * 
 	 * @return foundItem this is the itemDescriptionDTO returned to controller
 	 */
-	public ItemDescriptionDTO getItem(int itemId) throws ItemLookUpException{
+	public ItemDescriptionDTO getItem(int itemId) throws ItemLookUpException {
 
 		for (ItemDescriptionDTO foundItem : inventoryItems) {
-			
+
 			if (foundItem.getItemId() == itemId) {
 				return foundItem;
 			}
-				
-			
+
 		}
-		throw new ItemLookUpException("Item Not Found",itemId);
+		throw new ItemLookUpException(
+				"Item Not Found In Database, refer to list created in database contructor for full list of itemid which should be valid",
+				itemId);
 	}
 
 	/*

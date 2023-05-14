@@ -9,6 +9,7 @@ import se.kth.iv1350.erikmichel.seminar3.model.Register;
 import se.kth.iv1350.erikmichel.seminar3.model.Sale;
 import se.kth.iv1350.erikmichel.seminar3.model.SaleInfo;
 import se.kth.iv1350.erikmichel.seminar3.intergration.ItemDescriptionDTO;
+import se.kth.iv1350.erikmichel.seminar3.intergration.ItemLookUpException;
 import se.kth.iv1350.erikmichel.seminar3.intergration.ReceiptDTO;
 import se.kth.iv1350.erikmichel.seminar3.intergration.SaleDTO;
 import se.kth.iv1350.erikmichel.seminar3.intergration.SaleInfoDTO;

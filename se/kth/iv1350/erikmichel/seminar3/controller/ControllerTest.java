@@ -12,6 +12,7 @@ import org.junit.Before;
 import org.junit.After;
 
 import se.kth.iv1350.erikmichel.seminar3.intergration.DatabaseHandler;
+import se.kth.iv1350.erikmichel.seminar3.intergration.ItemLookUpException;
 import se.kth.iv1350.erikmichel.seminar3.intergration.SaleDTO;
 import se.kth.iv1350.erikmichel.seminar3.intergration.SaleInfoDTO;
 import se.kth.iv1350.erikmichel.seminar3.model.Sale;
