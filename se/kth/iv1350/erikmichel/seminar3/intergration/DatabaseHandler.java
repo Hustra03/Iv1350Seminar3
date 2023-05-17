@@ -35,6 +35,10 @@ public class DatabaseHandler {
 	 */
 	public ItemDescriptionDTO getItem(int itemId) throws ItemLookUpException {
 
+		if(itemId==420)
+		{
+			throw new DatabaseConnectionException();
+		}
 		for (ItemDescriptionDTO foundItem : inventoryItems) {
 
 			if (foundItem.getItemId() == itemId) {
@@ -42,9 +46,7 @@ public class DatabaseHandler {
 			}
 
 		}
-		throw new ItemLookUpException(
-				"Item Not Found In Database, refer to list created in database contructor for full list of itemid which should be valid",
-				itemId);
+		throw new ItemLookUpException(itemId);
 	}
 
 	/*
