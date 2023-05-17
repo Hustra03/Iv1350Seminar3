@@ -23,7 +23,7 @@ public class ControllerTest {
 
 	@Before
 	public void setUp() {
-		DatabaseHandler dbHandler = new DatabaseHandler();
+		DatabaseHandler dbHandler = DatabaseHandler.getDatabaseHandler();
 		contr = new Controller(dbHandler);
 	}
 

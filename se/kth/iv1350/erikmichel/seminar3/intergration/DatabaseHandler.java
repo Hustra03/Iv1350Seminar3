@@ -9,6 +9,8 @@ import java.util.List;
 
 public class DatabaseHandler {
 
+	private static final DatabaseHandler DATABASE_HANDLER= new DatabaseHandler();
+
 	private List<ItemDescriptionDTO> inventoryItems;
 
 	private List<DiscountDTO> everyDiscount;
@@ -20,10 +22,15 @@ public class DatabaseHandler {
 	 * objects of the same type.
 	 * 
 	 */
-	public DatabaseHandler() {
+	private DatabaseHandler() {
 		this.inventoryItems = createInventoryList();
 		this.everyDiscount = createEveryDiscount();
 
+	}
+
+	public static DatabaseHandler getDatabaseHandler()
+	{
+		return DATABASE_HANDLER;
 	}
 
 	/*
@@ -32,6 +39,9 @@ public class DatabaseHandler {
 	 * @param itemId this is the id which the database should be searched for
 	 * 
 	 * @return foundItem this is the itemDescriptionDTO returned to controller
+	 * @throws ItemLookUpException this exception is thrown if no item exists with specified id @param itemId
+	 * @throws DatabaseConnectionException this exception is thrown if the inventory system can not be reached, 
+	 * which is simulated by being called if a specific itemId, 420, is searched for
 	 */
 	public ItemDescriptionDTO getItem(int itemId) throws ItemLookUpException {
 

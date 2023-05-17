@@ -37,7 +37,7 @@ public class Controller {
 	 * @param date represents the time of sale initializatin
 	 */
 	public Controller(DatabaseHandler dbHandler) {
-		this.dbHandler = dbHandler;
+		this.dbHandler = DatabaseHandler.getDatabaseHandler();
 		this.paymentHandler = new PaymentHandler();
 		this.register = new Register();
 		this.sale=null;
@@ -59,6 +59,7 @@ public class Controller {
 	 * 
 	 * @return represents the sale items are registered to
 	 * @throws RegisterItemException if dbHandler can not find a specific item
+	 * @throws DatabaseConnectionException if dbHandler can not be reached
 	 */
 	public SaleDTO registerItem(int itemId, int quantity) throws ItemLookUpException{
 		ItemDescriptionDTO itemInfo = dbHandler.getItem(itemId);

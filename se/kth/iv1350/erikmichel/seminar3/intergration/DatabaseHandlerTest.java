@@ -16,7 +16,7 @@ public class DatabaseHandlerTest {
 
     @Before
     public void setUp() {
-        databaseHandler = new DatabaseHandler();
+        databaseHandler = DatabaseHandler.getDatabaseHandler();
     }
 
     @After
