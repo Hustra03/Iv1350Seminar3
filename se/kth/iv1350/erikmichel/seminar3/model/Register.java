@@ -42,7 +42,6 @@ public class Register {
 			this.sale.addItemInfo(foundActualItem);
 			this.sale.itemMerger(foundActualItem);
 			this.sale.calculateRunningTotal();
-
 		}
 		return this.sale;
 	}
@@ -59,7 +58,7 @@ public class Register {
 	/* Increases registerBalance by the specified amount
 	 * @param increase the amount registerBalance is increased by 
 	 */
-	public void increaseBalance(double increase)
+	public void increaseTotalRevenue(double increase)
 	{
 		this.registerBalance+=increase;
 	}

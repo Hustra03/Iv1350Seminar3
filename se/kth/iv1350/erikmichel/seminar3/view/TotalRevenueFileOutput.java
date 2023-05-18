@@ -34,10 +34,14 @@ package se.kth.iv1350.erikmichel.seminar3.view;
 import java.io.FileWriter;
 import java.io.IOException;
 import java.io.PrintWriter;
+
+import se.kth.iv1350.erikmichel.seminar3.model.TotalRevenueObserver;
 /**
  * Prints log messages to a file. The log file will be in the current directory and will be called
  * log.txt.
  */
 
-public class TotalRevenueFileOutput {
+public class TotalRevenueFileOutput implements TotalRevenueObserver{
+    public void TotalRevenueUpdate(double totalRevenue)
+    {}
 }

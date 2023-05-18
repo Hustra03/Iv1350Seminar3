@@ -98,7 +98,7 @@ public class Controller {
 	public SaleInfoDTO recivePayment(Double amountPayment) {
 		this.saleInfo = paymentHandler.handlePayment(amountPayment, saleInfo);
 		sendSaleInfo();
-		this.register.increaseBalance(saleInfo.getCustomerPaymentDTO().getPaymentAmount());
+		this.register.increaseTotalRevenue(saleInfo.getTotalPriceAfterDiscount());
 		return new SaleInfoDTO(this.saleInfo);
 	}
 
