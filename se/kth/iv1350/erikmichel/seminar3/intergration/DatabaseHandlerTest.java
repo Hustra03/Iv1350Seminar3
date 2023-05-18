@@ -27,18 +27,28 @@ public class DatabaseHandlerTest {
     @Test
     public void getItemTest() {
         try {
-             assertNotNull("Item Not Found", databaseHandler.getItem(0));
+            assertNotNull("Item Not Found", databaseHandler.getItem(0));
         } catch (Exception e) {
+            fail("Threw exception with a valid id");
         }
 
-        //New part of test, specifically for exceptions
+        // New part of test, specifically for exceptions
         try {
             assertNotNull("Item Not Found", databaseHandler.getItem(1241124));
             fail("Exception not thrown when expected");
-       } catch (ItemLookUpException e) {
-        assertTrue("Something Is Wrong With Assertions", true);
-       }//
-       
+        } catch (ItemLookUpException e) {
+            assertTrue("Something Is Wrong With Assertions", true);
+        }
+        try {
+            assertNotNull("Item Not Found", databaseHandler.getItem(420));
+            fail("Exception not thrown when expected");
+        } catch (DatabaseConnectionException e) {
+        } catch (Exception e) {
+            fail("Threw wrong exception");
+        }
+
+        //
+
     }
 
     @Test
