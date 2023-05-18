@@ -38,7 +38,17 @@ public class DatabaseHandlerTest {
             fail("Exception not thrown when expected");
        } catch (ItemLookUpException e) {
         assertTrue("Something Is Wrong With Assertions", true);
-       }//
+       }
+       try {
+        assertNotNull("Item Not Found", databaseHandler.getItem(420));
+        fail("Exception not thrown when expected");
+      }catch (DatabaseConnectionException e) {
+    } 
+      catch (Exception e) {
+       fail("Threw wrong exception");
+      }
+       
+       //
        
     }
 
