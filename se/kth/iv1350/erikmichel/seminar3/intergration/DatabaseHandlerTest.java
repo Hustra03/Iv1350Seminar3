@@ -29,6 +29,7 @@ public class DatabaseHandlerTest {
         try {
              assertNotNull("Item Not Found", databaseHandler.getItem(0));
         } catch (Exception e) {
+            fail("Threw exception with a valid id");
         }
 
         //New part of test, specifically for exceptions
