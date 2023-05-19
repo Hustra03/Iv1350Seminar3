@@ -1,6 +1,6 @@
 package se.kth.iv1350.erikmichel.seminar3.model;
 
-public interface DiscountInterface {
+public interface DiscountCalculationInterface {
     /*Definition of calculateTotalPriceAfterDiscount
      * @param saleInfo the saleInfo for which totalPriceAfterDiscount should be calculated
      * @return totalPriceAfterDiscount is the double calculated by the method

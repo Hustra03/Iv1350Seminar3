@@ -20,7 +20,7 @@ public class SaleInfoTest {
     private SaleInfo saleInfo;
     private List<DiscountDTO> discountList;
     private int customerId;
-    private DiscountInterface discountInterface;
+    private DiscountCalculationInterface discountInterface;
 
     @Before
     public void setUp() {

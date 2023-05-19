@@ -20,7 +20,7 @@ public class SaleInfo {
 
 	private int customerId;
 
-	private DiscountInterface currentDiscountInterface;
+	private DiscountCalculationInterface currentDiscountInterface;
 
 	/*
 	 * Creates an SaleInfo object based upon a sale with an empty discount list and
@@ -29,7 +29,7 @@ public class SaleInfo {
 	 * @param Sale is the sale object this saleInfo describes and becomes the sale
 	 * attribute
 	 */
-	public SaleInfo(Sale sale, DiscountInterface currentDiscountInterface) {
+	public SaleInfo(Sale sale, DiscountCalculationInterface currentDiscountInterface) {
 		this.sale = sale;
 		List<DiscountDTO> recordedDiscounts = new ArrayList<DiscountDTO>();
 		this.recordedDiscounts = recordedDiscounts;
@@ -45,6 +45,16 @@ public class SaleInfo {
 	private void calculateTotalPriceAndVATAfterDiscount() {
 		this.discountTotalPrice = this.currentDiscountInterface.calculateTotalPriceAfterDiscount(this);
 		this.discountTotalVAT = this.currentDiscountInterface.calculateTotalVATAfterDiscount(this);
+	}
+
+	/*
+	 * This method changes currentDiscountInterface to the parameter
+	 * 
+	 * @param currentDiscountInterface new DiscountCalculationInterface to be used
+	 * in order to calculate discountTotalPrice and discountTotalVAT
+	 */
+	public void setCurrentDiscountInterface(DiscountCalculationInterface currentDiscountInterface) {
+		this.currentDiscountInterface = currentDiscountInterface;
 	}
 
 	/*

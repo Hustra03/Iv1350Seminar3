@@ -2,7 +2,7 @@ package se.kth.iv1350.erikmichel.seminar3.model;
 
 import se.kth.iv1350.erikmichel.seminar3.intergration.DiscountDTO;
 
-public class AlternativeDiscountCalculation implements DiscountInterface{
+public class AlternativeDiscountCalculation implements DiscountCalculationInterface{
     /* Creates empty object of AlternativeDiscountCalculation class
      * 
      */
