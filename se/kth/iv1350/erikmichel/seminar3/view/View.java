@@ -286,7 +286,7 @@ public class View {
 	private void exceptionLogging(Exception e1)
 	{try {
 		FileWriter myWriter = new FileWriter("exceptionLog.txt",true);
-		myWriter.write("Total Revenue :" + e1 + "\n");
+		myWriter.write("Exception Thrown :" + e1 + "\n");
 		myWriter.close();
 		System.out.println("Successfully wrote to log.txt");
 	} catch (IOException e) {
