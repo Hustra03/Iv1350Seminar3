@@ -59,6 +59,7 @@ public class TotalRevenueFileOutput implements TotalRevenueObserver {
      * @param totalRevenue this represents the current total revenue which is to be
      * printed to file log.txt
      */
+    @Override
     public void TotalRevenueUpdate(double totalRevenue) {
         this.totalRevenue = totalRevenue;
         PrintTotalRevenue();

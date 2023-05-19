@@ -21,6 +21,7 @@ public class TotalRevenueView implements TotalRevenueObserver {
      * @param totalRevenue this represents the current total revenue which is to be
      * printed to sytem.out
      */
+    @Override
     public void TotalRevenueUpdate(double totalRevenue) {
         this.totalRevenue = totalRevenue;
         PrintTotalRevenue();
