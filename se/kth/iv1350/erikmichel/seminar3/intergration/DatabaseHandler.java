@@ -27,7 +27,9 @@ public class DatabaseHandler {
 		this.everyDiscount = createEveryDiscount();
 
 	}
-
+	/* Returns the singelton instance of databasehandler
+ 	* @return DATABASE_HANDLER is the single instance of this class that exists
+ 	*/
 	public static DatabaseHandler getDatabaseHandler()
 	{
 		return DATABASE_HANDLER;
@@ -43,7 +45,7 @@ public class DatabaseHandler {
 	 * @throws DatabaseConnectionException this exception is thrown if the inventory system can not be reached, 
 	 * which is simulated by being called if a specific itemId, 420, is searched for
 	 */
-	public ItemDescriptionDTO getItem(int itemId) throws ItemLookUpException {
+	public ItemDescriptionDTO getItem(int itemId) throws ItemLookUpException, DatabaseConnectionException {
 
 		if(itemId==420)
 		{

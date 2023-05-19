@@ -23,7 +23,7 @@ public class PaymentHandler {
 	}
 
 	/*
-	 * Updates saleInfo with information about the payment
+	 * Updates saleInfo with information about the payment and notifies observers
 	 * 
 	 * @param amountPayment represent the size of the payment
 	 * 
@@ -37,7 +37,7 @@ public class PaymentHandler {
 		updateDateAndTime();
 		this.customerPayment = new CustomerPaymentDTO(amountPayment, amountPayment - totalPrice, dateAndTime);
 		saleInfo.updateSaleInfoPayment(customerPayment);
-		totalRevenue+=saleInfo.getTotalPriceAfterDiscount();
+		totalRevenue+=amountPayment;
 		notifyObservers();
 		return saleInfo;
 	}

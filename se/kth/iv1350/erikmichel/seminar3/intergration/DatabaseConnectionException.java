@@ -6,6 +6,6 @@ public class DatabaseConnectionException extends RuntimeException  {
      * 
      */
     public DatabaseConnectionException() {
-        super("Database Could Not Be Reached");
+        super("Database Could Not Be Reached Due To Unspecified Error");
     }
 }

@@ -18,7 +18,8 @@ public class ItemLookUpException extends Exception {
     }
 
     /*
-     * 
+     * Returns the itemId which resulted in the exception being thrown
+     * @return itemId the id which threw an exception
      */
     public int getItemId()
     {return this.itemId;}

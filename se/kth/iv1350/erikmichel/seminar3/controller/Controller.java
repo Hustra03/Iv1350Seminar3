@@ -40,7 +40,7 @@ public class Controller {
 		this.dbHandler = DatabaseHandler.getDatabaseHandler();
 		this.paymentHandler = new PaymentHandler();
 		this.register = new Register();
-		this.sale=null;
+		this.sale = null;
 	}
 
 	/*
@@ -58,19 +58,22 @@ public class Controller {
 	 * @param quantity represents the quantity of the above item to register
 	 * 
 	 * @return represents the sale items are registered to
+	 * 
 	 * @throws RegisterItemException if dbHandler can not find a specific item
+	 * 
 	 * @throws DatabaseConnectionException if dbHandler can not be reached
 	 */
-	public SaleDTO registerItem(int itemId, int quantity) throws ItemLookUpException{
+	public SaleDTO registerItem(int itemId, int quantity) throws ItemLookUpException {
 		ItemDescriptionDTO itemInfo = dbHandler.getItem(itemId);
 		this.sale = register.registerItem(itemInfo, quantity, sale);
-		
+
 		return new SaleDTO(sale);
 	}
 
 	/*
 	 * Ends sale and creates a SaleInfo based upon it
 	 * 
+	 * @return saleInfo is saleInfo which represents the sale which was just ended
 	 */
 	public SaleInfoDTO endSale() {
 		this.saleInfo = new SaleInfo(sale);
@@ -83,6 +86,8 @@ public class Controller {
 	 * 
 	 * @param customerId is the id for the customer this sale belongs to
 	 * 
+	 * @return saleInfoDTO is the saleInfo which represents sale along with its
+	 * discount
 	 */
 	public SaleInfoDTO getDiscount(int customerId) {
 		List<DiscountDTO> discountList = dbHandler.findDiscount(saleInfo, customerId);
@@ -93,7 +98,10 @@ public class Controller {
 	/*
 	 * Updates saleInfo with information about customer payment
 	 * 
-	 * @amountPayment is the amount payed by customer for sale
+	 * @param amountPayment is the amount payed by customer for sale
+	 * 
+	 * @return saleInfoDTO is the saleInfo which represents sale, potentially
+	 * discount, along with payment
 	 */
 	public SaleInfoDTO recivePayment(Double amountPayment) {
 		this.saleInfo = paymentHandler.handlePayment(amountPayment, saleInfo);
@@ -105,6 +113,7 @@ public class Controller {
 	/*
 	 * Sends saleInfo to external systems and returns reciept
 	 * 
+	 * @return reciept is the reciept which is created based upon current saleInfo
 	 */
 	public ReceiptDTO sendSaleInfo() {
 		ReceiptDTO receipt = new ReceiptDTO(saleInfo);
@@ -112,15 +121,25 @@ public class Controller {
 		return receipt;
 	}
 
-	/* Returns sale from controller */
+	/*
+	 * Returns sale from controller
+	 * 
+	 * @return sale is the current sale attribute of controller as a saleDTO
+	 */
 	public SaleDTO GetSale() {
-		if(this.sale!=null)
-		{return new SaleDTO(this.sale);}
-		else
-		{return null;}
+		if (this.sale != null) {
+			return new SaleDTO(this.sale);
+		} else {
+			return null;
+		}
 	}
 
-	/* Returns saleInfo from controller */
+	/*
+	 * Returns saleInfo from controller
+	 * 
+	 * @return saleInfo is the current saleInfo attribute of controller as a
+	 * saleInfoDTO
+	 */
 	public SaleInfoDTO GetSaleInfo() {
 		return new SaleInfoDTO(saleInfo);
 	}

@@ -234,6 +234,10 @@ public class View {
 
 	}
 
+	/* Accepts user input of int type
+	 * @param stringToBePrinted is the string describing what the user should input
+	 * @return i is the users input which will be used for other sections of the code
+	 */
 	private int intUserInput(String stringToBePrinted) {
 
 		int i = 404;
@@ -251,7 +255,10 @@ public class View {
 		}
 		return i;
 	}
-
+	/* Accepts user input of double type
+	 * @param stringToBePrinted is the string describing what the user should input
+	 * @return i is the users input which will be used for other sections of the code
+	 */
 	private double doubleUserInput(String stringToBePrinted) {
 
 		double i = 404;

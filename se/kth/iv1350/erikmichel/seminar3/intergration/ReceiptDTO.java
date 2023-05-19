@@ -20,6 +20,13 @@ public class ReceiptDTO {
 
 	private double totalChange;
 
+	/*
+	 * Creates a new reciept with attributes based upon information contained in
+	 * saleInfo
+	 * 
+	 * @saleInfo is the object this reciept is based on, each attribute is taken
+	 * from one of this objects attributes, or its attributes attribute.
+	 */
 	public ReceiptDTO(SaleInfo saleInfo) {
 		this.dateAndTime = saleInfo.getCustomerPaymentDTO().getDateAndTime();
 		this.soldItems = saleInfo.getSale().getSoldItems();
@@ -28,7 +35,6 @@ public class ReceiptDTO {
 		this.totalPayment = saleInfo.getCustomerPaymentDTO().getPaymentAmount();
 		this.totalChange = saleInfo.getCustomerPaymentDTO().getChange();
 	}
-
 
 	/*
 	 * Returns the list of sold items
@@ -57,7 +63,6 @@ public class ReceiptDTO {
 		return this.totalVAT;
 	}
 
-	
 	public LocalDateTime getDateAndTime() {
 		return this.dateAndTime;
 	}
