@@ -22,15 +22,15 @@ public class TotalRevenueView implements TotalRevenueObserver {
      * printed to sytem.out
      */
     @Override
-    public void TotalRevenueUpdate(double totalRevenue) {
+    public void totalRevenueUpdate(double totalRevenue) {
         this.totalRevenue = totalRevenue;
-        PrintTotalRevenue();
+        printTotalRevenue();
     }
 
     /*
      * Prints current totalRevenue attribute to system.out
      */
-    private void PrintTotalRevenue() {
+    private void printTotalRevenue() {
         System.out.println("Total Revenue :" + totalRevenue);
     }
 }

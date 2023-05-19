@@ -47,7 +47,7 @@ public class PaymentHandler {
 	 */
 	private void notifyObservers() {
 		for (TotalRevenueObserver obs : totalRevenueObservers) {
-			obs.TotalRevenueUpdate(totalRevenue);
+			obs.totalRevenueUpdate(totalRevenue);
 		}
 	}
 

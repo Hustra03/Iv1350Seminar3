@@ -60,15 +60,15 @@ public class TotalRevenueFileOutput implements TotalRevenueObserver {
      * printed to file log.txt
      */
     @Override
-    public void TotalRevenueUpdate(double totalRevenue) {
+    public void totalRevenueUpdate(double totalRevenue) {
         this.totalRevenue = totalRevenue;
-        PrintTotalRevenue();
+        printTotalRevenue();
     }
 
     /*
      * Prints current totalRevenue attribute to file log.txt
      */
-    private void PrintTotalRevenue() {
+    private void printTotalRevenue() {
 
         try {
             

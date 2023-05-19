@@ -5,5 +5,5 @@ public interface TotalRevenueObserver {
      * Invoked when total revenues has been calculated and should be updated
      * @param registerBalance represents current total balance
      */
-    void TotalRevenueUpdate(double registerBalance);
+    void totalRevenueUpdate(double registerBalance);
 }
