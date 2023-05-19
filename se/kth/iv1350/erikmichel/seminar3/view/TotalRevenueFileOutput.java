@@ -27,21 +27,57 @@
  * POSSIBILITY OF SUCH DAMAGE.
  */
 package se.kth.iv1350.erikmichel.seminar3.view;
-    /* Is supposed to print the total income to a file
-     *
-     */
+/* Is supposed to print the total income to a file
+ *
+ */
 
 import java.io.FileWriter;
 import java.io.IOException;
 import java.io.PrintWriter;
 
 import se.kth.iv1350.erikmichel.seminar3.model.TotalRevenueObserver;
+
 /**
- * Prints log messages to a file. The log file will be in the current directory and will be called
+ * Prints log messages to a file. The log file will be in the current directory
+ * and will be called
  * log.txt.
  */
 
-public class TotalRevenueFileOutput implements TotalRevenueObserver{
-    public void TotalRevenueUpdate(double totalRevenue)
-    {}
+public class TotalRevenueFileOutput implements TotalRevenueObserver {
+    private double totalRevenue;
+
+    /*
+     * Creates a new observer of TotalRevenueFileOutput class with empty attributes
+     * 
+     */
+    public TotalRevenueFileOutput() {
+    }
+
+    /*
+     * Updates attribute totalRevenue and prints that value to file log.txt
+     * 
+     * @param totalRevenue this represents the current total revenue which is to be
+     * printed to file log.txt
+     */
+    public void TotalRevenueUpdate(double totalRevenue) {
+        this.totalRevenue = totalRevenue;
+        PrintTotalRevenue();
+    }
+
+    /*
+     * Prints current totalRevenue attribute to file log.txt
+     */
+    private void PrintTotalRevenue() {
+
+        try {
+            
+            FileWriter myWriter = new FileWriter("log.txt");
+            myWriter.write("Total Revenue :" + totalRevenue);
+            myWriter.close();
+            System.out.println("Successfully wrote to log.txt");
+        } catch (IOException e) {
+            System.out.println("An error occurred when attempting to print to file log.txt");
+            e.printStackTrace();
+        }
+    }
 }
