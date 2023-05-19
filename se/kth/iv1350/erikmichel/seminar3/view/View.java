@@ -7,6 +7,8 @@ import se.kth.iv1350.erikmichel.seminar3.intergration.ReceiptDTO;
 import se.kth.iv1350.erikmichel.seminar3.intergration.SaleDTO;
 import se.kth.iv1350.erikmichel.seminar3.intergration.SaleInfoDTO;
 
+import java.io.FileWriter;
+import java.io.IOException;
 import java.util.Scanner; // Import the Scanner class
 
 public class View {
@@ -74,6 +76,7 @@ public class View {
 			} catch (ItemLookUpException e) {
 				printSaleDTO(controller.GetSale());
 				System.out.println("Operation Faliure: " + e.getItemId() + " ID Was Not Found In Database");
+				exceptionLogging(e);
 			}
 
 			return 2;
@@ -250,6 +253,7 @@ public class View {
 				break;
 			} catch (Exception e) {
 				System.out.println("Invald Input, try again with valid INT");
+				exceptionLogging(e);
 			}
 
 		}
@@ -271,11 +275,23 @@ public class View {
 				break;
 			} catch (Exception e) {
 				System.out.println("Invald Input, try again with valid DOUBLE");
+				exceptionLogging(e);
 			}
 
 		}
 
 		return i;
 	}
+
+	private void exceptionLogging(Exception e1)
+	{try {
+		FileWriter myWriter = new FileWriter("exceptionLog.txt",true);
+		myWriter.write("Total Revenue :" + e1 + "\n");
+		myWriter.close();
+		System.out.println("Successfully wrote to log.txt");
+	} catch (IOException e) {
+		System.out.println("An error occurred when attempting to print to file exceptionLog.txt");
+		e.printStackTrace();
+	}}
 
 }
