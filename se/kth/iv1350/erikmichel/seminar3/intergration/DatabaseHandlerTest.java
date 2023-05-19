@@ -1,5 +1,6 @@
 package se.kth.iv1350.erikmichel.seminar3.intergration;
 
+import se.kth.iv1350.erikmichel.seminar3.model.OriginalDiscountCalculation;
 import se.kth.iv1350.erikmichel.seminar3.model.Sale;
 import se.kth.iv1350.erikmichel.seminar3.model.SaleInfo;
 
@@ -54,7 +55,8 @@ public class DatabaseHandlerTest {
     @Test
     public void findDiscountTest() {
         Sale sale = new Sale();
-        SaleInfo saleInfo = new SaleInfo(sale);
+        OriginalDiscountCalculation OriginalDiscountCalculation=new OriginalDiscountCalculation();
+        SaleInfo saleInfo = new SaleInfo(sale,OriginalDiscountCalculation);
         assertNotNull("Discount Not Found", databaseHandler.findDiscount(saleInfo, 0));
     }
 }

@@ -13,6 +13,7 @@ public class PaymentHandlerTest {
 
     @Test
     public void handlePaymentTest() {
+        OriginalDiscountCalculation discountInterface = new OriginalDiscountCalculation();
         PaymentHandler paymentHandler = new PaymentHandler();
         double price = 200;
         ItemDescriptionDTO itemDescriptionDTO = new ItemDescriptionDTO(19, price, 19);
@@ -20,7 +21,7 @@ public class PaymentHandlerTest {
         Sale sale = new Sale(item);
         sale.calculateRunningTotal();
         assertEquals(false, sale.getTotalPrice() == 0);
-        SaleInfo saleInfo = new SaleInfo(sale);
+        SaleInfo saleInfo = new SaleInfo(sale,discountInterface);
         assertEquals(true, saleInfo.getTotalPriceAfterDiscount() == price);
         double amountPayment = 10;
         saleInfo = paymentHandler.handlePayment(amountPayment, saleInfo);

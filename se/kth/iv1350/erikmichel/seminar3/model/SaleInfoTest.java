@@ -20,11 +20,13 @@ public class SaleInfoTest {
     private SaleInfo saleInfo;
     private List<DiscountDTO> discountList;
     private int customerId;
+    private DiscountInterface discountInterface;
 
     @Before
     public void setUp() {
         Sale sale = new Sale();
-        saleInfo = new SaleInfo(sale);
+        this.discountInterface = new OriginalDiscountCalculation();
+        saleInfo = new SaleInfo(sale,discountInterface);
         customerId = 10;
         discountList = new ArrayList<DiscountDTO>();
 		List<Integer> applicableIds = new ArrayList<Integer>();
@@ -50,6 +52,7 @@ public class SaleInfoTest {
         saleInfo = null;
         customerId=0;
         discountList=null;
+        discountInterface=null;
     }
 
     @Test
@@ -82,7 +85,7 @@ public class SaleInfoTest {
         Register testRegister = new Register();
         int quantity = 10;
         sale = testRegister.registerItem(itemDTO, quantity, sale); 
-        saleInfo = new SaleInfo(sale);
+        saleInfo = new SaleInfo(sale,discountInterface);
         saleInfo.setDiscountAndCustomerId(discountList, itemId);
         assertTrue("RecordedDiscounts does not exist", saleInfo.getRecordedDiscounts() != null);
         assertTrue("RecordedDiscounts size incorrect", saleInfo.getRecordedDiscounts().size() ==1);

@@ -20,6 +20,8 @@ public class SaleInfo {
 
 	private int customerId;
 
+	private DiscountInterface currentDiscountInterface;
+
 	/*
 	 * Creates an SaleInfo object based upon a sale with an empty discount list and
 	 * calculates discountTotalPrice and discountTotalVAT
@@ -27,10 +29,11 @@ public class SaleInfo {
 	 * @param Sale is the sale object this saleInfo describes and becomes the sale
 	 * attribute
 	 */
-	public SaleInfo(Sale sale) {
+	public SaleInfo(Sale sale, DiscountInterface currentDiscountInterface) {
 		this.sale = sale;
 		List<DiscountDTO> recordedDiscounts = new ArrayList<DiscountDTO>();
 		this.recordedDiscounts = recordedDiscounts;
+		this.currentDiscountInterface = currentDiscountInterface;
 		calculateTotalPriceAndVATAfterDiscount();
 	}
 
@@ -40,25 +43,8 @@ public class SaleInfo {
 	 * 
 	 */
 	private void calculateTotalPriceAndVATAfterDiscount() {
-		if (!this.recordedDiscounts.isEmpty()) {
-			this.discountTotalPrice = 0;
-			this.discountTotalVAT = 0;
-			for (Item item : sale.getSoldItems()) {
-				double actualDiscount = 1;
-				for (DiscountDTO discount : this.recordedDiscounts) {
-					if (discount.getApplicableId().contains(item.getItemDescriptionDTO().getItemId())) {
-						double thisDiscount = 100 - discount.getDiscountPercent();
-						thisDiscount /= 100;
-						actualDiscount = actualDiscount * thisDiscount;
-					}
-				}
-				this.discountTotalPrice += item.getPriceForQuantity() * actualDiscount;
-				this.discountTotalVAT += this.discountTotalPrice * (item.getItemDescriptionDTO().getVATrate() / 100);
-			}
-		} else {
-			this.discountTotalPrice = sale.getTotalPrice();
-			this.discountTotalVAT = sale.getTotalVAT();
-		}
+		this.discountTotalPrice = this.currentDiscountInterface.calculateTotalPriceAfterDiscount(this);
+		this.discountTotalVAT = this.currentDiscountInterface.calculateTotalVATAfterDiscount(this);
 	}
 
 	/*

@@ -4,6 +4,7 @@ import java.util.*; //For List to function
 
 import se.kth.iv1350.erikmichel.seminar3.intergration.DatabaseHandler;
 import se.kth.iv1350.erikmichel.seminar3.intergration.DiscountDTO;
+import se.kth.iv1350.erikmichel.seminar3.model.OriginalDiscountCalculation;
 import se.kth.iv1350.erikmichel.seminar3.model.PaymentHandler;
 import se.kth.iv1350.erikmichel.seminar3.model.Register;
 import se.kth.iv1350.erikmichel.seminar3.model.Sale;
@@ -76,7 +77,8 @@ public class Controller {
 	 * @return saleInfo is saleInfo which represents the sale which was just ended
 	 */
 	public SaleInfoDTO endSale() {
-		this.saleInfo = new SaleInfo(sale);
+		OriginalDiscountCalculation originalDiscountCalculation=new OriginalDiscountCalculation();
+		this.saleInfo = new SaleInfo(sale,originalDiscountCalculation);
 		return new SaleInfoDTO(this.saleInfo);
 	}
 
