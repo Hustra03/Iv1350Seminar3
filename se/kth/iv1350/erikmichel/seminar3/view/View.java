@@ -78,6 +78,11 @@ public class View {
 				System.out.println("Operation Faliure: " + e.getItemId() + " ID Was Not Found In Database");
 				exceptionLogging(e);
 			}
+			catch(Exception e)
+			{
+				System.out.println("Operation Faliure: "+ e.getMessage());
+				exceptionLogging(e);
+			}
 
 			return 2;
 		}
@@ -286,12 +291,14 @@ public class View {
 	private void exceptionLogging(Exception e1)
 	{try {
 		FileWriter myWriter = new FileWriter("exceptionLog.txt",true);
-		myWriter.write("Exception Thrown :" + e1 + "\n");
+		myWriter.write("Exception Thrown : " + e1.toString()+"\n");
 		myWriter.close();
-		System.out.println("Successfully wrote to log.txt");
+		System.out.println("Successfully wrote to exceptionLog.txt");
 	} catch (IOException e) {
-		System.out.println("An error occurred when attempting to print to file exceptionLog.txt");
-		e.printStackTrace();
-	}}
+		System.out.println("An IOException occurred when attempting to print to file exceptionLog.txt");
+	}
+	catch(Exception e) 
+	{System.out.println("An unknown Exception occurred when attempting to print to file exceptionLog.txt");}
+}
 
 }

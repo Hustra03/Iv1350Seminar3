@@ -2,6 +2,7 @@ package se.kth.iv1350.erikmichel.seminar3.controller;
 
 import java.util.*; //For List to function
 
+import se.kth.iv1350.erikmichel.seminar3.intergration.DatabaseConnectionException;
 import se.kth.iv1350.erikmichel.seminar3.intergration.DatabaseHandler;
 import se.kth.iv1350.erikmichel.seminar3.intergration.DiscountDTO;
 import se.kth.iv1350.erikmichel.seminar3.model.OriginalDiscountCalculation;
@@ -64,7 +65,7 @@ public class Controller {
 	 * 
 	 * @throws DatabaseConnectionException if dbHandler can not be reached
 	 */
-	public SaleDTO registerItem(int itemId, int quantity) throws ItemLookUpException {
+	public SaleDTO registerItem(int itemId, int quantity) throws ItemLookUpException,DatabaseConnectionException {
 		ItemDescriptionDTO itemInfo = dbHandler.getItem(itemId);
 		this.sale = register.registerItem(itemInfo, quantity, sale);
 
