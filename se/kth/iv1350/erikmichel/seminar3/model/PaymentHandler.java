@@ -1,8 +1,6 @@
 package se.kth.iv1350.erikmichel.seminar3.model;
 
 import se.kth.iv1350.erikmichel.seminar3.intergration.CustomerPaymentDTO;
-import se.kth.iv1350.erikmichel.seminar3.view.TotalRevenueFileOutput;
-import se.kth.iv1350.erikmichel.seminar3.view.TotalRevenueView;
 
 import java.time.LocalDateTime;
 import java.util.List;
@@ -17,9 +15,6 @@ public class PaymentHandler {
 	private List<TotalRevenueObserver> totalRevenueObservers = new ArrayList<>();
 
 	public PaymentHandler() {
-		
-		totalRevenueObservers.add(new TotalRevenueView());
-		totalRevenueObservers.add(new TotalRevenueFileOutput());
 	}
 
 	/*

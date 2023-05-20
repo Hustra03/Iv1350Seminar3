@@ -10,6 +10,8 @@ import se.kth.iv1350.erikmichel.seminar3.model.PaymentHandler;
 import se.kth.iv1350.erikmichel.seminar3.model.Register;
 import se.kth.iv1350.erikmichel.seminar3.model.Sale;
 import se.kth.iv1350.erikmichel.seminar3.model.SaleInfo;
+import se.kth.iv1350.erikmichel.seminar3.view.TotalRevenueFileOutput;
+import se.kth.iv1350.erikmichel.seminar3.view.TotalRevenueView;
 import se.kth.iv1350.erikmichel.seminar3.intergration.ItemDescriptionDTO;
 import se.kth.iv1350.erikmichel.seminar3.intergration.ItemLookUpException;
 import se.kth.iv1350.erikmichel.seminar3.intergration.ReceiptDTO;
@@ -41,6 +43,8 @@ public class Controller {
 	public Controller(DatabaseHandler dbHandler) {
 		this.dbHandler = dbHandler;
 		this.paymentHandler = new PaymentHandler();
+		this.paymentHandler.addTotalRevenueObserver(new TotalRevenueView());
+		this.paymentHandler.addTotalRevenueObserver(new TotalRevenueFileOutput());
 		this.register = new Register();
 		this.sale = null;
 	}
