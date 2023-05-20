@@ -95,7 +95,7 @@ public class View {
 			while (amountPayment <= controller.GetSaleInfo().getTotalPriceAfterDiscount()) {
 				System.out.println("Ensure Payment Amount Is Sufficent For Sale, Total Price :"
 						+ controller.GetSaleInfo().getTotalPriceAfterDiscount());
-				amountPayment = intUserInput("Enter amount payment : ");
+				amountPayment = doubleUserInput("Enter amount payment : ");
 			}
 			System.out.println("Amount payment is: " + amountPayment);
 			printSaleInfo(controller.recivePayment(amountPayment));
