@@ -15,3 +15,11 @@ Exception Thrown : java.util.InputMismatchExceptionNo Message
 Exception Thrown : java.util.InputMismatchExceptionNo Message 
 Exception Thrown : se.kth.iv1350.erikmichel.seminar3.intergration.ItemLookUpException: Item with id: 123123 Not Found In Database, refer to list created in database contructor for full list of itemid which should be valid| Message :Item with id: 123123 Not Found In Database, refer to list created in database contructor for full list of itemid which should be valid
 Exception Thrown : se.kth.iv1350.erikmichel.seminar3.intergration.DatabaseConnectionException: Database Could Not Be Reached Due To Unspecified Error| Message :Database Could Not Be Reached Due To Unspecified Error
+Exception Thrown : java.util.InputMismatchException
+Exception Thrown : java.util.InputMismatchException
+Exception Thrown : java.util.InputMismatchException
+Exception Thrown : se.kth.iv1350.erikmichel.seminar3.intergration.ItemLookUpException: Item with id: 123123 Not Found In Database, refer to list created in database contructor for full list of itemid which should be valid
+Exception Thrown : java.util.InputMismatchException
+Exception Thrown : se.kth.iv1350.erikmichel.seminar3.intergration.DatabaseConnectionException: Database Could Not Be Reached Due To Unspecified Error
+Exception Thrown : java.lang.IndexOutOfBoundsException: Index 1 out of bounds for length 1
+Exception Thrown : java.lang.IndexOutOfBoundsException: Index 1 out of bounds for length 1

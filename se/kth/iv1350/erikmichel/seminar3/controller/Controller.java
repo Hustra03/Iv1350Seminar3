@@ -69,7 +69,7 @@ public class Controller {
 		ItemDescriptionDTO itemInfo = dbHandler.getItem(itemId);
 		this.sale = register.registerItem(itemInfo, quantity, sale);
 
-		return new SaleDTO(sale);
+		return new SaleDTO(this.sale);
 	}
 
 	/*

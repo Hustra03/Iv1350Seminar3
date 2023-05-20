@@ -1,10 +1,10 @@
 package se.kth.iv1350.erikmichel.seminar3.intergration;
+
 import se.kth.iv1350.erikmichel.seminar3.model.Item;
 import se.kth.iv1350.erikmichel.seminar3.model.Sale;
 import java.util.List;
 
 public class SaleDTO {
-    
 
 	private List<Item> soldItems;
 
@@ -12,18 +12,14 @@ public class SaleDTO {
 
 	private double totalVAT;
 
-    /*
+	/*
 	 * Creates a sale with empty attributes
 	 * 
 	 */
 	public SaleDTO(Sale sale) {
-		if(sale.getSoldItems()==null)
-		{this.soldItems=null;}
-		else
-		{this.soldItems=sale.getSoldItems();}
-		
-        this.totalPrice=sale.getTotalPrice();
-        this.totalVAT=sale.getTotalVAT();
+		this.soldItems = sale.getSoldItems();
+		this.totalPrice = sale.getTotalPrice();
+		this.totalVAT = sale.getTotalVAT();
 	}
 
 	/*
@@ -34,6 +30,7 @@ public class SaleDTO {
 	public List<Item> getSoldItems() {
 		return this.soldItems;
 	}
+
 	/*
 	 * Returns the double TotalPrice
 	 * 

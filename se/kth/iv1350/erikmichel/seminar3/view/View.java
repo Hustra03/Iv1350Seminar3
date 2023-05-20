@@ -77,10 +77,8 @@ public class View {
 				printSaleDTO(controller.GetSale());
 				System.out.println("Operation Faliure: " + e.getItemId() + " ID Was Not Found In Database");
 				exceptionLogging(e);
-			}
-			catch(Exception e)
-			{
-				System.out.println("Operation Faliure: "+ e.getMessage());
+			} catch (Exception e) {
+				System.out.println("Operation Faliure: " + e.getMessage());
 				exceptionLogging(e);
 			}
 
@@ -95,6 +93,8 @@ public class View {
 			System.out.println("Total Price :" + controller.GetSaleInfo().getTotalPriceAfterDiscount());
 			double amountPayment = doubleUserInput("Enter amount payment : ");
 			while (amountPayment <= controller.GetSaleInfo().getTotalPriceAfterDiscount()) {
+				System.out.println("Ensure Payment Amount Is Sufficent For Sale, Total Price :"
+						+ controller.GetSaleInfo().getTotalPriceAfterDiscount());
 				amountPayment = intUserInput("Enter amount payment : ");
 			}
 			System.out.println("Amount payment is: " + amountPayment);
@@ -137,14 +137,13 @@ public class View {
 	private void printSaleDTO(SaleDTO sale) {
 
 		System.out.println("Sale Information : ");
-		System.out.print("[");
-		int itemNumber = 0;
-		for (Item item : sale.getSoldItems()) {
-			System.out.println("Item Information : ");
-			itemNumber += 1;
-			printItem(item, itemNumber);
+		System.out.println("\tItem Information : ");
+		System.out.println("\t{");
+		for (int itemNumber = 1; itemNumber < sale.getSoldItems().size() + 1; itemNumber++) {
+			
+			printItem(sale.getSoldItems().get(itemNumber - 1), itemNumber);
 		}
-		System.out.println("]");
+		System.out.println("\t}");
 		System.out.println("Total Price : " + sale.getTotalPrice());
 		System.out.println("Total VAT : " + sale.getTotalVAT());
 
@@ -178,17 +177,14 @@ public class View {
 	 * @param itemNumber determines the number printed before item information
 	 */
 	private void printItem(Item item, int itemNumber) {
-		System.out.println("{");
-		System.out.print(itemNumber + ". ||");
-		System.out.print("ItemId :" + item.getItemDescriptionDTO().getItemId() + " ||");
-		System.out.print("Item Quantity :" + item.getQuantity() + " ||");
-		System.out.print("Name :" + item.getItemDescriptionDTO().getName() + " ||");
-		System.out.print("Per Quantity Price :" + item.getItemDescriptionDTO().getPrice() + " ||");
-		System.out.print("VATrate :" + item.getItemDescriptionDTO().getVATrate() + "% ||");
-		System.out.print("Description :" + item.getItemDescriptionDTO().getDescription() + " ||");
-		System.out.println("");
-		System.out.print("}");
-	}
+		System.out.print("\t " + itemNumber + ". ||");
+		System.out.print(" ItemId :" + item.getItemDescriptionDTO().getItemId() + " ||");
+		System.out.print(" Item Quantity :" + item.getQuantity() + " ||");
+		System.out.print(" Name :" + item.getItemDescriptionDTO().getName() + " ||");
+		System.out.print(" Per Quantity Price :" + item.getItemDescriptionDTO().getPrice() + " ||");
+		System.out.print(" VATrate :" + item.getItemDescriptionDTO().getVATrate() + "% ||");
+		System.out.print(" Description :" + item.getItemDescriptionDTO().getDescription() + " ||");
+		System.out.println("");	}
 
 	/*
 	 * Prints information from <code>receipt</code> to System.out
@@ -242,9 +238,13 @@ public class View {
 
 	}
 
-	/* Accepts user input of int type
+	/*
+	 * Accepts user input of int type
+	 * 
 	 * @param stringToBePrinted is the string describing what the user should input
-	 * @return i is the users input which will be used for other sections of the code
+	 * 
+	 * @return i is the users input which will be used for other sections of the
+	 * code
 	 */
 	private int intUserInput(String stringToBePrinted) {
 
@@ -264,9 +264,14 @@ public class View {
 		}
 		return i;
 	}
-	/* Accepts user input of double type
+
+	/*
+	 * Accepts user input of double type
+	 * 
 	 * @param stringToBePrinted is the string describing what the user should input
-	 * @return i is the users input which will be used for other sections of the code
+	 * 
+	 * @return i is the users input which will be used for other sections of the
+	 * code
 	 */
 	private double doubleUserInput(String stringToBePrinted) {
 
@@ -288,17 +293,17 @@ public class View {
 		return i;
 	}
 
-	private void exceptionLogging(Exception e1)
-	{try {
-		FileWriter myWriter = new FileWriter("exceptionLog.txt",true);
-		myWriter.write("Exception Thrown : " + e1.toString()+"\n");
-		myWriter.close();
-		System.out.println("Successfully wrote to exceptionLog.txt");
-	} catch (IOException e) {
-		System.out.println("An IOException occurred when attempting to print to file exceptionLog.txt");
+	private void exceptionLogging(Exception e1) {
+		try {
+			FileWriter myWriter = new FileWriter("exceptionLog.txt", true);
+			myWriter.write("Exception Thrown : " + e1.toString() + "\n");
+			myWriter.close();
+			System.out.println("Successfully wrote to exceptionLog.txt");
+		} catch (IOException e) {
+			System.out.println("An IOException occurred when attempting to print to file exceptionLog.txt");
+		} catch (Exception e) {
+			System.out.println("An unknown Exception occurred when attempting to print to file exceptionLog.txt");
+		}
 	}
-	catch(Exception e) 
-	{System.out.println("An unknown Exception occurred when attempting to print to file exceptionLog.txt");}
-}
 
 }

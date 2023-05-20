@@ -13,7 +13,7 @@ public class ItemLookUpException extends Exception {
      * error
      */
     public ItemLookUpException(int itemIdNotFound) {
-        super("Item with id: "+ itemIdNotFound + " Not Found In Database, refer to list created in database contructor for full list of itemid which should be valid");
+        super("Item with id: '"+ itemIdNotFound + "' Not Found In Database, refer to list created in database contructor for full list of itemid which should be valid");
         this.itemId = itemIdNotFound;
     }
 
