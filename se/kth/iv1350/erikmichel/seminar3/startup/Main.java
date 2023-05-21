@@ -10,12 +10,12 @@ public class Main {
 
 	public static void main(String[] args) {
 
-		while (true) {
+		
 			DatabaseHandler dbHandler = DatabaseHandler.getDatabaseHandler();
 			Controller controller = new Controller(dbHandler);
 			View view = new View(controller);
 			view.startSystem();
-		}
+		
 	}
 
 }
