@@ -65,13 +65,16 @@ public class Controller {
 	 * 
 	 * @return represents the sale items are registered to
 	 * 
-	 * @throws RegisterItemException if dbHandler can not find a specific item
-	 * 
-	 * @throws DatabaseConnectionException if dbHandler can not be reached
+	 * @throws RegisterItemException if item with itemId could not be registered
 	 */
-	public SaleDTO registerItem(int itemId, int quantity) throws ItemLookUpException,DatabaseConnectionException {
+	public SaleDTO registerItem(int itemId, int quantity) throws RegisterItemException {
+		try {
+			
 		ItemDescriptionDTO itemInfo = dbHandler.getItem(itemId);
 		this.sale = register.registerItem(itemInfo, quantity, sale);
+		} catch (Exception e) {
+			throw new RegisterItemException(itemId,e);
+		} 
 
 		return new SaleDTO(this.sale);
 	}

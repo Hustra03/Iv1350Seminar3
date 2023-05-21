@@ -23,3 +23,6 @@ Exception Thrown : java.util.InputMismatchException
 Exception Thrown : se.kth.iv1350.erikmichel.seminar3.intergration.DatabaseConnectionException: Database Could Not Be Reached Due To Unspecified Error
 Exception Thrown : java.lang.IndexOutOfBoundsException: Index 1 out of bounds for length 1
 Exception Thrown : java.lang.IndexOutOfBoundsException: Index 1 out of bounds for length 1
+Exception Thrown : java.util.InputMismatchException
+Exception Thrown : se.kth.iv1350.erikmichel.seminar3.controller.RegisterItemException: Item with id: '123213' Could not be registered due to Exception :
+Exception Thrown : se.kth.iv1350.erikmichel.seminar3.controller.RegisterItemException: Item with id: '312312' Could not be registered due to Exception :se.kth.iv1350.erikmichel.seminar3.intergration.ItemLookUpException: Item with id: '312312' Not Found In Database, refer to list created in database contructor for full list of itemid which should be valid

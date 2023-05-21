@@ -2,7 +2,7 @@ package se.kth.iv1350.erikmichel.seminar3.view;
 
 import se.kth.iv1350.erikmichel.seminar3.model.Item;
 import se.kth.iv1350.erikmichel.seminar3.controller.Controller;
-import se.kth.iv1350.erikmichel.seminar3.intergration.ItemLookUpException;
+import se.kth.iv1350.erikmichel.seminar3.controller.RegisterItemException;
 import se.kth.iv1350.erikmichel.seminar3.intergration.ReceiptDTO;
 import se.kth.iv1350.erikmichel.seminar3.intergration.SaleDTO;
 import se.kth.iv1350.erikmichel.seminar3.intergration.SaleInfoDTO;
@@ -73,9 +73,9 @@ public class View {
 
 			try {
 				printSaleDTO(controller.registerItem(itemId, quantity));
-			} catch (ItemLookUpException e) {
+			} catch (RegisterItemException e) {
 				printSaleDTO(controller.GetSale());
-				System.out.println("Operation Faliure: " + e.getItemId() + " ID Was Not Found In Database");
+				System.out.println("Operation Faliure: Could Not Register Item With Id: " + e.getItemId());
 				exceptionLogging(e);
 			} catch (Exception e) {
 				System.out.println("Operation Faliure: " + e.getMessage());
@@ -296,7 +296,7 @@ public class View {
 	private void exceptionLogging(Exception e1) {
 		try {
 			FileWriter myWriter = new FileWriter("exceptionLog.txt", true);
-			myWriter.write("Exception Thrown : " + e1.toString() + "\n");
+			myWriter.write("Exception Thrown : " + e1.toString() + e1.getCause() +"\n");
 			myWriter.close();
 			System.out.println("Successfully wrote to exceptionLog.txt");
 		} catch (IOException e) {

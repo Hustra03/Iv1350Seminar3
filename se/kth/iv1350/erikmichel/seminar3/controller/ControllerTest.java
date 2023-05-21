@@ -57,10 +57,8 @@ public class ControllerTest {
 		SaleDTO sale= new SaleDTO(saleTemp);
 		try {
 			sale = contr.registerItem(itemId, quantity);
-		} catch (ItemLookUpException e) {
-			fail("Could not register item with id which exists");
-		}
-		catch (Exception e) {
+		} 
+		catch (RegisterItemException e) {fail("Could not register item with id which exists");
 		}
 		
 
@@ -83,7 +81,7 @@ public class ControllerTest {
 		contr.startSale();
 		try {
 			contr.registerItem(itemId, quantity);
-		} catch (ItemLookUpException e) {
+		} catch (RegisterItemException e) {
 			fail("Could Not Resiter Item With Known ID");
 		}
 		SaleDTO beforeWrongItemRegisterAttemptSale = contr.GetSale();
@@ -91,7 +89,7 @@ public class ControllerTest {
 		try {
 			contr.registerItem(123123132, 123123);
 			fail("Could Register Item With Invalid ID");
-		} catch (ItemLookUpException e) {
+		} catch (RegisterItemException e) {
 			assertTrue("Sale Incorrectly Updated Following Failed Item Registration", beforeWrongItemRegisterAttemptSale.getSoldItems().equals(contr.GetSale().getSoldItems()));
 		}
 		//
