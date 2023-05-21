@@ -11,7 +11,7 @@ public class RegisterItemException  extends Exception{
      * error
      */
     public RegisterItemException(int itemIdNotFound, Exception cause) {
-        super("Item with id: '"+ itemIdNotFound + "' Could not be registered due to Exception :",cause);
+        super("Item with id: '"+ itemIdNotFound + "' could not be registered due to Exception :",cause);
         this.itemId = itemIdNotFound;
     }
 
