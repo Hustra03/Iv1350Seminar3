@@ -205,6 +205,7 @@ public class View {
 		int itemNumber = 1;
 		for (Item item : receipt.getSoldItems()) {
 			printItem(item, itemNumber);
+			itemNumber+=1;
 		}
 	}
 
