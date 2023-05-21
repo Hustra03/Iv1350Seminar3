@@ -1,6 +1,12 @@
 Total Revenue :java.util.InputMismatchExceptionTotal Revenue :java.util.InputMismatchExceptionTotal Revenue :java.util.InputMismatchExceptionTotal Revenue :java.util.InputMismatchExceptionTotal Revenue :java.util.InputMismatchExceptionTotal Revenue :java.util.InputMismatchException
 Total Revenue :java.util.InputMismatchException
 Total Revenue :java.util.InputMismatchException
+Exception Thrown :se.kth.iv1350.erikmichel.seminar3.intergration.ItemLookUpException: Item with id: 8 Not Found In Database, refer to list created in database contructor for full list of itemid which should be valid
+Exception Thrown :se.kth.iv1350.erikmichel.seminar3.intergration.ItemLookUpException: Item with id: 8 Not Found In Database, refer to list created in database contructor for full list of itemid which should be valid
+Exception Thrown :se.kth.iv1350.erikmichel.seminar3.intergration.ItemLookUpException: Item with id: 6 Not Found In Database, refer to list created in database contructor for full list of itemid which should be valid
+Exception Thrown :se.kth.iv1350.erikmichel.seminar3.intergration.ItemLookUpException: Item with id: 9 Not Found In Database, refer to list created in database contructor for full list of itemid which should be valid
+Exception Thrown :se.kth.iv1350.erikmichel.seminar3.intergration.ItemLookUpException: Item with id: 10 Not Found In Database, refer to list created in database contructor for full list of itemid which should be valid
+Exception Thrown :se.kth.iv1350.erikmichel.seminar3.intergration.ItemLookUpException: Item with id: 7 Not Found In Database, refer to list created in database contructor for full list of itemid which should be valid
 Exception Thrown :se.kth.iv1350.erikmichel.seminar3.intergration.DatabaseConnectionException: Database Could Not Be Reached Due To Unspecified Error
 Exception Thrown :se.kth.iv1350.erikmichel.seminar3.intergration.DatabaseConnectionException: Database Could Not Be Reached Due To Unspecified Error
 Exception Thrown :[Ljava.lang.StackTraceElement;@7921b0a2
