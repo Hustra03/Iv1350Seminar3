@@ -2,7 +2,7 @@ package se.kth.iv1350.erikmichel.seminar3.view;
 
 import se.kth.iv1350.erikmichel.seminar3.model.TotalRevenueObserver;
 
-/* Is supposed to show the total income on the usersinterface
+/* Is supposed to show the total income on the user interface
      *
      */
 public class TotalRevenueView implements TotalRevenueObserver {
@@ -19,7 +19,7 @@ public class TotalRevenueView implements TotalRevenueObserver {
      * Updates attribute totalRevenue and prints that value to system.out
      * 
      * @param totalRevenue this represents the current total revenue which is to be
-     * printed to sytem.out
+     * printed to system.out
      */
     @Override
     public void totalRevenueUpdate(double totalRevenue) {
