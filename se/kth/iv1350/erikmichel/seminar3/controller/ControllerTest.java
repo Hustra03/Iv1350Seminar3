@@ -60,7 +60,18 @@ public class ControllerTest {
 		} 
 		catch (RegisterItemException e) {fail("Could not register item with id which exists");
 		}
-		
+		try {
+			sale = contr.registerItem(123123123, quantity);
+			fail("Did not throw an exception");
+		} 
+		catch (RegisterItemException e) {
+		}
+		try {
+			sale = contr.registerItem(420, quantity);
+			fail("Did not throw an exception");
+		} 
+		catch (RegisterItemException e) {
+		}
 
 		assertNotNull("Item Not Registered", sale.getSoldItems());
 		int registeredId=sale.getSoldItems().get(0).getItemDescriptionDTO().getItemId();
