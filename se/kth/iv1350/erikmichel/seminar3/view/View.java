@@ -92,7 +92,7 @@ public class View {
 		if (level == 4) {
 			System.out.println("Total Price :" + controller.GetSaleInfo().getTotalPriceAfterDiscount());
 			double amountPayment = doubleUserInput("Enter amount payment : ");
-			while (amountPayment <= controller.GetSaleInfo().getTotalPriceAfterDiscount()) {
+			while (amountPayment < controller.GetSaleInfo().getTotalPriceAfterDiscount()) {
 				System.out.println("Ensure Payment Amount Is Sufficent For Sale, Total Price :"
 						+ controller.GetSaleInfo().getTotalPriceAfterDiscount());
 				amountPayment = doubleUserInput("Enter amount payment : ");

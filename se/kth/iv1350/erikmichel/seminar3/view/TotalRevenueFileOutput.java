@@ -27,9 +27,6 @@
  * POSSIBILITY OF SUCH DAMAGE.
  */
 package se.kth.iv1350.erikmichel.seminar3.view;
-/* Is supposed to print the total income to a file
- *
- */
 
 import java.io.FileWriter;
 import java.io.IOException;
