@@ -9,7 +9,7 @@ public class CustomerPaymentDTO {
 
 	private double change;
 
-	private LocalDateTime dateAndTime;
+	private String dateAndTime;
 
 
 	/*
@@ -31,7 +31,7 @@ public class CustomerPaymentDTO {
 	 * 
 	 * @param date represents date of payment
 	 */
-	public CustomerPaymentDTO(double amountPayment, double change, LocalDateTime dateAndTime) {
+	public CustomerPaymentDTO(double amountPayment, double change, String dateAndTime) {
 		this.paymentAmount = amountPayment;
 		this.change = change;
 		this.dateAndTime = dateAndTime;
@@ -61,7 +61,7 @@ public class CustomerPaymentDTO {
 	 * 
 	 * @return date represents date of payment
 	 */
-	public LocalDateTime getDateAndTime() {
+	public String getDateAndTime() {
 		return this.dateAndTime;
 	}
 }

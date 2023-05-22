@@ -3,14 +3,18 @@ package se.kth.iv1350.erikmichel.seminar3.model;
 import se.kth.iv1350.erikmichel.seminar3.intergration.CustomerPaymentDTO;
 
 import java.time.LocalDateTime;
+import java.time.format.DateTimeFormatter;
 import java.util.List;
+
+import javax.swing.text.DateFormatter;
+
 import java.util.ArrayList;
 
 public class PaymentHandler {
 
 	private CustomerPaymentDTO customerPayment;
 
-	private LocalDateTime dateAndTime;
+	private String dateAndTime;
 	private double totalRevenue;
 	private List<TotalRevenueObserver> totalRevenueObservers = new ArrayList<>();
 
@@ -59,7 +63,9 @@ public class PaymentHandler {
 	 */
 	private void updateDateAndTime() {
 
-		this.dateAndTime = java.time.LocalDateTime.now();
+		LocalDateTime dateAndTimeValue = java.time.LocalDateTime.now();
+		DateTimeFormatter myFormatObj = DateTimeFormatter.ofPattern("dd-MM-yyyy HH:mm:ss");
+		this.dateAndTime = dateAndTimeValue.format(myFormatObj);
 	}
 
 	/*
@@ -68,7 +74,7 @@ public class PaymentHandler {
 	 * @return dateAndTime is an object which contains information about time and
 	 * date
 	 */
-	public LocalDateTime getDateAndTime() {
+	public String getDateAndTime() {
 		return this.dateAndTime;
 	}
 

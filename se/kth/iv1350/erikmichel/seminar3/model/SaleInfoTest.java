@@ -65,7 +65,7 @@ public class SaleInfoTest {
     public void updateSaleInfoPaymentTest() {
         int amountPayment = 10;
         int amountChange = 5;
-        LocalDateTime dateAndTime = java.time.LocalDateTime.now();
+        String dateAndTime = java.time.LocalDateTime.now().toString();
         CustomerPaymentDTO payment = new CustomerPaymentDTO(amountPayment, amountChange,dateAndTime);
         saleInfo.updateSaleInfoPayment(payment);
         assertTrue("AmountPayment incorrect", payment.getPaymentAmount() == amountPayment);

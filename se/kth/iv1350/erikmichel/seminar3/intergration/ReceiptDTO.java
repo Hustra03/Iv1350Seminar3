@@ -8,7 +8,7 @@ import se.kth.iv1350.erikmichel.seminar3.model.SaleInfo;
 
 public class ReceiptDTO {
 
-	private LocalDateTime dateAndTime;
+	private String dateAndTime;
 
 	private List<Item> soldItems;
 
@@ -63,7 +63,7 @@ public class ReceiptDTO {
 		return this.totalVAT;
 	}
 
-	public LocalDateTime getDateAndTime() {
+	public String getDateAndTime() {
 		return this.dateAndTime;
 	}
 
